@@ -1,0 +1,253 @@
+---
+import Lightbox from "../../components/Lightbox"
+import Layout from "../../layouts/Layout.astro"
+import { jugadores } from "../../data/jugadores";
+title: "Fútbol"
+
+const robertImages = [
+  {
+    src: "/images/robert-fut.jpeg",
+    alt: "Robert jugando",
+  },
+
+];
+
+const broskyImages = [
+  {
+    src: "/images/brosky.jpeg",
+    alt: "Brosky FC jugando",
+  },
+
+];
+
+const portalesImages = [
+  {
+    src: "/images/portales.jpeg",
+    alt: "Portales FC",
+  },
+
+];
+
+
+---
+
+<Layout>
+  <section id="futbol" class="py-16 bg-gradient-to-b from-green-100 to-green-200 text-black">
+    <div class="max-w-screen-lg mx-auto px-6">
+      <div class="text-center mb-12">
+        <h1 class="text-5xl font-bold text-green-800 mb-4">Torneo de Fútbol</h1>
+        <p class="text-2xl text-green-700">
+          ¡Un torneo lleno de emoción y diversión para todos los niveles!
+        </p>
+      </div>
+      <!-- SVG de la cancha (sin cambios) -->
+      <div class="mx-auto my-8 w-2/3">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 500 300"
+          width="100%"
+          height="auto"
+          class="mx-auto my-8"
+        >
+            <!-- Fondo del Campo -->
+            <rect x="0" y="0" width="500" height="300" fill="#5cb85c" />
+
+            <!-- Líneas de Marcado -->
+            <rect x="10" y="10" width="480" height="280" fill="none" stroke="#ffffff" stroke-width="2" />
+            <line x1="250" y1="10" x2="250" y2="290" stroke="#ffffff" stroke-width="2" />
+            <circle cx="250" cy="150" r="40" fill="none" stroke="#ffffff" stroke-width="2" />
+            <circle cx="250" cy="150" r="2" fill="#ffffff" />
+
+            <!-- Área de Penal Equipo 1 -->
+            <rect x="10" y="85" width="60" height="130" fill="none" stroke="#ffffff" stroke-width="2" />
+            <rect x="10" y="115" width="20" height="70" fill="none" stroke="#ffffff" stroke-width="2" />
+            <circle cx="30" cy="150" r="2" fill="#ffffff" />
+
+            <!-- Área de Penal Equipo 2 -->
+            <rect x="430" y="85" width="60" height="130" fill="none" stroke="#ffffff" stroke-width="2" />
+            <rect x="480" y="115" width="20" height="70" fill="none" stroke="#ffffff" stroke-width="2" />
+            <circle cx="470" cy="150" r="2" fill="#ffffff" />
+
+            <!-- Arcos -->
+            <line x1="10" y1="130" x2="0" y2="130" stroke="#ffffff" stroke-width="2" />
+            <line x1="10" y1="170" x2="0" y2="170" stroke="#ffffff" stroke-width="2" />
+            <line x1="490" y1="130" x2="500" y2="130" stroke="#ffffff" stroke-width="2" />
+            <line x1="490" y1="170" x2="500" y2="170" stroke="#ffffff" stroke-width="2" />
+          </svg>
+        </div>
+
+        <!-- Sección de Participantes -->
+        <section class="py-12 bg-gray-900">
+          <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8 text-white font-montserrat">Participantes</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {jugadores.map((jugador) => (
+                <div
+  class="rounded-2xl overflow-hidden"
+  style={`
+    background: linear-gradient(135deg,
+      ${jugador.equipoFavorito.colores.primario}20,
+      ${jugador.equipoFavorito.colores.secundario}20
+    );
+    border: 4px solid;
+    border-image: linear-gradient(
+      45deg,
+      ${jugador.equipoFavorito.colores.primario},
+      ${jugador.equipoFavorito.colores.secundario}
+    ) 1;
+    box-shadow: 0 0 15px rgba(${jugador.equipoFavorito.colores.primario}, 0.3);
+  `}
+>
+<div class="rounded-2xl overflow-hidden bg-gray-900">
+                  {/* Imagen Central */}
+                  <div class="relative h-80 overflow-hidden">
+                    <img
+                      src={jugador.imagen}
+                      alt={jugador.nombre}
+                      class="w-full h-full object-cover"
+                    />
+                    {/* <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div> */}
+                  </div>
+
+                  {/* Información del Jugador */}
+                  <div class="p-6 space-y-4">
+                    <div class="flex items-center justify-between">
+                      <div>
+                        <h3 class="text-2xl font-bold text-white font-montserrat">{jugador.nombre}</h3>
+                        <p class="text-sm italic" style={`color: ${jugador.equipoFavorito.colores.primario}`}>
+                          "{jugador.apodo}"
+                        </p>
+                      </div>
+                      <img
+                        src={jugador.equipoFavorito.escudo}
+                        alt={jugador.equipoFavorito.nombre}
+                        class="w-12 h-12 rounded-full p-1"
+                        style={`background: linear-gradient(45deg,
+                          ${jugador.equipoFavorito.colores.primario},
+                          ${jugador.equipoFavorito.colores.secundario}
+                        )`}
+                      />
+                    </div>
+
+                    {/* Stats Grid */}
+                    <div class="grid grid-cols-2 gap-4 pt-4 border-t border-gray-700">
+                      <div class="flex items-center gap-2">
+                        <i class="fas fa-tshirt text-lg" style={`color: ${jugador.equipoFavorito.colores.primario}`}></i>
+                        <span class="text-gray-300">#{jugador.numero}</span>
+                      </div>
+                      <div class="flex items-center gap-2">
+                        <i class="fas fa-running text-lg" style={`color: ${jugador.equipoFavorito.colores.primario}`}></i>
+                        <span class="text-gray-300">{jugador.posicion}</span>
+                      </div>
+                    </div>
+
+                    {/* Skills Bars */}
+                    <div class="space-y-3">
+                      <div class="flex items-center justify-between">
+                        <span class="text-gray-400 text-sm">Velocidad</span>
+                        <div class="w-2/3 bg-gray-700 rounded-full h-2">
+                          <div
+                            class="h-full rounded-full"
+                            style={`
+                              width: ${jugador.skills.velocidad}%;
+                              background: linear-gradient(90deg,
+                                ${jugador.equipoFavorito.colores.primario},
+                                ${jugador.equipoFavorito.colores.secundario}
+                              );
+                            `}
+                          ></div>
+                        </div>
+                      </div>
+                      <div class="flex items-center justify-between">
+                        <span class="text-gray-400 text-sm">Tiro</span>
+                        <div class="w-2/3 bg-gray-700 rounded-full h-2">
+                          <div
+                            class="h-full rounded-full"
+                            style={`
+                              width: ${jugador.skills.tiro}%;
+                              background: linear-gradient(90deg,
+                                ${jugador.equipoFavorito.colores.primario},
+                                ${jugador.equipoFavorito.colores.secundario}
+                              );
+                            `}
+                          ></div>
+                        </div>
+                      </div>
+                      <div class="flex items-center justify-between">
+                        <span class="text-gray-400 text-sm">Pase</span>
+                        <div class="w-2/3 bg-gray-700 rounded-full h-2">
+                          <div
+                            class="h-full rounded-full"
+                            style={`
+                              width: ${jugador.skills.pase}%;
+                              background: linear-gradient(90deg,
+                                ${jugador.equipoFavorito.colores.primario},
+                                ${jugador.equipoFavorito.colores.secundario}
+                              );
+                            `}
+                          ></div>
+                        </div>
+                      </div>
+                      <div class="flex items-center justify-between">
+                        <span class="text-gray-400 text-sm">Defensa</span>
+                        <div class="w-2/3 bg-gray-700 rounded-full h-2">
+                          <div
+                            class="h-full rounded-full"
+                            style={`
+                              width: ${jugador.skills.defensa}%;
+                              background: linear-gradient(90deg,
+                                ${jugador.equipoFavorito.colores.primario},
+                                ${jugador.equipoFavorito.colores.secundario}
+                              );
+                            `}
+                          ></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <!-- Tarjetas de Jugadores/Partidos -->
+
+        <div class="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-12">
+          <Lightbox
+            images={robertImages}
+            mainImage={robertImages[0]}
+            title="Robert, el cumpleañero"
+            description="Destacando con jugadas increíbles"
+            client:visible
+          />
+          <Lightbox
+            images={broskyImages}
+            mainImage={broskyImages[0]}
+            title="Brosky FC"
+            description="Al fin ganan algo"
+            client:visible
+          />
+          <Lightbox
+            images={portalesImages}
+            mainImage={portalesImages[0]}
+            title="Portales FC"
+            description="Los mejores momentos"
+            client:visible
+          />
+        </div>
+
+      <!-- Próximamente -->
+      <div class="my-12 text-center">
+        <h2 class="text-3xl font-bold mb-4 text-green-700">Fotos Destacadas: Próximamente</h2>
+        <p class="text-gray-700">
+          Después del evento, subiremos las mejores jugadas y momentos inolvidables.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+</Layout>

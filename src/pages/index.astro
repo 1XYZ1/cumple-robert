@@ -1,126 +1,162 @@
 ---
 import Countdown from "../components/Countdown.jsx";
+import Layout from "../layouts/Layout.astro";
 
 ---
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pool Party 2025</title>
-    <link rel="stylesheet" href="/src/styles/global.css" />
-    <link
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-  rel="stylesheet"
-/>
-  </head>
-  <body class="bg-gradient-to-b from-blue-500 via-blue-300 to-blue-100 text-black font-sans">
+<Layout >
+
+<div class="min-h-[calc(100vh-4rem)]">
+ <!-- Hero Section -->
+ <section class="relative h-screen flex flex-col items-center justify-center text-center text-white bg-cover bg-center" style="background-image: url('/images/pool.jpeg');">
+  <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+  <div class="relative z-10 p-6 max-w-screen-md">
+    <h1 class="text-5xl font-bold mb-6 animate-fade-in-down">Pool Party 2025</h1>
+    <p class="text-xl mb-8 animate-fade-in-up">¡Un día lleno de diversión en Chicureo! Reserva la fecha: 02 de Febrero.</p>
+    <Countdown targetDate="2025-02-02T10:00:00" />
+    <a href="#actividades" class="mt-8 px-8 py-3 bg-yellow-500 hover:bg-yellow-600 rounded-lg text-lg transition animate-bounce">
+      Ver Actividades
+    </a>
+  </div>
+</section>
 
 
-    <!-- Hero Section -->
-    <section class="relative h-screen flex flex-col items-center justify-center text-center text-white bg-cover bg-center" style="background-image: url('/images/pool.jpeg');">
-      <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-      <div class="relative z-10 p-6 max-w-screen-md">
-        <h1 class="text-5xl font-bold mb-6 animate-fade-in-down">Pool Party 2025</h1>
-        <p class="text-xl mb-8 animate-fade-in-up">¡Un día lleno de diversión en Chicureo! Reserva la fecha: 02 de Febrero.</p>
-        <Countdown targetDate="2025-02-02T10:00:00" />
-        <a href="#actividades" class="mt-8 px-8 py-3 bg-yellow-500 hover:bg-yellow-600 rounded-lg text-lg transition animate-bounce">
-          Ver Actividades
-        </a>
-      </div>
-    </section>
+<!-- MAPS -->
 
+<section id="ubicacion" class="relative py-16 text-white bg-cover bg-center" style="background-image: url('/public/images/pool-bg.jpg');">
+  <div class="absolute inset-0 bg-blue-900 bg-opacity-50"></div>
+  <div class="relative max-w-screen-lg mx-auto px-6">
+    <!-- Encabezado -->
+    <div class="text-center mb-12">
+      <h2 class="text-5xl font-bold mb-4">¡Ubicación del Evento!</h2>
+      <p class="text-2xl">No te pierdas esta increíble Pool Party. ¡Te esperamos!</p>
+    </div>
 
-    <!-- MAPS -->
-
-    <section id="ubicacion" class="relative py-16 text-white bg-cover bg-center" style="background-image: url('/images/cesped.jpeg');">
-      <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-      <div class="relative max-w-screen-lg mx-auto px-6">
-        <!-- Encabezado -->
-        <div class="text-center mb-12">
-          <h2 class="text-5xl font-bold mb-4">¡Ubicación del Evento!</h2>
-          <p class="text-2xl">No te pierdas esta increíble Pool Party. ¡Te esperamos!</p>
+    <!-- Contenido Principal -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <!-- Detalles -->
+      <div class="space-y-8 text-left">
+        <div class="flex items-start space-x-4">
+          <i class="fas fa-map-marker-alt text-yellow-400 text-4xl"></i>
+          <p class="text-xl"><strong>Dirección:</strong> Chicureo, Sector Central.</p>
+        </div>
+        <div class="flex items-start space-x-4">
+          <i class="fas fa-parking text-yellow-400 text-4xl"></i>
+          <p class="text-xl"><strong>Estacionamiento:</strong> Disponible en la entrada.</p>
+        </div>
+        <div class="flex items-start space-x-4">
+          <i class="fas fa-clock text-yellow-400 text-4xl"></i>
+          <p class="text-xl"><strong>Horario:</strong> 10:00 AM - 7:00 PM.</p>
+        </div>
+        <div class="flex items-start space-x-4">
+          <i class="fas fa-phone text-yellow-400 text-4xl"></i>
+          <p class="text-xl"><strong>Contacto:</strong> +56 9 1234 5678</p>
         </div>
 
-        <!-- Contenido Principal -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <!-- Detalles -->
-          <div class="space-y-8 text-left">
-            <div class="flex items-start space-x-4">
-              <i class="fas fa-map-marker-alt text-yellow-400 text-4xl"></i>
-              <p class="text-xl"><strong>Dirección:</strong> Chicureo, Sector Central.</p>
-            </div>
-            <div class="flex items-start space-x-4">
-              <i class="fas fa-parking text-yellow-400 text-4xl"></i>
-              <p class="text-xl"><strong>Estacionamiento:</strong> Disponible en la entrada.</p>
-            </div>
-            <div class="flex items-start space-x-4">
-              <i class="fas fa-clock text-yellow-400 text-4xl"></i>
-              <p class="text-xl"><strong>Horario:</strong> 10:00 AM - 7:00 PM.</p>
-            </div>
-            <div class="flex items-start space-x-4">
-              <i class="fas fa-phone text-yellow-400 text-4xl"></i>
-              <p class="text-xl"><strong>Contacto:</strong> +56 9 1234 5678</p>
-            </div>
-
-          </div>
-
-          <!-- Mapa -->
-          <div class="aspect-square rounded-lg overflow-hidden shadow-2xl">
-            <iframe
-              class="w-full h-full"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.181535861286!2d-70.70482032465302!3d-33.308620037426374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c0c5ad12e89d%3A0x1b3b6e183f0040a5!2sChicureo!5e0!3m2!1ses!2scl!4v1700000000000!5m2!1ses!2scl"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
-          <!-- Botón de WhatsApp -->
-          <div class="flex justify-center w-full px-4 sm:px-6 lg:px-8">
-            <a
-              href="https://wa.link/example"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="w-full max-w-md text-center mt-4 px-6 py-3 bg-green-500 hover:bg-green-600 text-white text-xl rounded-lg shadow-lg transition transform hover:scale-105 flex items-center justify-center gap-2"
-            >
-              <i class="fab fa-whatsapp text-xl"></i>
-              <span>Me perdí :(</span>
-            </a>
-          </div>
+        <!-- Botones -->
+        <div class="flex flex-wrap gap-4 mt-4">
+          <a
+            href="https://www.google.com/maps/place/Chicureo/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white text-lg rounded-lg shadow-lg transition transform hover:scale-105 flex items-center space-x-2"
+          >
+            <i class="fas fa-map-marked-alt"></i>
+            <span>Google Maps</span>
+          </a>
+          <a
+            href="https://waze.com/ul?ll=-33.308620037426374,-70.70482032465302"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-6 py-3 bg-indigo-500 hover:bg-indigo-600 text-white text-lg rounded-lg shadow-lg transition transform hover:scale-105 flex items-center space-x-2"
+          >
+            <i class="fas fa-car"></i>
+            <span>Waze</span>
+          </a>
+          <a
+            href="https://wa.link/example"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-6 py-3 bg-green-500 hover:bg-green-600 text-white text-lg rounded-lg shadow-lg transition transform hover:scale-105 flex items-center space-x-2"
+          >
+            <i class="fab fa-whatsapp"></i>
+            <span>WhatsApp</span>
+          </a>
         </div>
       </div>
-    </section>
 
-
-
-
-
-
-
-    <!-- Actividades Section -->
-    <section id="actividades" class="py-16 bg-white text-black text-center">
-      <h2 class="text-4xl font-semibold mb-8">Actividades</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-6">
-        <div class="shadow-lg p-6 rounded bg-gray-100">
-          <h3 class="text-2xl font-bold mb-2">Fútbol</h3>
-          <p>Partidos para todas las edades y niveles.</p>
-        </div>
-        <div class="shadow-lg p-6 rounded bg-gray-100">
-          <h3 class="text-2xl font-bold mb-2">Piscina</h3>
-          <p>Relájate y disfruta del agua.</p>
-        </div>
-        <div class="shadow-lg p-6 rounded bg-gray-100">
-          <h3 class="text-2xl font-bold mb-2">Ping Pong</h3>
-          <p>Desafía a tus amigos.</p>
-        </div>
+      <!-- Mapa -->
+      <div class="aspect-square rounded-lg overflow-hidden shadow-2xl">
+        <iframe
+          class="w-full h-full"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.181535861286!2d-70.70482032465302!3d-33.308620037426374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c0c5ad12e89d%3A0x1b3b6e183f0040a5!2sChicureo!5e0!3m2!1ses!2scl!4v1700000000000!5m2!1ses!2scl"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
+
+
+<!-- Actividades Section -->
+<section id="actividades" class="py-16 bg-gradient-to-b from-yellow-100 to-yellow-200 text-black">
+  <div class="max-w-screen-lg mx-auto px-6">
+    <!-- Encabezado -->
+    <div class="text-center mb-12">
+      <h2 class="text-5xl font-bold text-yellow-800 mb-4">Actividades Destacadas</h2>
+      <p class="text-2xl text-yellow-700">¡Prepárate para un día lleno de diversión!</p>
+    </div>
+
+    <!-- Tarjetas de Actividades -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <a href="/actividades/futbol" class="group block bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105">
+        <div class="relative">
+          <img
+            src="/images/cesped.jpeg"
+            alt="Fútbol"
+            class="w-full h-48 object-cover"
+          />
+          <div class="absolute inset-0 bg-yellow-500 bg-opacity-20 group-hover:bg-opacity-30 transition"></div>
+        </div>
+        <div class="p-4 text-center">
+          <h3 class="text-2xl font-bold text-yellow-800">Fútbol</h3>
+          <p class="text-yellow-700">Partidos para todas las edades y niveles.</p>
+        </div>
+      </a>
+      <a href="/actividades/piscina" class="group block bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105">
+        <div class="relative">
+          <img
+            src="/images/pool.jpeg"
+            alt="Piscina"
+            class="w-full h-48 object-cover"
+          />
+          <div class="absolute inset-0 bg-blue-500 bg-opacity-20 group-hover:bg-opacity-30 transition"></div>
+        </div>
+        <div class="p-4 text-center">
+          <h3 class="text-2xl font-bold text-blue-800">Piscina</h3>
+          <p class="text-blue-700">Relájate y disfruta del agua.</p>
+        </div>
+      </a>
+      <a href="/actividades/pingpong" class="group block bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105">
+        <div class="relative">
+          <img
+            src="/images/pingpong.jpg"
+            alt="Ping Pong"
+            class="w-full h-48 object-cover"
+          />
+          <div class="absolute inset-0 bg-red-500 bg-opacity-20 group-hover:bg-opacity-30 transition"></div>
+        </div>
+        <div class="p-4 text-center">
+          <h3 class="text-2xl font-bold text-red-800">Ping Pong</h3>
+          <p class="text-red-700">Desafía a tus amigos en intensas partidas.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+</div>
 
 
 
-
-    <!-- Footer -->
-    <footer class="py-8 bg-black text-white text-center">
-      <p>Pool Party 2025 · Todos los derechos reservados</p>
-    </footer>
-  </body>
-</html>
+  </Layout>
