@@ -1,43 +1,126 @@
 ---
-import '../styles/global.css';
+import Countdown from "../components/Countdown.jsx";
+
 ---
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pool Party 35 de Robert</title>
+    <title>Pool Party 2025</title>
+    <link rel="stylesheet" href="/src/styles/global.css" />
+    <link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  rel="stylesheet"
+/>
   </head>
-  <body>
-    <header class="text-center py-6">
-      <h1 class="text-4xl font-bold">¡Pool Party para Robert! 🥳</h1>
-      <p class="mt-2 text-lg">Domingo 02 de Febrero 2025, Chicureo 🌴</p>
-    </header>
+  <body class="bg-gradient-to-b from-blue-500 via-blue-300 to-blue-100 text-black font-sans">
 
-    <main class="p-6">
-      <section class="mb-8">
-        <h2 class="text-2xl font-semibold">Información Principal</h2>
-        <p class="mt-4">📍 <strong>Ubicación:</strong> Chicureo, parcela privada.</p>
-        <p>🕙 <strong>Horario:</strong> 10:00 AM - 07:00 PM.</p>
-        <p>🎭 <strong>Temática:</strong> Camisetas de fútbol y verano.</p>
-      </section>
 
-      <section class="mb-8">
-        <h2 class="text-2xl font-semibold">Actividades</h2>
-        <ul class="mt-4 list-disc list-inside">
-          <li>⚽ Partidos de fútbol (incluidas las chicas).</li>
-          <li>🏓 Ping pong.</li>
-          <li>🎮 PlayStation FIFA.</li>
-        </ul>
-      </section>
+    <!-- Hero Section -->
+    <section class="relative h-screen flex flex-col items-center justify-center text-center text-white bg-cover bg-center" style="background-image: url('/images/pool.jpeg');">
+      <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+      <div class="relative z-10 p-6 max-w-screen-md">
+        <h1 class="text-5xl font-bold mb-6 animate-fade-in-down">Pool Party 2025</h1>
+        <p class="text-xl mb-8 animate-fade-in-up">¡Un día lleno de diversión en Chicureo! Reserva la fecha: 02 de Febrero.</p>
+        <Countdown targetDate="2025-02-02T10:00:00" />
+        <a href="#actividades" class="mt-8 px-8 py-3 bg-yellow-500 hover:bg-yellow-600 rounded-lg text-lg transition animate-bounce">
+          Ver Actividades
+        </a>
+      </div>
+    </section>
 
-      <section class="mb-8">
-        <h2 class="text-2xl font-semibold">Lista de Invitados</h2>
-        <p class="mt-4">Confirmados hasta ahora: 30 personas.</p>
-      </section>
-    </main>
 
-    <footer class="text-center py-4 bg-opacity-50 bg-black">
-      <p>🎂 ¡No olvides confirmar tu asistencia! ✅</p>
+    <!-- MAPS -->
+
+    <section id="ubicacion" class="relative py-16 text-white bg-cover bg-center" style="background-image: url('/images/cesped.jpeg');">
+      <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+      <div class="relative max-w-screen-lg mx-auto px-6">
+        <!-- Encabezado -->
+        <div class="text-center mb-12">
+          <h2 class="text-5xl font-bold mb-4">¡Ubicación del Evento!</h2>
+          <p class="text-2xl">No te pierdas esta increíble Pool Party. ¡Te esperamos!</p>
+        </div>
+
+        <!-- Contenido Principal -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <!-- Detalles -->
+          <div class="space-y-8 text-left">
+            <div class="flex items-start space-x-4">
+              <i class="fas fa-map-marker-alt text-yellow-400 text-4xl"></i>
+              <p class="text-xl"><strong>Dirección:</strong> Chicureo, Sector Central.</p>
+            </div>
+            <div class="flex items-start space-x-4">
+              <i class="fas fa-parking text-yellow-400 text-4xl"></i>
+              <p class="text-xl"><strong>Estacionamiento:</strong> Disponible en la entrada.</p>
+            </div>
+            <div class="flex items-start space-x-4">
+              <i class="fas fa-clock text-yellow-400 text-4xl"></i>
+              <p class="text-xl"><strong>Horario:</strong> 10:00 AM - 7:00 PM.</p>
+            </div>
+            <div class="flex items-start space-x-4">
+              <i class="fas fa-phone text-yellow-400 text-4xl"></i>
+              <p class="text-xl"><strong>Contacto:</strong> +56 9 1234 5678</p>
+            </div>
+
+          </div>
+
+          <!-- Mapa -->
+          <div class="aspect-square rounded-lg overflow-hidden shadow-2xl">
+            <iframe
+              class="w-full h-full"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.181535861286!2d-70.70482032465302!3d-33.308620037426374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c0c5ad12e89d%3A0x1b3b6e183f0040a5!2sChicureo!5e0!3m2!1ses!2scl!4v1700000000000!5m2!1ses!2scl"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+          <!-- Botón de WhatsApp -->
+          <div class="flex justify-center w-full px-4 sm:px-6 lg:px-8">
+            <a
+              href="https://wa.link/example"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-full max-w-md text-center mt-4 px-6 py-3 bg-green-500 hover:bg-green-600 text-white text-xl rounded-lg shadow-lg transition transform hover:scale-105 flex items-center justify-center gap-2"
+            >
+              <i class="fab fa-whatsapp text-xl"></i>
+              <span>Me perdí :(</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+
+
+    <!-- Actividades Section -->
+    <section id="actividades" class="py-16 bg-white text-black text-center">
+      <h2 class="text-4xl font-semibold mb-8">Actividades</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-6">
+        <div class="shadow-lg p-6 rounded bg-gray-100">
+          <h3 class="text-2xl font-bold mb-2">Fútbol</h3>
+          <p>Partidos para todas las edades y niveles.</p>
+        </div>
+        <div class="shadow-lg p-6 rounded bg-gray-100">
+          <h3 class="text-2xl font-bold mb-2">Piscina</h3>
+          <p>Relájate y disfruta del agua.</p>
+        </div>
+        <div class="shadow-lg p-6 rounded bg-gray-100">
+          <h3 class="text-2xl font-bold mb-2">Ping Pong</h3>
+          <p>Desafía a tus amigos.</p>
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <!-- Footer -->
+    <footer class="py-8 bg-black text-white text-center">
+      <p>Pool Party 2025 · Todos los derechos reservados</p>
     </footer>
   </body>
 </html>

@@ -2,7 +2,97 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply bg-gradient-to-b from-summerSky via-poolBlue to-sunshineYellow;
-  @apply min-h-screen text-white font-sans;
+
+
+
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-out;
+}
+
+/* Ajuste del mapa cuadrado */
+.aspect-square {
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%; /* Relación de aspecto 1:1 */
+}
+
+.aspect-square iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+
+/* Animación de entrada hacia abajo */
+@keyframes fade-in-down {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-down {
+  animation: fade-in-down 1s ease-out;
+}
+
+/* Animación de entrada hacia arriba */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 1s ease-out;
+}
+
+/* Fondo de Hero */
+.bg-cover {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.separator {
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  bottom: 0;
+  left: 0;
+  background: url('/public/images/wave-separator.svg') no-repeat;
+  background-size: cover;
+}
+
+
+/* Botón interactivo */
+a {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+a:hover {
+  transform: scale(1.05);
 }
