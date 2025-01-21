@@ -5,6 +5,22 @@
 
 
 
+html {
+  scroll-behavior: smooth !important;
+}
+
+body {
+  overflow-y: scroll;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+
+
 
 @keyframes fade-in {
   from {

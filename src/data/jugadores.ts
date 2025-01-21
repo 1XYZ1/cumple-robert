@@ -25,6 +25,8 @@ export interface Jugador {
 
 
 }
+
+
 export const jugadores: Jugador[] = [
   {
     nombre: "Robert ",
