@@ -1,41 +1,50 @@
-/********************************
-  Líneas onduladas decorativas
-*********************************/
-.waveLine1, .waveLine2, .waveLine3 {
-  animation: waveLine 4s ease-in-out infinite;
+.animateWaterBody {
+  animation: waterBody 8s ease-in-out infinite;
 }
 
-/* Diferenciar opacidades o delays si deseas */
-.waveLine2 {
+.animateWave {
+  animation: wave 4s ease-in-out infinite;
+  opacity: 0.8;
+}
+
+.animateWaveDelayed {
+  animation: wave 4s ease-in-out infinite;
   animation-delay: 1s;
   opacity: 0.6;
 }
-.waveLine3 {
+
+.animateWaveDelayed2 {
+  animation: wave 4s ease-in-out infinite;
   animation-delay: 2s;
   opacity: 0.4;
 }
 
-@keyframes waveLine {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
-}
-
-/********************************
-  Brillos
-*********************************/
-.shine1 {
+/* Renombramos la animación de 'shine' a 'localShine' para evitar conflictos */
+.animateShine {
   animation: localShine 3s ease-in-out infinite;
 }
-.shine2 {
+
+.animateShineDelayed {
   animation: localShine 3s ease-in-out infinite;
   animation-delay: 1.5s;
 }
 
-/* Evita choque con 'shine' global.css */
+/* Keyframes del agua (morphing del path) */
+@keyframes waterBody {
+  0%, 100% {
+    d: path("M0 80 C300 80, 900 80, 1200 80 C1200 80, 1200 200, 1200 200 L0 200 C0 200, 0 80, 0 80 Z");
+  }
+  50% {
+    d: path("M0 85 C300 75, 900 85, 1200 75 C1200 75, 1200 200, 1200 200 L0 200 C0 200, 0 85, 0 85 Z");
+  }
+}
+
+@keyframes wave {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Aquí la nueva animación localShine en vez de shine */
 @keyframes localShine {
   0%, 100% {
     opacity: 0.8;
@@ -44,76 +53,5 @@
   50% {
     opacity: 0.3;
     transform: scale(1.5);
-  }
-}
-
-/********************************
-  Burbujas ascendentes
-*********************************/
-.bubble1 {
-  animation: bubbleUp1 6s ease-in-out infinite;
-  opacity: 0.8;
-}
-.bubble2 {
-  animation: bubbleUp2 7s ease-in-out infinite;
-  opacity: 0.7;
-}
-.bubble3 {
-  animation: bubbleUp3 6s ease-in-out infinite;
-  opacity: 0.7;
-}
-
-@keyframes bubbleUp1 {
-  0% {
-    transform: translateY(0) scale(1);
-  }
-  40% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-80px) scale(0.8);
-    opacity: 0;
-  }
-}
-
-@keyframes bubbleUp2 {
-  0% {
-    transform: translateY(0) scale(1);
-  }
-  40% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-90px) scale(0.8);
-    opacity: 0;
-  }
-}
-
-@keyframes bubbleUp3 {
-  0% {
-    transform: translateY(0) scale(1);
-  }
-  40% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-100px) scale(0.7);
-    opacity: 0;
-  }
-}
-
-/********************************
-  Salvavidas flotando
-*********************************/
-.lifebuoy {
-  animation: floatLifebuoy 4s ease-in-out infinite;
-}
-
-@keyframes floatLifebuoy {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-3px);
   }
 }
