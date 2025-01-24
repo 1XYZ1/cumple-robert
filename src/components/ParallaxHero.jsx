@@ -1,4 +1,5 @@
 import { createSignal, onMount, onCleanup } from 'solid-js';
+import Countdown from './Countdown';
 
 const ParallaxHero = () => {
   const [offset, setOffset] = createSignal(0);
@@ -50,16 +51,16 @@ const ParallaxHero = () => {
             <h3 class="text-xl font-semibold text-white">Dónde</h3>
             <p class="text-gray-200">Chicureo, Santiago</p>
           </div>
-          <div class="text-center transform hover:scale-105 transition-transform duration-300">
+          {/* <div class="text-center transform hover:scale-105 transition-transform duration-300">
             <i class="fas fa-clock text-3xl text-white mb-2 hover:text-blue-400 transition-colors"></i>
             <h3 class="text-xl font-semibold text-white">Hora</h3>
             <p class="text-gray-200">10:00 hrs</p>
-          </div>
+          </div> */}
         </div>
 
         {/* Slot para el Countdown */}
         <div class="transform hover:scale-105 transition-transform duration-300">
-          <slot name="countdown" />
+        <Countdown/>
         </div>
 
         {/* CTA */}

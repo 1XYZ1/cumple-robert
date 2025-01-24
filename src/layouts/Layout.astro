@@ -1,3 +1,7 @@
+---
+import FloatingButtons from "../components/FloatingButtons";
+---
+
 <!doctype html>
 <html lang="es" class="h-full">
   <head>
@@ -6,9 +10,9 @@
     <title>Pool Party 2025</title>
     <link rel="stylesheet" href="/src/styles/global.css" />
     <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-      rel="stylesheet"
-    />
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
 
     <style>
       html {
@@ -19,6 +23,8 @@
   <body class="min-h-screen flex flex-col bg-gradient-to-b from-blue-500 via-blue-300 to-blue-100 text-black font-sans">
     <main class="flex-1 relative">
       <slot />
+      <div id="modal-root"></div>
+    <FloatingButtons client:only="solid-js" />
     </main>
     <footer class="w-full bg-black text-white text-center py-8">
       <p>Pool Party 2025 · Todos los derechos reservados</p>

@@ -88,11 +88,11 @@ const activities = [
     id: 'playstation',
     title: 'PlayStation',
     description: 'Gaming zone con los mejores títulos',
-    image: '/images/playstation.jpg',
+    image: '/images/fifa.webp',
     color: 'indigo',
     details: [
       '🎮 PS5 con últimos juegos',
-      '🏎️ Torneos de FIFA y Gran Turismo',
+      '🏎️ Torneos de FIFA',
       '🕹️ Múltiples controles disponibles',
       '📺 Pantalla 4K de 65 pulgadas'
     ],
@@ -151,8 +151,14 @@ const ActivityCard = (props) => {
   const colors = colorClasses[props.color];
 
   return (
+
+
+
+
+
     <div class={`relative group ${colors.card} rounded-xl overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl`}>
       {/* Contenedor de imagen con altura fija */}
+      <a href={`/actividades/${props.id}`} class="block">
       <div class="aspect-[4/3] relative overflow-hidden">
         <img
           src={props.image}
@@ -162,6 +168,7 @@ const ActivityCard = (props) => {
         <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/30" />
       </div>
 
+      </a>
       {/* Contenido */}
       <div class="p-6">
         {/* Título e Icono */}
@@ -176,6 +183,8 @@ const ActivityCard = (props) => {
         <p class={`text-center ${colors.text} mb-4`}>
           {props.description}
         </p>
+
+
 
         {/* Botón Ver más */}
         <button
@@ -203,7 +212,9 @@ const ActivityCard = (props) => {
           </ul>
         </div>
       </div>
+
     </div>
+
   );
 };
 

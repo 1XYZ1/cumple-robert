@@ -1,5 +1,4 @@
 ---
-import Countdown from "../components/Countdown.jsx";
 import ParallaxHero from "../components/ParallaxHero";
 import Layout from "../layouts/Layout.astro";
 
@@ -16,7 +15,7 @@ import ActivitySection from "../components/ActivitySection";
     <!-- Hero Section con Parallax -->
        <!-- Countdown -->
        <ParallaxHero client:load>
-        <Countdown slot="countdown" client:load />
+
       </ParallaxHero>
 
 
@@ -52,56 +51,13 @@ import ActivitySection from "../components/ActivitySection";
 </section>
 
   <!-- Actividades Section Mejorada -->
-  <ActivitySection client:visible />
+   <div id="actividades">
+    <ActivitySection client:visible />
+   </div>
+
 </div>
 
-<!-- Botón de Scroll to Top -->
-<div class="fixed bottom-4 right-4 z-50 opacity-0 transition-opacity duration-300" id="scroll-top-button">
-  <button
-    class="bg-blue-500 hover:bg-blue-600 text-white rounded-full p-4 shadow-lg transition-all duration-300 transform hover:scale-110"
-    onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
-  >
-    <i class="fas fa-arrow-up"></i>
-  </button>
-</div>
 
-<!-- Botón de Compartir -->
-<div class="fixed bottom-4 left-4 z-50">
-  <div class="relative">
-    <button
-      class="bg-blue-500 hover:bg-blue-600 text-white rounded-full p-4 shadow-lg transition-all duration-300 transform hover:scale-110"
-      id="share-button"
-    >
-      <i class="fas fa-share-alt"></i>
-    </button>
-    <div class="hidden absolute bottom-full left-0 mb-2 w-48 bg-white rounded-lg shadow-xl z-10" id="share-menu">
-      <a
-        href="#"
-        class="block px-4 py-2 text-gray-700 hover:bg-blue-50 transition-colors rounded-t-lg"
-        onclick="shareOnWhatsApp()"
-      >
-        <i class="fab fa-whatsapp mr-2 text-green-500"></i>
-        WhatsApp
-      </a>
-      <a
-        href="#"
-        class="block px-4 py-2 text-gray-700 hover:bg-blue-50 transition-colors"
-        onclick="shareOnFacebook()"
-      >
-        <i class="fab fa-facebook mr-2 text-blue-500"></i>
-        Facebook
-      </a>
-      <a
-        href="#"
-        class="block px-4 py-2 text-gray-700 hover:bg-blue-50 transition-colors rounded-b-lg"
-        onclick="copyLink()"
-      >
-        <i class="fas fa-link mr-2 text-gray-500"></i>
-        Copiar Link
-      </a>
-    </div>
-  </div>
-</div>
 
 
 
