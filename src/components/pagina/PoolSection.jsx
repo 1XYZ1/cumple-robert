@@ -1,5 +1,4 @@
 import { onMount } from "solid-js";
-import styles from "./PoolSection.module.css";
 
 function PoolSection() {
   onMount(() => {
@@ -59,15 +58,15 @@ function PoolSection() {
             <div class="grid grid-cols-2 gap-4">
               <div class="p-4 bg-white/5 rounded-xl text-center">
                 <div class="text-sm text-blue-300 mb-1">Horario</div>
-                <div class="text-xl">10:00 - 20:00</div>
+                <div class="text-xl">10:00 - 19:00</div>
               </div>
               <div class="p-4 bg-white/5 rounded-xl text-center">
                 <div class="text-sm text-blue-300 mb-1">Temperatura</div>
-                <div class="text-xl">28°C</div>
+                <div class="text-xl">15°C aprox</div>
               </div>
               <div class="p-4 bg-white/5 rounded-xl text-center">
                 <div class="text-sm text-blue-300 mb-1">Profundidad</div>
-                <div class="text-xl">1.2m - 2.5m</div>
+                <div class="text-xl">1m - 2m</div>
               </div>
               <div class="p-4 bg-white/5 rounded-xl text-center">
                 <div class="text-sm text-blue-300 mb-1">Capacidad</div>
