@@ -1,234 +1,108 @@
 ---
 import Countdown from "../components/Countdown.jsx";
+import ParallaxHero from "../components/ParallaxHero";
 import Layout from "../layouts/Layout.astro";
 
+
+import { InfoSection, LocationSection } from "../components/InfoSection.jsx";
+import FAQSection from "../components/FAQSection.jsx";
+import ActivitySection from "../components/ActivitySection";
 ---
-<Layout >
 
-<div class="min-h-[calc(100vh-4rem)]">
- <!-- Hero Section -->
- <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
-  <div class="absolute inset-0 z-0">
-    <img
-      src="/images/pool.jpeg"
-      alt="Pool Party"
-      class="w-full h-full object-cover opacity-25"
-    />
-    <div
-      class="absolute inset-0 bg-gradient-to-b from-blue-800/30 via-blue-700/40 to-gray-900/60"
-      style="backdrop-filter: blur(2px);"
-    ></div>
-  </div>
+<Layout>
 
-  <!-- Contenido -->
-  <div class="relative z-10 text-center px-4 py-20">
-    <h1 class="text-6xl font-bold text-white mb-4 font-montserrat">
-      Robert<span class="text-blue-400">'s</span> Party
-    </h1>
-    <p class="text-xl text-white mb-8 max-w-2xl mx-auto">
-      ¡Únete a nosotros para celebrar un día especial lleno de diversión, piscina y momentos inolvidables!
-    </p>
+  <div class="min-h-[calc(100vh-4rem)]">
 
-    <!-- Detalles del evento -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 max-w-4xl mx-auto">
-      <div class="text-center">
-        <i class="fas fa-calendar text-3xl text-white mb-2"></i>
-        <h3 class="text-xl font-semibold text-white">Cuándo</h3>
-        <p class="text-gray-200">2 de Febrero, 2025</p>
-      </div>
-      <div class="text-center">
-        <i class="fas fa-map-marker-alt text-3xl text-red-500 mb-2"></i>
-        <h3 class="text-xl font-semibold text-white">Dónde</h3>
-        <p class="text-gray-200">Chicureo, Santiago</p>
-      </div>
-      <div class="text-center">
-        <i class="fas fa-clock text-3xl text-white mb-2"></i>
-        <h3 class="text-xl font-semibold text-white">Hora</h3>
-        <p class="text-gray-200">10:00 hrs</p>
-      </div>
-    </div>
-
-    <!-- Countdown -->
-    <Countdown client:load />
-
-    <!-- CTA -->
-    <div class="mt-12">
-      <a
-        href="#info"
-        class="bg-blue-700 hover:bg-blue-800 text-white px-8 py-3 rounded-full inline-flex items-center gap-2 transition-colors"
-      >
-        Más Información
-        <i class="fas fa-arrow-down"></i>
-      </a>
-    </div>
-  </div>
-</section>
+    <!-- Hero Section con Parallax -->
+       <!-- Countdown -->
+       <ParallaxHero client:load>
+        <Countdown slot="countdown" client:load />
+      </ParallaxHero>
 
 
-<!-- MAPS -->
 
- <!-- Sección de Información -->
- <section id="info" class="py-20 bg-gradient-to-b from-gray-900 to-blue-900">
+  <!-- Sección de Información -->
+<section id="info" class="py-12 sm:py-20 bg-gradient-to-b from-gray-900 to-blue-900">
   <div class="max-w-6xl mx-auto px-4">
-    <!-- Información General -->
-    <div class="text-center mb-16">
-      <h2 class="text-4xl font-bold text-white mb-6">Información del Evento</h2>
-      <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-        Celebremos juntos este día especial con actividades increíbles y mucha diversión
+    <!-- Título de la sección -->
+    <div class="text-center mb-10 sm:mb-16">
+      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Información del Evento</h2>
+      <p class="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
+        Todo lo que necesitas saber para disfrutar de este día especial
       </p>
     </div>
 
-    <!-- Detalles y Mapa -->
-    <div class="grid md:grid-cols-2 gap-12 items-start">
-      <!-- Detalles -->
-      <div class="space-y-8">
-        <div class="bg-blue-800/30 p-6 rounded-lg backdrop-blur">
-          <h3 class="text-2xl font-bold text-white mb-4">Detalles Importantes</h3>
-          <ul class="space-y-4 text-gray-200">
-            <li class="flex items-center gap-3">
-              <i class="fas fa-calendar text-blue-400"></i>
-              <span>2 de Febrero, 2025</span>
-            </li>
-            <li class="flex items-center gap-3">
-              <i class="fas fa-clock text-blue-400"></i>
-              <span>10:00 AM - 8:00 PM</span>
-            </li>
-            <li class="flex items-center gap-3">
-              <i class="fas fa-map-marker-alt text-blue-400"></i>
-              <span>Chicureo, Santiago</span>
-            </li>
-          </ul>
+    <!-- Contenido principal -->
+    <div class="grid md:grid-cols-2 gap-6 sm:gap-12">
+      <!-- Columna de información -->
+      <div class="space-y-6">
+        <InfoSection client:visible />
+        <div class="block md:hidden">
+          <LocationSection client:visible />
         </div>
-
-        <div class="bg-blue-800/30 p-6 rounded-lg backdrop-blur">
-          <h3 class="text-2xl font-bold text-white mb-4">¿Qué Incluye?</h3>
-          <ul class="space-y-4 text-gray-200">
-            <li class="flex items-center gap-3">
-              <i class="fas fa-swimming-pool text-blue-400"></i>
-              <span>Acceso a la piscina</span>
-            </li>
-            <li class="flex items-center gap-3">
-              <i class="fas fa-futbol text-blue-400"></i>
-              <span>Actividades deportivas</span>
-            </li>
-            <li class="flex items-center gap-3">
-              <i class="fas fa-hamburger text-blue-400"></i>
-              <span>Comida y bebidas</span>
-            </li>
-          </ul>
-
-          <div class="mt-8 space-y-3">
-            <a
-              href="https://wa.me/1234567890"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="flex items-center justify-center gap-2 w-full bg-green-600 hover:bg-green-700 text-white py-3 px-4 rounded-lg transition-colors"
-            >
-              <i class="fab fa-whatsapp text-xl"></i>
-              Contactar por WhatsApp
-            </a>
-
-            <a
-              href="https://www.waze.com/ul?ll=-33.12345,-70.12345&navigate=yes"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="flex items-center justify-center gap-2 w-full bg-blue-500 hover:bg-blue-600 text-white py-3 px-4 rounded-lg transition-colors"
-            >
-              <i class="fab fa-waze text-xl"></i>
-              Abrir en Waze
-            </a>
-
-            <a
-              href="https://maps.google.com/?q=-33.12345,-70.12345"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="flex items-center justify-center gap-2 w-full bg-red-600 hover:bg-red-700 text-white py-3 px-4 rounded-lg transition-colors"
-            >
-              <i class="fas fa-map-marker-alt text-xl"></i>
-              Abrir en Google Maps
-            </a>
-          </div>
-        </div>
+        <FAQSection client:visible />
       </div>
 
-      <!-- Mapa -->
-      <div class="bg-blue-800/30 p-6 rounded-lg backdrop-blur h-full">
-        <h3 class="text-2xl font-bold text-white mb-4">Ubicación</h3>
-        <!-- Mapa -->
-      <div class="aspect-square rounded-lg overflow-hidden shadow-2xl">
-        <iframe
-          class="w-full h-full"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.181535861286!2d-70.70482032465302!3d-33.308620037426374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c0c5ad12e89d%3A0x1b3b6e183f0040a5!2sChicureo!5e0!3m2!1ses!2scl!4v1700000000000!5m2!1ses!2scl"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-        ></iframe>
-      </div>
-
+      <!-- Mapa y ubicación (visible solo en desktop) -->
+      <div class="hidden md:block md:sticky md:top-8">
+        <LocationSection client:visible />
       </div>
     </div>
   </div>
 </section>
 
+  <!-- Actividades Section Mejorada -->
+  <ActivitySection client:visible />
+</div>
 
-<!-- Actividades Section -->
-<section id="actividades" class="py-16 bg-gradient-to-b from-yellow-100 to-yellow-200 text-black">
-  <div class="max-w-screen-lg mx-auto px-6">
-    <!-- Encabezado -->
-    <div class="text-center mb-12">
-      <h2 class="text-5xl font-bold text-yellow-800 mb-4">Actividades Destacadas</h2>
-      <p class="text-2xl text-yellow-700">¡Prepárate para un día lleno de diversión!</p>
-    </div>
+<!-- Botón de Scroll to Top -->
+<div class="fixed bottom-4 right-4 z-50 opacity-0 transition-opacity duration-300" id="scroll-top-button">
+  <button
+    class="bg-blue-500 hover:bg-blue-600 text-white rounded-full p-4 shadow-lg transition-all duration-300 transform hover:scale-110"
+    onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+  >
+    <i class="fas fa-arrow-up"></i>
+  </button>
+</div>
 
-    <!-- Tarjetas de Actividades -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <a href="/actividades/futbol" class="group block bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105">
-        <div class="relative">
-          <img
-            src="/images/cesped.jpeg"
-            alt="Fútbol"
-            class="w-full h-48 object-cover"
-          />
-          <div class="absolute inset-0 bg-yellow-500 bg-opacity-20 group-hover:bg-opacity-30 transition"></div>
-        </div>
-        <div class="p-4 text-center">
-          <h3 class="text-2xl font-bold text-yellow-800">Fútbol</h3>
-          <p class="text-yellow-700">Partidos para todas las edades y niveles.</p>
-        </div>
+<!-- Botón de Compartir -->
+<div class="fixed bottom-4 left-4 z-50">
+  <div class="relative">
+    <button
+      class="bg-blue-500 hover:bg-blue-600 text-white rounded-full p-4 shadow-lg transition-all duration-300 transform hover:scale-110"
+      id="share-button"
+    >
+      <i class="fas fa-share-alt"></i>
+    </button>
+    <div class="hidden absolute bottom-full left-0 mb-2 w-48 bg-white rounded-lg shadow-xl z-10" id="share-menu">
+      <a
+        href="#"
+        class="block px-4 py-2 text-gray-700 hover:bg-blue-50 transition-colors rounded-t-lg"
+        onclick="shareOnWhatsApp()"
+      >
+        <i class="fab fa-whatsapp mr-2 text-green-500"></i>
+        WhatsApp
       </a>
-      <a href="/actividades/piscina" class="group block bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105">
-        <div class="relative">
-          <img
-            src="/images/pool.jpeg"
-            alt="Piscina"
-            class="w-full h-48 object-cover"
-          />
-          <div class="absolute inset-0 bg-blue-500 bg-opacity-20 group-hover:bg-opacity-30 transition"></div>
-        </div>
-        <div class="p-4 text-center">
-          <h3 class="text-2xl font-bold text-blue-800">Piscina</h3>
-          <p class="text-blue-700">Relájate y disfruta del agua.</p>
-        </div>
+      <a
+        href="#"
+        class="block px-4 py-2 text-gray-700 hover:bg-blue-50 transition-colors"
+        onclick="shareOnFacebook()"
+      >
+        <i class="fab fa-facebook mr-2 text-blue-500"></i>
+        Facebook
       </a>
-      <a href="/actividades/pingpong" class="group block bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105">
-        <div class="relative">
-          <img
-            src="/images/pingpong.jpg"
-            alt="Ping Pong"
-            class="w-full h-48 object-cover"
-          />
-          <div class="absolute inset-0 bg-red-500 bg-opacity-20 group-hover:bg-opacity-30 transition"></div>
-        </div>
-        <div class="p-4 text-center">
-          <h3 class="text-2xl font-bold text-red-800">Ping Pong</h3>
-          <p class="text-red-700">Desafía a tus amigos en intensas partidas.</p>
-        </div>
+      <a
+        href="#"
+        class="block px-4 py-2 text-gray-700 hover:bg-blue-50 transition-colors rounded-b-lg"
+        onclick="copyLink()"
+      >
+        <i class="fas fa-link mr-2 text-gray-500"></i>
+        Copiar Link
       </a>
     </div>
   </div>
-</section>
 </div>
 
 
 
-  </Layout>
+</Layout>
