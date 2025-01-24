@@ -1,5 +1,5 @@
 // ShareModal.jsx
-import { createSignal, Show } from 'solid-js';
+import { createSignal, Show, onMount, onCleanup } from 'solid-js';
 
 import InstagramStepsModal from './InstagramStepsModal';
 
@@ -44,6 +44,17 @@ const ShareButton = (props) => {
 
 const ShareModal = (props) => {
   const [showInstagramSteps, setShowInstagramSteps] = createSignal(false);
+
+  // Bloquear scroll cuando el modal principal está abierto
+  onMount(() => {
+    document.body.style.overflow = 'hidden';
+    onCleanup(() => {
+      if (!showInstagramSteps()) {
+        document.body.style.overflow = '';
+      }
+    });
+  });
+
   const shareOptions = [
     {
       id: 'whatsapp',
@@ -92,6 +103,11 @@ const ShareModal = (props) => {
     }
   ];
 
+  const handleInstagramClose = () => {
+    setShowInstagramSteps(false);
+    // No cerramos el modal principal
+  };
+
   const [showCopyAlert, setShowCopyAlert] = createSignal(false);
 
   const shareOnWhatsApp = () => {
@@ -115,20 +131,39 @@ const ShareModal = (props) => {
   };
 
   const shareByEmail = () => {
-    const subject = encodeURIComponent("¡Te invito a la fiesta de Robert! 🎉");
-    const body = encodeURIComponent(
-      "¡Hola!\n\n" +
-      "Te invito a la fiesta de Robert. Será un día increíble lleno de diversión, " +
-      "con piscina, juegos, asado y mucho más.\n\n" +
-      "📅 Fecha: 2 de Febrero, 2025\n" +
-      "🕐 Hora: 10:00 AM\n" +
-      "📍 Lugar: Chicureo, Santiago\n\n" +
-      "Para más información y confirmar tu asistencia, visita:\n" +
+    // Estos valores se pueden recibir por props si lo prefieres
+    const fecha = "2 de Febrero, 2025";
+    const hora = "10:00 AM";
+    const lugar = "Chicureo, Santiago";
+
+    // Prepara el cuerpo del correo
+    // Usando %0D%0A para mayor compatibilidad con distintos clientes
+    const body = [
+      "¡Hola!",
+      "",
+      "Te invito a la fiesta de Robert. Será un día increíble lleno de diversión,",
+      "con piscina, juegos, asado y mucho más.",
+      "",
+      `📅 Fecha: ${fecha}`,
+      `🕐 Hora: ${hora}`,
+      `📍 Lugar: ${lugar}`,
+      "",
+      "Para más información y confirmar tu asistencia, visita:",
       window.location.href
-    );
-    window.location.href = `mailto:?subject=${subject}&body=${body}`;
+    ].join("%0D%0A");
+
+    const subject = encodeURIComponent("¡Te invito a la fiesta de Robert! 🎉");
+
+    // Armamos el mailto
+    const mailtoLink = `mailto:?subject=${subject}&body=${body}`;
+
+    // Redirige al usuario a la app de correo
+    window.location.href = mailtoLink;
+
+    // Opcional: cierra el modal si así lo deseas
     props.onClose();
   };
+
 
   return (
     <>
@@ -190,12 +225,7 @@ const ShareModal = (props) => {
       </div>
       {/* Modal de pasos de Instagram */}
       <Show when={showInstagramSteps()}>
-        <InstagramStepsModal
-          onClose={() => {
-            setShowInstagramSteps(false);
-            props.onClose();
-          }}
-        />
+        <InstagramStepsModal onClose={handleInstagramClose} />
       </Show>
 
       {/* Alerta de copiado */}

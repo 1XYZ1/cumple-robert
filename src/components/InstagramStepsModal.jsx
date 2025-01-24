@@ -1,25 +1,29 @@
-// InstagramStepsModal.jsx
-import { createSignal } from 'solid-js';
+import { createSignal, onMount, onCleanup } from "solid-js";
 
-const InstagramStepsModal = ({ onClose }) => {
+export default function InstagramStepsModal({ onClose }) {
   const [currentStep, setCurrentStep] = createSignal(0);
   const [copySuccess, setCopySuccess] = createSignal(false);
 
-  const invitationMessage = `🎉 ¡Te invito a la fiesta de Robert! 🎈
+  // Bloquear scroll cuando el modal está abierto
+  onMount(() => {
+    document.body.style.overflow = "hidden";
+    onCleanup(() => {
+      document.body.style.overflow = "";
+    });
+  });
 
-¡No te lo puedes perder! Habrá:
-🏊‍♂️ Piscina
-⚽ Fútbol
-🏓 Ping Pong
-🍖 Asado
-¡Y mucho más!
-
+  const invitationMessage = `¡Fiesta de Robert! 🎉
 📅 2 de Febrero, 2025
 ⏰ 10:00 AM
 📍 Chicureo, Santiago
 
 Más información aquí:
 ${window.location.href}`;
+
+  function handleOpenInstagram() {
+    window.open("https://instagram.com", "_blank");
+    setCurrentStep(2);
+  }
 
   const steps = [
     {
@@ -28,63 +32,28 @@ ${window.location.href}`;
       icon: "fas fa-copy",
       action: {
         text: copySuccess() ? "¡Copiado!" : "Copiar mensaje",
-        onClick: async () => {
-          try {
-            await navigator.clipboard.writeText(invitationMessage);
-            setCopySuccess(true);
-            setTimeout(() => setCurrentStep(1), 1000);
-          } catch (err) {
-            console.error('Error al copiar:', err);
-          }
+        onClick: () => {
+          navigator.clipboard.writeText(invitationMessage);
+          setCopySuccess(true);
+          setTimeout(() => setCurrentStep(1), 1000);
         }
       }
     },
     {
       title: "Abrir Instagram",
-      description: "Vamos a abrir Instagram en una nueva pestaña",
+      description: "Abre Instagram y comparte como prefieras",
       icon: "fab fa-instagram",
       action: {
         text: "Abrir Instagram",
-        onClick: () => {
-          // Intentamos primero con la URL de la app móvil
-          const instagramAppUrl = 'instagram://story';
-          const instagramWebUrl = 'https://instagram.com';
-
-          // Intentamos abrir la app primero
-          window.location.href = instagramAppUrl;
-
-          // Después de un breve delay, abrimos la web como fallback
-          setTimeout(() => {
-            window.open(instagramWebUrl, '_blank');
-          }, 500);
-
-          setTimeout(() => setCurrentStep(2), 1000);
-        }
-      }
-    },
-    {
-      title: "Crear historia",
-      description: "En Instagram, sigue estos pasos:",
-      icon: "fas fa-plus-circle",
-      details: [
-        "1. Toca el botón '+' en tu foto de perfil",
-        "2. Selecciona 'Historia'",
-        "3. Crea tu contenido",
-        "4. Toca el botón de sticker (📲)",
-        "5. Busca y selecciona 'Enlace'",
-        "6. Pega el texto copiado"
-      ],
-      action: {
-        text: "Entendido",
-        onClick: () => setCurrentStep(3)
+        onClick: handleOpenInstagram
       }
     },
     {
       title: "¡Listo!",
-      description: "Tu historia está lista para compartir",
+      description: "Gracias por compartir la invitación",
       icon: "fas fa-check-circle",
       action: {
-        text: "Terminar",
+        text: "Finalizar",
         onClick: onClose
       }
     }
@@ -118,11 +87,13 @@ ${window.location.href}`;
               Compartir en Instagram
             </h2>
             <p class="text-gray-600 dark:text-gray-400">
-              Sigue estos pasos para compartir en tus historias
+              {currentStep() === 2 ?
+                "¡Gracias por compartir!" :
+                "Comparte la invitación en Instagram"}
             </p>
           </div>
 
-          {/* Contenido del paso actual */}
+          {/* Contenido */}
           <div class="mt-8">
             <div class="flex items-center justify-center mb-6">
               <div class={`w-16 h-16 rounded-full bg-gradient-to-r from-pink-500 to-purple-600
@@ -139,21 +110,11 @@ ${window.location.href}`;
               <p class="text-gray-600 dark:text-gray-400">
                 {currentStepData().description}
               </p>
-              {/* Lista de instrucciones detalladas si existen */}
-              {currentStepData().details && (
-                <ul class="mt-4 text-left text-sm text-gray-600 dark:text-gray-400 space-y-2">
-                  {currentStepData().details.map((detail) => (
-                    <li class="flex items-start">
-                      <span class="ml-2">{detail}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
             </div>
 
             {/* Botón de acción */}
             <button
-              onClick={currentStepData().action.onClick}
+              onClick={() => currentStepData().action.onClick()}
               class={`w-full bg-gradient-to-r from-pink-500 to-purple-600
                 hover:from-pink-600 hover:to-purple-700 text-white p-4
                 rounded-xl transition-all duration-300 transform
@@ -161,7 +122,7 @@ ${window.location.href}`;
                 justify-center gap-2 ${copySuccess() && currentStep() === 0 ? 'bg-green-500' : ''}`}
             >
               <span>{currentStepData().action.text}</span>
-              {!copySuccess() && <i class="fas fa-arrow-right"></i>}
+              {!copySuccess() && currentStep() !== 2 && <i class="fas fa-arrow-right"></i>}
               {copySuccess() && currentStep() === 0 && <i class="fas fa-check"></i>}
             </button>
 
@@ -195,6 +156,4 @@ ${window.location.href}`;
       </div>
     </div>
   );
-};
-
-export default InstagramStepsModal;
+}
