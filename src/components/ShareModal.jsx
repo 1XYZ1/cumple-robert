@@ -2,6 +2,7 @@
 import { createSignal, Show, onMount, onCleanup } from 'solid-js';
 
 import InstagramStepsModal from './InstagramStepsModal';
+import MessengerStepsModal from './MessengerStepsModal';
 
 const ShareButton = (props) => {
   const [isHovered, setIsHovered] = createSignal(false);
@@ -45,6 +46,8 @@ const ShareButton = (props) => {
 const ShareModal = (props) => {
   const [showInstagramSteps, setShowInstagramSteps] = createSignal(false);
 
+  const [showMessengerSteps, setShowMessengerSteps] = createSignal(false);
+
   // Bloquear scroll cuando el modal principal está abierto
   onMount(() => {
     document.body.style.overflow = 'hidden';
@@ -76,12 +79,12 @@ const ShareModal = (props) => {
     },
     {
       id: 'facebook',
-      icon: 'fab fa-facebook',
-      name: 'Facebook',
+      icon: 'fab fa-facebook-messenger',
+      name: 'Messenger',
       color: 'from-blue-600 to-blue-700',
       hoverColor: 'hover:from-blue-700 hover:to-blue-800',
-      action: () => shareOnFacebook(),
-      description: 'Comparte en tu muro de Facebook'
+      action: () => shareOnMessenger(),
+      description: 'Comparte en Messenger'
     },
     {
       id: 'email',
@@ -102,6 +105,10 @@ const ShareModal = (props) => {
       description: 'Copia el enlace al portapapeles'
     }
   ];
+
+  const handleMessengerClose = () => {
+    setShowMessengerSteps(false);
+  };
 
   const handleInstagramClose = () => {
     setShowInstagramSteps(false);
@@ -124,10 +131,8 @@ const ShareModal = (props) => {
     setShowInstagramSteps(true);
   };
 
-  const shareOnFacebook = () => {
-    const url = encodeURIComponent(window.location.href);
-    window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`);
-    props.onClose();
+  const shareOnMessenger = () => {
+    setShowMessengerSteps(true);
   };
 
   const shareByEmail = () => {
@@ -161,7 +166,7 @@ const ShareModal = (props) => {
     window.location.href = mailtoLink;
 
     // Opcional: cierra el modal si así lo deseas
-    props.onClose();
+    // props.onClose();
   };
 
 
@@ -223,6 +228,11 @@ const ShareModal = (props) => {
           </div>
         </div>
       </div>
+
+      <Show when={showMessengerSteps()}>
+        <MessengerStepsModal onClose={handleMessengerClose} />
+      </Show>
+
       {/* Modal de pasos de Instagram */}
       <Show when={showInstagramSteps()}>
         <InstagramStepsModal onClose={handleInstagramClose} />
