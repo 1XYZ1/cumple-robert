@@ -1,53 +1,21 @@
-/* Renombramos las animaciones para evitar conflictos con global.css */
-
-/* Ondas decorativas */
-.wave1 {
-  animation: waterWave 4s ease-in-out infinite;
-  opacity: 0.8;
+/********************************
+  Líneas onduladas decorativas
+*********************************/
+.waveLine1, .waveLine2, .waveLine3 {
+  animation: waveLine 4s ease-in-out infinite;
 }
 
-.wave2 {
-  animation: waterWave 4s ease-in-out infinite;
+/* Diferenciar opacidades o delays si deseas */
+.waveLine2 {
   animation-delay: 1s;
   opacity: 0.6;
 }
-
-.wave3 {
-  animation: waterWave 4s ease-in-out infinite;
+.waveLine3 {
   animation-delay: 2s;
   opacity: 0.4;
 }
 
-/* Destellos */
-.shine1 {
-  animation: waterShine 3s ease-in-out infinite;
-}
-
-.shine2 {
-  animation: waterShine 3s ease-in-out infinite;
-  animation-delay: 1.5s;
-}
-
-/* Burbujas */
-.bubble1 {
-  animation: waterBubble 6s ease-in-out infinite;
-  opacity: 0.7;
-}
-
-.bubble2 {
-  animation: waterBubble 7s ease-in-out infinite;
-  animation-delay: 2s;
-  opacity: 0.7;
-}
-
-.bubble3 {
-  animation: waterBubble 6s ease-in-out infinite;
-  animation-delay: 4s;
-  opacity: 0.7;
-}
-
-/* Keyframes */
-@keyframes waterWave {
+@keyframes waveLine {
   0%, 100% {
     transform: translateY(0);
   }
@@ -56,7 +24,19 @@
   }
 }
 
-@keyframes waterShine {
+/********************************
+  Brillos
+*********************************/
+.shine1 {
+  animation: localShine 3s ease-in-out infinite;
+}
+.shine2 {
+  animation: localShine 3s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+/* Evita choque con 'shine' global.css */
+@keyframes localShine {
   0%, 100% {
     opacity: 0.8;
     transform: scale(1);
@@ -67,16 +47,28 @@
   }
 }
 
-@keyframes waterBubble {
+/********************************
+  Burbujas ascendentes
+*********************************/
+.bubble1 {
+  animation: bubbleUp1 6s ease-in-out infinite;
+  opacity: 0.8;
+}
+.bubble2 {
+  animation: bubbleUp2 7s ease-in-out infinite;
+  opacity: 0.7;
+}
+.bubble3 {
+  animation: bubbleUp3 6s ease-in-out infinite;
+  opacity: 0.7;
+}
+
+@keyframes bubbleUp1 {
   0% {
     transform: translateY(0) scale(1);
-    opacity: 0.7;
   }
   40% {
     opacity: 1;
-  }
-  70% {
-    opacity: 0.5;
   }
   100% {
     transform: translateY(-80px) scale(0.8);
@@ -84,7 +76,44 @@
   }
 }
 
-/* Tarjetas de información (hover) */
-.infoCard:hover {
-  transform: scale(1.01);
+@keyframes bubbleUp2 {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-90px) scale(0.8);
+    opacity: 0;
+  }
+}
+
+@keyframes bubbleUp3 {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) scale(0.7);
+    opacity: 0;
+  }
+}
+
+/********************************
+  Salvavidas flotando
+*********************************/
+.lifebuoy {
+  animation: floatLifebuoy 4s ease-in-out infinite;
+}
+
+@keyframes floatLifebuoy {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
 }
