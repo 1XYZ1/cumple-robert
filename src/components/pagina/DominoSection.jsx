@@ -126,13 +126,19 @@ function DominoSection() {
     {/* Wilmer */}
     <div class="flex flex-col items-center">
       <img
-        src="/images/wilmer.jpg"
+        src="/images/jugadores/wilmer.PNG"
         alt="Wilmer"
         class="w-32 h-32 object-cover rounded-full border-4 border-red-500 mb-4"
       />
       <h4 class="text-xl font-semibold text-red-300">Wilmer</h4>
       <p class="text-gray-300 text-center text-sm mt-2">
         Récord: <strong class="text-white">20 victorias</strong> / <strong class="text-white">5 derrotas</strong>
+      </p>
+      <p class="text-gray-300 text-center text-sm mt-2">
+        Top Nacional: <strong class="text-white">#1</strong>
+      </p>
+      <p class="text-gray-300 text-center text-sm mt-2">
+        Top Mundo: <strong class="text-white">#3</strong>
       </p>
     </div>
 
@@ -142,13 +148,19 @@ function DominoSection() {
     {/* Cenaida */}
     <div class="flex flex-col items-center">
       <img
-        src="/images/cenaida.jpg"
+        src="/images/jugadores/cenaida.PNG"
         alt="Cenaida"
         class="w-32 h-32 object-cover rounded-full border-4 border-red-500 mb-4"
       />
       <h4 class="text-xl font-semibold text-red-300">Cenaida</h4>
       <p class="text-gray-300 text-center text-sm mt-2">
         Récord: <strong class="text-white">18 victorias</strong> / <strong class="text-white">7 derrotas</strong>
+      </p>
+      <p class="text-gray-300 text-center text-sm mt-2">
+        Top Nacional: <strong class="text-white">#2</strong>
+      </p>
+      <p class="text-gray-300 text-center text-sm mt-2">
+        Top Mundo: <strong class="text-white">#7</strong>
       </p>
     </div>
   </div>
