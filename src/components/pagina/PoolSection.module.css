@@ -1,0 +1,90 @@
+/* Renombramos las animaciones para evitar conflictos con global.css */
+
+/* Ondas decorativas */
+.wave1 {
+  animation: waterWave 4s ease-in-out infinite;
+  opacity: 0.8;
+}
+
+.wave2 {
+  animation: waterWave 4s ease-in-out infinite;
+  animation-delay: 1s;
+  opacity: 0.6;
+}
+
+.wave3 {
+  animation: waterWave 4s ease-in-out infinite;
+  animation-delay: 2s;
+  opacity: 0.4;
+}
+
+/* Destellos */
+.shine1 {
+  animation: waterShine 3s ease-in-out infinite;
+}
+
+.shine2 {
+  animation: waterShine 3s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+/* Burbujas */
+.bubble1 {
+  animation: waterBubble 6s ease-in-out infinite;
+  opacity: 0.7;
+}
+
+.bubble2 {
+  animation: waterBubble 7s ease-in-out infinite;
+  animation-delay: 2s;
+  opacity: 0.7;
+}
+
+.bubble3 {
+  animation: waterBubble 6s ease-in-out infinite;
+  animation-delay: 4s;
+  opacity: 0.7;
+}
+
+/* Keyframes */
+@keyframes waterWave {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes waterShine {
+  0%, 100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1.5);
+  }
+}
+
+@keyframes waterBubble {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.7;
+  }
+  40% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-80px) scale(0.8);
+    opacity: 0;
+  }
+}
+
+/* Tarjetas de información (hover) */
+.infoCard:hover {
+  transform: scale(1.01);
+}

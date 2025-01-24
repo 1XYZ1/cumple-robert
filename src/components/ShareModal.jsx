@@ -3,6 +3,7 @@ import { createSignal, Show, onMount, onCleanup } from 'solid-js';
 
 import InstagramStepsModal from './InstagramStepsModal';
 import MessengerStepsModal from './MessengerStepsModal';
+import CopyAlert from './CopyAlert';
 
 const ShareButton = (props) => {
   const [isHovered, setIsHovered] = createSignal(false);
@@ -47,6 +48,44 @@ const ShareModal = (props) => {
   const [showInstagramSteps, setShowInstagramSteps] = createSignal(false);
 
   const [showMessengerSteps, setShowMessengerSteps] = createSignal(false);
+
+  // COPY ALERT
+  const [showCopyAlert, setShowCopyAlert] = createSignal(false);
+  const [alertMessage, setAlertMessage] = createSignal("");
+
+  const invitationMessage = `🎉 ¡Te invito a la fiesta de Robert! 🎈
+
+¡No te lo puedes perder! Habrá:
+🏊‍♂️ Piscina
+⚽ Fútbol
+🏓 Ping Pong
+🍖 Asado
+¡Y mucho más!
+
+📅 2 de Febrero, 2025
+⏰ 10:00 AM
+📍 Chicureo, Santiago
+
+Más información aquí:
+${window.location.href}`;
+
+const handleCopy = async () => {
+  try {
+    await navigator.clipboard.writeText(invitationMessage);
+    setAlertMessage("Mensaje de invitación copiado al portapapeles");
+    setShowCopyAlert(true);
+  } catch (err) {
+    console.error('Error al copiar:', err);
+    setAlertMessage("No se pudo copiar el mensaje. Inténtalo de nuevo.");
+    setShowCopyAlert(true);
+  }
+};
+
+  const handleCopyClose = () => {
+    setShowCopyAlert(false);
+  };
+
+
 
   // Bloquear scroll cuando el modal principal está abierto
   onMount(() => {
@@ -101,7 +140,7 @@ const ShareModal = (props) => {
       name: 'Copiar Link',
       color: 'from-gray-600 to-gray-700',
       hoverColor: 'hover:from-gray-700 hover:to-gray-800',
-      action: () => copyLink(),
+      action: () => handleCopy(),
       description: 'Copia el enlace al portapapeles'
     }
   ];
@@ -115,7 +154,8 @@ const ShareModal = (props) => {
     // No cerramos el modal principal
   };
 
-  const [showCopyAlert, setShowCopyAlert] = createSignal(false);
+
+
 
   const shareOnWhatsApp = () => {
     const text = encodeURIComponent(
@@ -240,19 +280,10 @@ const ShareModal = (props) => {
 
       {/* Alerta de copiado */}
       <Show when={showCopyAlert()}>
-        <div class="fixed bottom-4 right-4 z-[10000] animate-slideUp">
-          <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 flex items-center gap-3">
-            <div class="w-8 h-8 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center">
-              <i class="fas fa-check text-green-500 dark:text-green-400"></i>
-            </div>
-            <div>
-              <div class="font-medium text-gray-900 dark:text-white">¡Link copiado!</div>
-              <div class="text-sm text-gray-600 dark:text-gray-400">
-                Enlace copiado al portapapeles
-              </div>
-            </div>
-          </div>
-        </div>
+        <CopyAlert
+          message={alertMessage()}
+          onClose={handleCopyClose}
+        />
       </Show>
     </>
   );

@@ -17,7 +17,7 @@ const activities = [
     icon: 'fas fa-futbol'
   },
   {
-    id: 'piscina',
+    id: 'pool',
     title: 'Piscina',
     description: 'Relájate y disfruta del agua',
     image: '/images/pool.jpeg',
