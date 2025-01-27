@@ -1,110 +1,282 @@
 // InfoSection.jsx
-const InfoSection = () => {
+import { createSignal } from "solid-js";
+
+// Subcomponente: PartialFAQItem
+function PartialFAQItem(props) {
+  const [isOpen, setIsOpen] = createSignal(false);
+
   return (
-    <div class="space-y-6">
-      {/* Sección de Detalles */}
-      <div class="bg-blue-800/30 p-4 sm:p-6 rounded-lg backdrop-blur">
+    <div class="border-b border-lime-100/20 last:border-b-0">
+      <button
+        class="
+          w-full py-3 px-2
+          flex justify-between items-center
+          text-left
+          hover:bg-[#144173]/20
+          transition-colors
+          rounded-lg
+          focus:outline-none
+        "
+        onClick={() => setIsOpen(!isOpen())}
+        aria-expanded={isOpen()}
+      >
+        <span class="text-base font-semibold text-white">
+          {props.question}
+        </span>
+        <span
+          class={`
+            transform transition-transform duration-300
+            ${isOpen() ? "rotate-180" : ""}
+          `}
+          aria-hidden="true"
+        >
+          <i class="fas fa-chevron-down text-lime-200"></i>
+        </span>
+      </button>
+
+      <div
+        class={`
+          overflow-hidden transition-all duration-300
+          ${isOpen() ? "max-h-96 py-2" : "max-h-0"}
+        `}
+        aria-hidden={!isOpen()}
+      >
+        <p class="text-lime-100 px-2 whitespace-pre-wrap leading-relaxed">
+          {props.answer}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+// Subcomponente: PartialFAQ
+function PartialFAQ() {
+  // Sólo 2-3 preguntas
+  const partialFaqs = [
+    {
+      question: "¿Puedo llevar invitados adicionales?",
+      answer: "Por favor, consulta previamente... mantener un control del número de asistentes..."
+    },
+    {
+      question: "¿El evento es apto para niños?",
+      answer: "¡Sí! Tendremos actividades para todas las edades. La piscina cuenta con área infantil y supervisión."
+    },
+    {
+      question: "¿Se permiten mascotas?",
+      answer: "¡Sí! Pero deben estar supervisadas y bajo tu responsabilidad en todo momento."
+    }
+  ];
+
+  return (
+    <div class="bg-gradient-to-r from-[#144173] to-[#1b6ec1] p-4 sm:p-6 rounded-lg shadow-md">
+      <h3 class="text-xl sm:text-2xl font-bold text-white mb-4 flex items-center gap-2">
+        <i class="fas fa-question-circle text-lime-200"></i>
+        Preguntas Rápidas
+      </h3>
+      <div class="space-y-1">
+        {partialFaqs.map((faq) => (
+          <PartialFAQItem
+            question={faq.question}
+            answer={faq.answer}
+          />
+        ))}
+      </div>
+      <div class="text-right mt-3">
+        {/* Botón para ir a la página de FAQ completa */}
+        <a
+          href="/faq"
+          class="
+            inline-block
+            bg-[#008B8B]
+            hover:bg-[#007575]
+            text-white
+            text-sm
+            font-semibold
+            px-4 py-2
+            rounded-full
+            shadow
+            transition
+            transform
+            hover:scale-105
+            active:scale-95
+          "
+        >
+          Ver más preguntas
+        </a>
+      </div>
+    </div>
+  );
+}
+
+// Componente principal: InfoSection
+function InfoSection() {
+  return (
+    <div class="space-y-8">
+      {/* 1) Detalles Importantes */}
+      <div class="bg-gradient-to-r from-[#1bc1c1] to-[#147373] p-4 sm:p-6 rounded-lg shadow-md">
         <h3 class="text-xl sm:text-2xl font-bold text-white mb-4 flex items-center gap-2">
-          <i class="fas fa-info-circle text-blue-400"></i>
+          <i class="fas fa-info-circle text-lime-200"></i>
           Detalles Importantes
         </h3>
-        <ul class="space-y-4 text-gray-200">
+        <ul class="space-y-4 text-gray-100">
           <li class="flex items-start gap-3 group">
-            <i class="fas fa-calendar text-blue-400 mt-1 w-5"></i>
-            <div class="flex-1">
-              <span class="font-medium group-hover:text-blue-400 transition-colors">Fecha:</span>
+            <i class="fas fa-calendar text-lime-200 mt-1 w-5"></i>
+            <div>
+              <span class="font-medium group-hover:text-lime-200 transition-colors">
+                Fecha:
+              </span>
               <p>2 de Febrero, 2025</p>
             </div>
           </li>
           <li class="flex items-start gap-3 group">
-            <i class="fas fa-clock text-blue-400 mt-1 w-5"></i>
-            <div class="flex-1">
-              <span class="font-medium group-hover:text-blue-400 transition-colors">Horario:</span>
-              <div class="space-y-1 mt-1">
-                <p class="text-sm">10:00 AM - Bienvenida e inicio</p>
-                <p class="text-sm">2:00 PM - Almuerzo</p>
-                <p class="text-sm">8:00 PM - Finalización</p>
+            <i class="fas fa-clock text-lime-200 mt-1 w-5"></i>
+            <div>
+              <span class="font-medium group-hover:text-lime-200 transition-colors">
+                Horario:
+              </span>
+              <div class="space-y-1 mt-1 text-sm">
+                <p>10:00 AM - Bienvenida e inicio</p>
+                <p>2:00 PM - Almuerzo</p>
+                <p>7:00 PM - Finalización</p>
               </div>
+            </div>
+          </li>
+          <li class="flex items-start gap-3 group">
+            <i class="fas fa-user-friends text-lime-200 mt-1 w-5"></i>
+            <div>
+              <span class="font-medium group-hover:text-lime-200 transition-colors">
+                Aforo:
+              </span>
+              <p>Hasta 60 personas (aprox.)</p>
             </div>
           </li>
         </ul>
       </div>
 
-      {/* Sección de Qué Incluye */}
-      <div class="bg-blue-800/30 p-4 sm:p-6 rounded-lg backdrop-blur">
+      {/* 2) ¿Qué Incluye? */}
+      <div class="bg-gradient-to-r from-[#1b9ac1] to-[#145473] p-4 sm:p-6 rounded-lg shadow-md">
         <h3 class="text-xl sm:text-2xl font-bold text-white mb-4 flex items-center gap-2">
-          <i class="fas fa-star text-blue-400"></i>
+          <i class="fas fa-star text-lime-200"></i>
           ¿Qué Incluye?
         </h3>
-        <ul class="space-y-4 text-gray-200">
+        <ul class="space-y-4 text-gray-100">
           <li class="flex items-start gap-3 group">
-            <i class="fas fa-swimming-pool text-blue-400 mt-1 w-5"></i>
-            <div class="flex-1">
-              <span class="font-medium group-hover:text-blue-400 transition-colors">Piscina</span>
+            <i class="fas fa-swimming-pool text-lime-200 mt-1 w-5"></i>
+            <div>
+              <span class="font-medium group-hover:text-lime-200 transition-colors">
+                Piscina
+              </span>
               <p class="text-sm mt-1">Área para adultos y niños con supervisión</p>
             </div>
           </li>
           <li class="flex items-start gap-3 group">
-            <i class="fas fa-futbol text-blue-400 mt-1 w-5"></i>
-            <div class="flex-1">
-              <span class="font-medium group-hover:text-blue-400 transition-colors">Deportes</span>
+            <i class="fas fa-futbol text-lime-200 mt-1 w-5"></i>
+            <div>
+              <span class="font-medium group-hover:text-lime-200 transition-colors">
+                Deportes
+              </span>
               <p class="text-sm mt-1">Fútbol, ping pong y más</p>
             </div>
           </li>
           <li class="flex items-start gap-3 group">
-            <i class="fas fa-hamburger text-blue-400 mt-1 w-5"></i>
-            <div class="flex-1">
-              <span class="font-medium group-hover:text-blue-400 transition-colors">Comida</span>
-              <p class="text-sm mt-1">Asado completo y snacks todo el día</p>
+            <i class="fas fa-hamburger text-lime-200 mt-1 w-5"></i>
+            <div>
+              <span class="font-medium group-hover:text-lime-200 transition-colors">
+                Comida
+              </span>
+              <p class="text-sm mt-1">Asado completo y snacks durante el día</p>
             </div>
           </li>
         </ul>
       </div>
+
+      {/* 3) ¿Qué Llevar? */}
+      <div class="bg-gradient-to-r from-[#1b6ec1] to-[#144173] p-4 sm:p-6 rounded-lg shadow-md">
+        <h3 class="text-xl sm:text-2xl font-bold text-white mb-4 flex items-center gap-2">
+          <i class="fas fa-suitcase-rolling text-lime-200"></i>
+          ¿Qué Llevar?
+        </h3>
+        <ul class="space-y-4 text-gray-100">
+          <li class="flex items-start gap-3 group">
+            <i class="fas fa-umbrella-beach text-lime-200 mt-1 w-5"></i>
+            <div>
+              <span class="font-medium group-hover:text-lime-200 transition-colors">
+                Vestimenta
+              </span>
+              <p class="text-sm mt-1">Traje de baño, sandalias y ropa cómoda</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3 group">
+            <i class="fas fa-sun text-lime-200 mt-1 w-5"></i>
+            <div>
+              <span class="font-medium group-hover:text-lime-200 transition-colors">
+                Bloqueador solar
+              </span>
+              <p class="text-sm mt-1">Protege tu piel del sol</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3 group">
+            <i class="fas fa-tshirt text-lime-200 mt-1 w-5"></i>
+            <div>
+              <span class="font-medium group-hover:text-lime-200 transition-colors">
+                Extras
+              </span>
+              <p class="text-sm mt-1">Toalla, ropa de cambio y gafas de sol</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      {/* 4) Preguntas Rápidas (PartialFAQ) */}
+      <PartialFAQ />
     </div>
   );
-};
+}
+
+export default InfoSection;
+
 
 // LocationSection.jsx
 const LocationSection = () => {
   return (
-    <div class="bg-blue-800/30 p-4 sm:p-6 rounded-lg backdrop-blur">
-      <h3 class="text-xl sm:text-2xl font-bold text-white mb-4 flex items-center gap-2">
-        <i class="fas fa-map-marked-alt text-blue-400"></i>
+    <div className="bg-gradient-to-r from-[#174e73] to-[#1b6ec1] p-4 sm:p-6 rounded-lg shadow-md text-gray-100">
+      <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 flex items-center gap-2">
+        <i className="fas fa-map-marked-alt text-lime-200"></i>
         Ubicación
       </h3>
 
       {/* Mapa */}
-      <div class="rounded-lg overflow-hidden shadow-lg mb-6">
+      <div className="rounded-lg overflow-hidden shadow-lg mb-6">
         <iframe
-          class="w-full h-[250px] sm:h-[300px]"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.181535861286!2d-70.70482032465302!3d-33.308620037426374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c0c5ad12e89d%3A0x1b3b6e183f0040a5!2sChicureo!5e0!3m2!1ses!2scl!4v1700000000000!5m2!1ses!2scl"
-          allowfullscreen=""
+          className="w-full h-[250px] sm:h-[300px]"
+          src="https://www.google.com/maps/embed?pb=..."
+          allowFullScreen=""
           loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
+          referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
       </div>
 
-      {/* Información de cómo llegar */}
-      <div class="text-gray-200 mb-6">
-        <h4 class="font-medium text-lg mb-2">Cómo llegar:</h4>
-        <ul class="space-y-2">
-          <li class="flex items-start gap-2">
-            <i class="fas fa-car text-blue-400 mt-1 w-5"></i>
+      {/* Info de cómo llegar */}
+      <div className="mb-6 space-y-2">
+        <h4 className="font-medium text-lg text-lime-100">Cómo llegar:</h4>
+        <ul className="space-y-2 text-sm">
+          <li className="flex items-start gap-2">
+            <i className="fas fa-car text-lime-200 mt-1 w-5"></i>
             <span>30 minutos en auto desde Santiago Centro</span>
           </li>
-          <li class="flex items-start gap-2">
-            <i class="fas fa-bus text-blue-400 mt-1 w-5"></i>
+          <li className="flex items-start gap-2">
+            <i className="fas fa-bus text-lime-200 mt-1 w-5"></i>
             <span>Transporte público desde Metro Los Dominicos</span>
           </li>
         </ul>
       </div>
 
-      {/* Botones de navegación */}
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      {/* Botones de navegación (ejemplo) */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         <LocationButton
-          href="https://wa.me/1234567890"
+          href="https://wa.me/56945885600"
           icon="fab fa-whatsapp"
-          text="Me perdí ayúdame :("
+          text="Me perdí, ayúdame"
           bgColor="bg-green-600"
           hoverColor="hover:bg-green-700"
         />
@@ -123,7 +295,6 @@ const LocationSection = () => {
           hoverColor="hover:bg-blue-600"
           class="sm:col-span-2"
         />
-
       </div>
     </div>
   );
@@ -135,12 +306,21 @@ const LocationButton = ({ href, icon, text, bgColor, hoverColor, class: classNam
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      class={`flex items-center justify-center gap-2 ${bgColor} ${hoverColor} text-white py-3 px-4 rounded-lg transition-all duration-300 hover:shadow-lg active:scale-95 text-sm sm:text-base ${className}`}
+      className={`
+        flex items-center justify-center gap-2
+        ${bgColor} ${hoverColor} text-white
+        py-3 px-4 rounded-lg
+        transition-all duration-300 hover:shadow-lg
+        active:scale-95 text-sm sm:text-base
+        ${className}
+      `}
     >
-      <i class={`${icon} text-lg`}></i>
+      <i className={`${icon} text-lg`}></i>
       {text}
     </a>
   );
 };
+
+
 
 export { InfoSection, LocationSection };

@@ -1,0 +1,38 @@
+---
+import Layout from "../layouts/Layout.astro";
+import FullFAQSection from "../components/pagina/FullFAQSection.jsx";
+---
+
+<Layout>
+  <!-- Fondo con mejor contraste -->
+  <section class="min-h-screen py-16 bg-gradient-to-b from-[#acecec] via-[#72e1e1] to-[#40E0D0] text-gray-800 relative">
+    <div class="max-w-5xl mx-auto px-4">
+      <!-- Encabezado de la Página FAQ -->
+      <div class="text-center mb-12">
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-[#006E6E] drop-shadow-sm mb-4">
+          Preguntas Frecuentes
+        </h1>
+        <p class="text-lg sm:text-xl text-[#084E4E] max-w-2xl mx-auto leading-relaxed">
+          ¿Tienes dudas sobre el evento? Encuentra aquí las respuestas más comunes
+          o contáctanos para más detalles.
+        </p>
+      </div>
+
+      <!-- Botón de regreso al Index (parte superior) -->
+      <div class="text-center mb-10">
+        <a
+          href="/"
+          class="inline-block bg-[#008B8B] hover:bg-[#007575] text-white font-semibold px-6 py-3 rounded-full shadow-md transition transform hover:scale-105 active:scale-95"
+        >
+          <i class="fas fa-arrow-left mr-2"></i>
+          Regresar al Inicio
+        </a>
+      </div>
+
+      <!-- Sección completa de FAQ -->
+      <FullFAQSection client:visible />
+
+
+    </div>
+  </section>
+</Layout>

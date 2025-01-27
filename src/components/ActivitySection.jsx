@@ -85,7 +85,7 @@ const activities = [
     }
   },
   {
-    id: 'playstation',
+    id: 'fifa',
     title: 'PlayStation',
     description: 'Gaming zone con los mejores títulos',
     image: '/images/fifa.webp',
@@ -243,7 +243,7 @@ const ActivitySection = () => {
           </For>
         </div>
 
-        <div class="text-center mt-8 sm:mt-12">
+        {/* <div class="text-center mt-8 sm:mt-12">
           <a
             href="/actividades"
             class="inline-flex items-center justify-center gap-2 bg-yellow-500 text-white px-6 sm:px-8 py-3 rounded-full hover:bg-yellow-600 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2"
@@ -251,7 +251,7 @@ const ActivitySection = () => {
             <span>Ver Todas las Actividades</span>
             <i class="fas fa-arrow-right" aria-hidden="true"></i>
           </a>
-        </div>
+        </div> */}
       </div>
     </section>
   );

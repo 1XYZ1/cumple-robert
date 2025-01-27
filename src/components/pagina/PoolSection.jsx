@@ -84,6 +84,7 @@ function PoolSection() {
             <ul class="space-y-3 text-blue-100">
               {[
                 "No correr cerca de la piscina",
+                "No ingerir licor en botella cerca de la piscina (Solo con termo)",
                 "Ducharse antes de entrar",
                 "No comer dentro de la piscina",
                 "Supervisión de menores obligatoria",

@@ -139,7 +139,7 @@ export const jugadores: Jugador[] = [
     numero: 3,
     equipo: "Portales FC",
     estilo: "Estratega",
-    imagen: "/images/jugadores/andres1.jpeg",
+    imagen: "/images/jugadores/andres.jpg",
     equipoFavorito: {
       nombre: "Barcelona",
       colores: {

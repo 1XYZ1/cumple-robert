@@ -1,64 +1,91 @@
 ---
-import ParallaxHero from "../components/ParallaxHero";
 import Layout from "../layouts/Layout.astro";
 
+/* Hero con Parallax */
+import ParallaxHero from "../components/ParallaxHero";
 
+/* Información general */
 import { InfoSection, LocationSection } from "../components/InfoSection.jsx";
-import FAQSection from "../components/FAQSection.jsx";
+
+
+/* Sección de Actividades */
 import ActivitySection from "../components/ActivitySection";
+
+/* Organización del Evento */
+import OrganizationSection from "../components/OrganizationSection";
+
+/* Sección de Mascotas */
+import PetsSection from "../components/pagina/PetsSection";
+
+/* Confirmación (pago y asistencia) */
+import ConfirmationSection from "../components/pagina/ConfirmationSection";
+import PartialFAQ from "../components/pagina/PartialFAQ";
 ---
 
 <Layout>
-
   <div class="min-h-[calc(100vh-4rem)]">
+    <!-- 1. Hero Section -->
+    <ParallaxHero client:load />
 
-    <!-- Hero Section con Parallax -->
-       <!-- Countdown -->
-       <ParallaxHero client:load>
-
-      </ParallaxHero>
-
-
-
-  <!-- Sección de Información -->
-<section id="info" class="py-12 sm:py-20 bg-gradient-to-b from-gray-900 to-blue-900">
-  <div class="max-w-6xl mx-auto px-4">
-    <!-- Título de la sección -->
-    <div class="text-center mb-10 sm:mb-16">
-      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Información del Evento</h2>
-      <p class="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
-        Todo lo que necesitas saber para disfrutar de este día especial
-      </p>
-    </div>
-
-    <!-- Contenido principal -->
-    <div class="grid md:grid-cols-2 gap-6 sm:gap-12">
-      <!-- Columna de información -->
-      <div class="space-y-6">
-        <InfoSection client:visible />
-        <div class="block md:hidden">
-          <LocationSection client:visible />
+    <!-- 2. Sección de Información (Info + FAQ + Location) -->
+    <section id="info" class="py-12 sm:py-20 bg-gradient-to-b from-gray-900 to-blue-900">
+      <div class="max-w-6xl mx-auto px-4">
+        <!-- Encabezado de la Sección -->
+        <div class="text-center mb-10 sm:mb-16">
+          <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">
+            Información del Evento
+          </h2>
+          <p class="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
+            Todo lo que necesitas saber para disfrutar de este día especial
+          </p>
         </div>
-        <FAQSection client:visible />
-      </div>
 
-      <!-- Mapa y ubicación (visible solo en desktop) -->
-      <div class="hidden md:block md:sticky md:top-8">
-        <LocationSection client:visible />
+        <!-- Contenido principal (info, FAQ, location) -->
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Columna de Info y FAQ -->
+          <div class="space-y-8">
+            <!-- ... InfoSections ... -->
+            <InfoSection client:visible />
+
+
+            <!-- Ubicación en modo responsive (solo visible en móvil) -->
+            <div class="block md:hidden">
+              <LocationSection client:visible />
+            </div>
+          </div>
+
+          <!-- Columna Mapa (solo visible en escritorio) -->
+          <div class="hidden md:block md:sticky md:top-8">
+            <LocationSection client:visible />
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
+
+    <!-- 3. Sección de Actividades -->
+    <section id="actividades" class="py-12 sm:py-16 bg-gradient-to-b from-yellow-50 to-yellow-100">
+      <ActivitySection client:visible />
+    </section>
+
+    <!-- 4. Sección de Organización -->
+    <section id="organizacion" class="py-12 bg-gradient-to-b
+        from-[#cbfcfc]
+        via-[#72e1e1]
+        to-[#40E0D0]">
+      <div class="max-w-6xl mx-auto px-4">
+        <OrganizationSection client:visible />
+      </div>
+    </section>
+
+
+    <!-- 5. Sección de Mascotas -->
+    <section id="mascotas" class="py-12 bg-gradient-to-b from-[#cbfcfc] to-[#40E0D0]">
+      <PetsSection client:visible />
+    </section>
+
+    <!-- 6. Sección de Confirmación -->
+    <section id="confirmar" class="py-12 sm:py-16 bg-gradient-to-b from-blue-900 to-gray-900">
+      <ConfirmationSection client:visible />
+    </section>
   </div>
-</section>
-
-  <!-- Actividades Section Mejorada -->
-   <div id="actividades">
-    <ActivitySection client:visible />
-   </div>
-
-</div>
-
-
-
-
-
 </Layout>
