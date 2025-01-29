@@ -5,6 +5,7 @@ import InstagramStepsModal from './InstagramStepsModal';
 import MessengerStepsModal from './MessengerStepsModal';
 import CopyAlert from './CopyAlert';
 
+// Componente de botón para compartir en redes sociales
 const ShareButton = (props) => {
   const [isHovered, setIsHovered] = createSignal(false);
 
@@ -44,15 +45,20 @@ const ShareButton = (props) => {
   );
 };
 
+// Componente Modal para compartir el evento
 const ShareModal = (props) => {
-  const [showInstagramSteps, setShowInstagramSteps] = createSignal(false);
-
-  const [showMessengerSteps, setShowMessengerSteps] = createSignal(false);
-
-  // COPY ALERT
+  // Estados para controlar las alertas y copias
   const [showCopyAlert, setShowCopyAlert] = createSignal(false);
   const [alertMessage, setAlertMessage] = createSignal("");
 
+  // Estados para controlar los modales de pasos
+  const [showInstagramSteps, setShowInstagramSteps] = createSignal(false);
+  const [showMessengerSteps, setShowMessengerSteps] = createSignal(false);
+
+  // URL del evento para compartir
+  const eventUrl = window.location.href;
+
+  // Mensaje predeterminado para compartir
   const invitationMessage = `🎉 ¡Te invito a la fiesta de Robert! 🎈
 
 ¡No te lo puedes perder! Habrá:
@@ -69,34 +75,20 @@ const ShareModal = (props) => {
 Más información aquí:
 ${window.location.href}`;
 
-const handleCopy = async () => {
-  try {
-    await navigator.clipboard.writeText(invitationMessage);
-    setAlertMessage("Mensaje de invitación copiado al portapapeles");
-    setShowCopyAlert(true);
-  } catch (err) {
-    console.error('Error al copiar:', err);
-    setAlertMessage("No se pudo copiar el mensaje. Inténtalo de nuevo.");
-    setShowCopyAlert(true);
-  }
-};
-
-  const handleCopyClose = () => {
-    setShowCopyAlert(false);
+  // Función para copiar texto al portapapeles
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(invitationMessage);
+      setAlertMessage("Mensaje de invitación copiado al portapapeles");
+      setShowCopyAlert(true);
+    } catch (err) {
+      console.error('Error al copiar:', err);
+      setAlertMessage("No se pudo copiar el mensaje. Inténtalo de nuevo.");
+      setShowCopyAlert(true);
+    }
   };
 
-
-
-  // Bloquear scroll cuando el modal principal está abierto
-  onMount(() => {
-    document.body.style.overflow = 'hidden';
-    onCleanup(() => {
-      if (!showInstagramSteps()) {
-        document.body.style.overflow = '';
-      }
-    });
-  });
-
+  // Opciones de compartir en redes sociales
   const shareOptions = [
     {
       id: 'whatsapp',
@@ -145,18 +137,7 @@ const handleCopy = async () => {
     }
   ];
 
-  const handleMessengerClose = () => {
-    setShowMessengerSteps(false);
-  };
-
-  const handleInstagramClose = () => {
-    setShowInstagramSteps(false);
-    // No cerramos el modal principal
-  };
-
-
-
-
+  // Función para compartir en WhatsApp
   const shareOnWhatsApp = () => {
     const text = encodeURIComponent(
       "🎉 ¡Te invito a la fiesta de Robert! 🎈\n\n" +
@@ -167,14 +148,17 @@ const handleCopy = async () => {
     props.onClose();
   };
 
+  // Función para compartir en Instagram
   const shareOnInstagram = () => {
     setShowInstagramSteps(true);
   };
 
+  // Función para compartir en Messenger
   const shareOnMessenger = () => {
     setShowMessengerSteps(true);
   };
 
+  // Función para compartir por correo electrónico
   const shareByEmail = () => {
     // Estos valores se pueden recibir por props si lo prefieres
     const fecha = "2 de Febrero, 2025";
@@ -209,6 +193,30 @@ const handleCopy = async () => {
     // props.onClose();
   };
 
+  // Función para cerrar la alerta de copiado
+  const handleCopyClose = () => {
+    setShowCopyAlert(false);
+  };
+
+  // Función para cerrar el modal de pasos de Messenger
+  const handleMessengerClose = () => {
+    setShowMessengerSteps(false);
+  };
+
+  // Función para cerrar el modal de pasos de Instagram
+  const handleInstagramClose = () => {
+    setShowInstagramSteps(false);
+  };
+
+  // Bloquear scroll cuando el modal principal está abierto
+  onMount(() => {
+    document.body.style.overflow = 'hidden';
+    onCleanup(() => {
+      if (!showInstagramSteps()) {
+        document.body.style.overflow = '';
+      }
+    });
+  });
 
   return (
     <>

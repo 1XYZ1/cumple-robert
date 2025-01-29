@@ -3,73 +3,83 @@ const PetsSection = () => {
   const pets = [
     {
       name: "Milo",
-      breed: "Golden Retriever",
-      age: "2 años",
-      owner: "María González",
+      breed: "Bichon Frise",
+      age: "7 años",
+      owner: "Leidymar ",
       description:
         "Milo es un gran compañero de juegos. Su energía y curiosidad lo mantienen siempre en movimiento.",
-      photo: "/images/pets/dog.jpeg",
-      personalityTraits: ["Juguetón", "Sociable", "Ama el agua"]
-    },
-    {
-      name: "Mila",
-      breed: "Labrador",
-      age: "3 años",
-      owner: "Carlos Pérez",
-      description:
-        "Mila es muy cariñosa y le encanta recibir mimos. Jamás se cansa de jugar a la pelota.",
-      photo: "/images/pets/dog2.jpeg",
-      personalityTraits: ["Cariñosa", "Juguetona", "Inquieta"]
+      photo: "/images/pets/milo.jpeg",
+      personalityTraits: ["Educado", "Amigable"]
     },
     {
       name: "Lupita",
-      breed: "Bulldog Francés",
-      age: "1.5 años",
-      owner: "Ana Silva",
+      breed: "Lhasa Apsho",
+      age: "7 años",
+      owner: "Rober",
       description:
         "Lupita es la más curiosa del grupo. Siempre investigando nuevos lugares y olores.",
-      photo: "/images/pets/dog3.jpeg",
-      personalityTraits: ["Curiosa", "Amigable", "Atenta"]
+      photo: "/images/pets/lupita.jpeg",
+      personalityTraits: ["Obediente", "Inquieta"]
     },
     {
-      name: "Mérida",
-      breed: "Pastor Alemán",
-      age: "4 años",
-      owner: "Reinaldo Romero",
+      name: "Mila",
+      breed: "Bichon habanero",
+      age: "8 años",
+      owner: "Ana Silva",
       description:
-        "Mérida es protectora y muy fiel. Su lealtad la convierte en la líder de la manada.",
-      photo: "/images/pets/dog4.jpeg",
-      personalityTraits: ["Fuerte", "Leal", "Protectora"]
+        "Mila es muy cariñosa y le encanta recibir mimos. Jamás se cansa de jugar a la pelota.",
+      photo: "/images/pets/mila.jpeg",
+      personalityTraits: ["Tranquila", "Educada"]
     },
     {
-      name: "Wanda",
-      breed: "Poodle Toy",
+      name: "Butty",
+      breed: "Poodle toy ",
+      age: "1 años",
+      owner: "Reinaldo",
+      description:
+        "Butty es un gran companero de juegos. Su energía y curiosidad lo mantienen siempre en movimiento.",
+      photo: "/images/pets/butty.jpeg",
+      personalityTraits: ["Aventurero", "Curioso"]
+    },
+    {
+      name: "Ted ",
+      breed: "Yuso",
       age: "2 años",
-      owner: "Sandra López",
+      owner: "Echeverría",
       description:
-        "Wanda disfruta de la tranquilidad. Le encanta estar en brazos y dejarse consentir.",
-      photo: "/images/pets/dog5.jpeg",
-      personalityTraits: ["Tranquila", "Dulce", "Pacífica"]
+        "Ted es un gran companero. Le encanta jugar y ser acariciado.",
+      photo: "/images/pets/ted.jpeg",
+      personalityTraits: ["Tierno", "Obediente"]
     },
     {
       name: "Bingo",
-      breed: "Beagle",
-      age: "3 años",
-      owner: "Álvaro Rosas",
+      breed: "Poodle toy",
+      age: "2 años",
+      owner: "Marlon",
       description:
         "Bingo es súper enérgico. Ama las aventuras y perseguir su juguete preferido.",
-      photo: "/images/pets/dog6.jpeg",
-      personalityTraits: ["Enérgico", "Explorador", "Tenaz"]
+      photo: "/images/pets/bingo.jpeg",
+      personalityTraits: ["Enérgico", "Jugueton", "Cariñoso"]
     },
     {
-      name: "Draco",
-      breed: "Pitbull",
+      name: "Wanda",
+      breed: "Bichon frise toy",
       age: "2 años",
       owner: "Rodrigo Estévez",
       description:
-        "Draco es noble y muy protector con su familia. Disfruta las siestas largas al sol.",
-      photo: "/images/pets/dog7.jpeg",
-      personalityTraits: ["Noble", "Protector", "Calmado"]
+        "Wanda es una gran amiga. Le encanta jugar y ser acariciada.",
+      photo: "/images/pets/wanda.jpeg",
+      personalityTraits: ["Tierna", "Coqueta"]
+    },
+    {
+      name: "Mérida",
+      breed: "Yusa",
+      age: "2 años",
+      owner: "Luis Miguel",
+      description:
+        "Mérida es una gran amiga. Le encanta jugar y ser acariciada.",
+      photo: "/images/pets/merida.jpeg",
+      personalityTraits: ["Educada", "Tranquila", "Tierna"]
     }
   ];
 

@@ -1,36 +1,46 @@
 ---
+// Importación del layout principal que contiene la estructura base de la página
 import Layout from "../layouts/Layout.astro";
 
-/* Hero con Parallax */
+// Componente Hero con efecto parallax - Sección principal que se muestra al inicio
+// con efecto de desplazamiento de fondo
 import ParallaxHero from "../components/ParallaxHero";
 
-/* Información general */
+// Componentes para mostrar la información general del evento y la ubicación
+// InfoSection: Detalles del evento
+// LocationSection: Mapa y dirección del lugar
 import { InfoSection, LocationSection } from "../components/InfoSection.jsx";
 
-
-/* Sección de Actividades */
+// Componente que muestra las actividades planificadas para el evento
+// Lista todas las actividades y sus horarios
 import ActivitySection from "../components/ActivitySection";
 
-/* Organización del Evento */
+// Componente que muestra información sobre la organización del evento
+// Incluye detalles sobre los organizadores y contactos
 import OrganizationSection from "../components/OrganizationSection";
 
-/* Sección de Mascotas */
+// Sección dedicada a información sobre mascotas
+// Políticas y reglas sobre mascotas en el evento
 import PetsSection from "../components/pagina/PetsSection";
 
-/* Confirmación (pago y asistencia) */
+// Componentes relacionados con la confirmación de asistencia
+// ConfirmationSection: Formulario de confirmación y detalles de pago
+// PartialFAQ: Preguntas frecuentes sobre la confirmación
 import ConfirmationSection from "../components/pagina/ConfirmationSection";
 import PartialFAQ from "../components/pagina/PartialFAQ";
 ---
 
 <Layout>
+  {/* Contenedor principal con altura mínima para ocupar toda la pantalla */}
   <div class="min-h-[calc(100vh-4rem)]">
-    <!-- 1. Hero Section -->
+    {/* 1. Hero Section - Primera vista que verán los usuarios */}
     <ParallaxHero client:load />
 
-    <!-- 2. Sección de Información (Info + FAQ + Location) -->
+    {/* 2. Sección de Información General */}
+    {/* Incluye detalles del evento y ubicación con gradiente de fondo */}
     <section id="info" class="py-12 sm:py-20 bg-gradient-to-b from-gray-900 to-blue-900">
       <div class="max-w-6xl mx-auto px-4">
-        <!-- Encabezado de la Sección -->
+        {/* Encabezado de la Sección */}
         <div class="text-center mb-10 sm:mb-16">
           <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">
             Información del Evento
@@ -40,21 +50,20 @@ import PartialFAQ from "../components/pagina/PartialFAQ";
           </p>
         </div>
 
-        <!-- Contenido principal (info, FAQ, location) -->
+        {/* Contenido principal (info, FAQ, location) */}
         <div class="grid md:grid-cols-2 gap-8">
-          <!-- Columna de Info y FAQ -->
+          {/* Columna de Info y FAQ */}
           <div class="space-y-8">
-            <!-- ... InfoSections ... -->
+            {/* Sección de detalles del evento */}
             <InfoSection client:visible />
 
-
-            <!-- Ubicación en modo responsive (solo visible en móvil) -->
+            {/* Ubicación en modo responsive (solo visible en móvil) */}
             <div class="block md:hidden">
               <LocationSection client:visible />
             </div>
           </div>
 
-          <!-- Columna Mapa (solo visible en escritorio) -->
+          {/* Columna Mapa (solo visible en escritorio) */}
           <div class="hidden md:block md:sticky md:top-8">
             <LocationSection client:visible />
           </div>
@@ -62,12 +71,14 @@ import PartialFAQ from "../components/pagina/PartialFAQ";
       </div>
     </section>
 
-    <!-- 3. Sección de Actividades -->
+    {/* 3. Sección de Actividades */}
+    {/* Muestra las actividades planificadas para el evento */}
     <section id="actividades" class="py-12 sm:py-16 bg-gradient-to-b from-yellow-50 to-yellow-100">
       <ActivitySection client:visible />
     </section>
 
-    <!-- 4. Sección de Organización -->
+    {/* 4. Sección de Organización */}
+    {/* Incluye detalles sobre los organizadores y contactos */}
     <section id="organizacion" class="py-12 bg-gradient-to-b
         from-[#cbfcfc]
         via-[#72e1e1]
@@ -77,13 +88,14 @@ import PartialFAQ from "../components/pagina/PartialFAQ";
       </div>
     </section>
 
-
-    <!-- 5. Sección de Mascotas -->
+    {/* 5. Sección de Mascotas */}
+    {/* Políticas y reglas sobre mascotas en el evento */}
     <section id="mascotas" class="py-12 bg-gradient-to-b from-[#cbfcfc] to-[#40E0D0]">
       <PetsSection client:visible />
     </section>
 
-    <!-- 6. Sección de Confirmación -->
+    {/* 6. Sección de Confirmación */}
+    {/* Formulario de confirmación y detalles de pago */}
     <section id="confirmar" class="py-12 sm:py-16 bg-gradient-to-b from-blue-900 to-gray-900">
       <ConfirmationSection client:visible />
     </section>

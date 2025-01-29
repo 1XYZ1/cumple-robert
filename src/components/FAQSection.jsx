@@ -65,10 +65,7 @@ const FAQSection = () => {
       question: "¿Habrá estacionamiento disponible?",
       answer: "Sí, contamos con estacionamiento seguro..."
     },
-    {
-      question: "¿Qué pasa si tengo restricciones alimentarias?",
-      answer: "Contaremos con opciones vegetarianas y sin gluten..."
-    },
+    
     {
       question: "¿El evento es apto para niños?",
       answer: "¡Sí! Tendremos actividades especiales para todas las edades..."

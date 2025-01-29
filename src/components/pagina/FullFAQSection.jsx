@@ -66,12 +66,6 @@ De esta manera garantizamos espacio y comida para todos.`
 Recomendamos llegar con tiempo para ubicarte cómodamente, sobre todo si vienes en grupo.`
     },
     {
-      question: "¿Qué pasa si tengo restricciones alimentarias?",
-      answer: `Tendremos opciones vegetarianas, veganas y sin gluten disponibles.
-Sin embargo, te recomendamos indicarnos cualquier restricción alimentaria específica
-cuando confirmes tu asistencia, para poder atenderte mejor.`
-    },
-    {
       question: "¿El evento es apto para niños?",
       answer: `¡Totalmente! Contamos con una zona infantil y piscina supervisada.
 También habrá actividades lúdicas y un espacio para que los niños puedan jugar con seguridad.`
@@ -95,15 +89,25 @@ para animar la fiesta. Puedes sugerir tu playlist preferida al organizador.`
     },
     {
       question: "¿Puedo llevar mi propio alcohol?",
-      answer: `Habrá barra de tragos y cerveza disponibles, pero si deseas traer algo especial,
-por favor consúltalo con el organizador para verificar logística
-y evitar sobrepasar las normas del recinto.`
+      answer: `Deben llevar su propio alcoho. `
     },
     {
       question: "¿Cómo confirmo mi asistencia?",
       answer: `A través de la sección de Confirmación en la página principal
 o por WhatsApp con el organizador. Indica cuántas personas vendrán contigo.`
-    }
+    }, 
+    {
+      question: "¿Cuál es el costo del evento?",
+      answer: `El costo del alquiler del recinto es de $8.000. No incluye los gastos de comida y bebida.`},
+      {
+        question: "¿Cuál es el horario del evento?",
+        answer: `El evento se llevará a cabo de 10 AM a 7 PM.`},
+        {
+          question: "¿Qué actividades se realizarán durante el evento?",
+          answer: `Durante el evento, habrá actividades lúdicas y una zona infantil.
+          Adicionalmente, contaremos con un espacio para que los niños puedan jugar con seguridad.
+          También habrá una piscina supervisada para que los adultos puedan relajarse.`
+        }
   ];
 
   return (
