@@ -28,76 +28,103 @@ import PetsSection from "../components/pagina/PetsSection";
 // PartialFAQ: Preguntas frecuentes sobre la confirmación
 import ConfirmationSection from "../components/pagina/ConfirmationSection";
 import PartialFAQ from "../components/pagina/PartialFAQ";
+
+import CreditosPreview from '../components/CreditosPreview';
 ---
 
 <Layout>
-  {/* Contenedor principal con altura mínima para ocupar toda la pantalla */}
-  <div class="min-h-[calc(100vh-4rem)]">
-    {/* 1. Hero Section - Primera vista que verán los usuarios */}
-    <ParallaxHero client:load />
+  <div class="relative min-h-screen bg-gradient-to-b from-yellow-50 via-white to-yellow-50/50">
+    {/* Decoración de fondo */}
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute top-0 w-full h-full bg-[url('/images/pattern-light.svg')] opacity-5"></div>
+      <div class="absolute -top-1/2 -right-1/2 w-[1000px] h-[1000px] bg-gradient-radial from-yellow-500/10 via-transparent to-transparent blur-3xl"></div>
+      <div class="absolute -bottom-1/2 -left-1/2 w-[1000px] h-[1000px] bg-gradient-radial from-cyan-500/10 via-transparent to-transparent blur-3xl"></div>
+    </div>
 
-    {/* 2. Sección de Información General */}
-    {/* Incluye detalles del evento y ubicación con gradiente de fondo */}
-    <section id="info" class="py-12 sm:py-20 bg-gradient-to-b from-gray-900 to-blue-900">
-      <div class="max-w-6xl mx-auto px-4">
-        {/* Encabezado de la Sección */}
-        <div class="text-center mb-10 sm:mb-16">
-          <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">
-            Información del Evento
-          </h2>
-          <p class="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
-            Todo lo que necesitas saber para disfrutar de este día especial
-          </p>
-        </div>
+    {/* Contenido principal */}
+    <div class="relative">
+      {/* Contenedor principal con altura mínima para ocupar toda la pantalla */}
+      <div class="min-h-[calc(100vh-4rem)]">
+        {/* 1. Hero Section - Primera vista que verán los usuarios */}
+        <ParallaxHero client:load />
 
-        {/* Contenido principal (info, FAQ, location) */}
-        <div class="grid md:grid-cols-2 gap-8">
-          {/* Columna de Info y FAQ */}
-          <div class="space-y-8">
-            {/* Sección de detalles del evento */}
-            <InfoSection client:visible />
+        {/* 2. Sección de Información General */}
+        {/* Incluye detalles del evento y ubicación con gradiente de fondo */}
+        <section id="info" class="py-12 sm:py-20 bg-gradient-to-b from-gray-900 to-blue-900">
+          <div class="max-w-6xl mx-auto px-4">
+            {/* Encabezado de la Sección */}
+            <div class="text-center mb-10 sm:mb-16">
+              <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">
+                Información del Evento
+              </h2>
+              <p class="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
+                Todo lo que necesitas saber para disfrutar de este día especial
+              </p>
+            </div>
 
-            {/* Ubicación en modo responsive (solo visible en móvil) */}
-            <div class="block md:hidden">
-              <LocationSection client:visible />
+            {/* Contenido principal (info, FAQ, location) */}
+            <div class="grid md:grid-cols-2 gap-8">
+              {/* Columna de Info y FAQ */}
+              <div class="space-y-8">
+                {/* Sección de detalles del evento */}
+                <InfoSection client:visible />
+
+                {/* Ubicación en modo responsive (solo visible en móvil) */}
+                <div class="block md:hidden">
+                  <LocationSection client:visible />
+                </div>
+              </div>
+
+              {/* Columna Mapa (solo visible en escritorio) */}
+              <div class="hidden md:block md:sticky md:top-8">
+                <LocationSection client:visible />
+              </div>
             </div>
           </div>
+        </section>
 
-          {/* Columna Mapa (solo visible en escritorio) */}
-          <div class="hidden md:block md:sticky md:top-8">
-            <LocationSection client:visible />
+        {/* 3. Sección de Actividades */}
+        <section id="actividades" class="py-12 sm:py-16 bg-gradient-to-b from-yellow-50 via-yellow-100/70 to-[#cbfcfc]/90">
+          <ActivitySection client:visible />
+        </section>
+
+        {/* 4. Sección de Organización */}
+        <!-- <section id="organizacion" class="py-12 bg-gradient-to-b
+            from-[#cbfcfc]/90
+            via-[#72e1e1]
+            to-[#40E0D0]/80">
+          <div class="max-w-6xl mx-auto px-4">
+            <OrganizationSection client:visible />
           </div>
-        </div>
+        </section> -->
+
+        {/* 5. Sección de Mascotas */}
+        <section id="mascotas" class="py-16 bg-gradient-to-b from-[#40E0D0]/80 via-gray-900 to-blue-900/90 relative">
+          {/* Decoración de fondo */}
+          <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute top-0 w-full h-64 bg-gradient-to-b from-[#40E0D0]/20 to-transparent"></div>
+            <div class="absolute -top-1/2 -right-1/2 w-[800px] h-[800px] bg-purple-500/10 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-1/2 -left-1/2 w-[800px] h-[800px] bg-pink-500/10 rounded-full blur-3xl"></div>
+          </div>
+          <PetsSection client:visible />
+        </section>
+
+        {/* 6. Sección de Confirmación */}
+        <section id="confirmar" class="py-12 sm:py-16 bg-gradient-to-b from-blue-900/90 via-gray-900 to-gray-900">
+          <ConfirmationSection client:visible />
+        </section>
+
+        {/* 7. Sección de Créditos */}
+        <section class="relative bg-gradient-to-b from-gray-900 via-gray-900 to-indigo-900/30">
+          {/* Decoración de fondo */}
+          <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute -top-1/2 -right-1/2 w-[800px] h-[800px] bg-purple-500/10 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-1/2 -left-1/2 w-[800px] h-[800px] bg-pink-500/10 rounded-full blur-3xl"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-gray-900/50 via-transparent to-transparent"></div>
+          </div>
+          <CreditosPreview client:visible />
+        </section>
       </div>
-    </section>
-
-    {/* 3. Sección de Actividades */}
-    {/* Muestra las actividades planificadas para el evento */}
-    <section id="actividades" class="py-12 sm:py-16 bg-gradient-to-b from-yellow-50 to-yellow-100">
-      <ActivitySection client:visible />
-    </section>
-
-    {/* 4. Sección de Organización */}
-    {/* Incluye detalles sobre los organizadores y contactos */}
-    <section id="organizacion" class="py-12 bg-gradient-to-b
-        from-[#cbfcfc]
-        via-[#72e1e1]
-        to-[#40E0D0]">
-      <div class="max-w-6xl mx-auto px-4">
-        <OrganizationSection client:visible />
-      </div>
-    </section>
-
-    {/* 5. Sección de Mascotas */}
-    {/* Políticas y reglas sobre mascotas en el evento */}
-    <section id="mascotas" class="py-12 bg-gradient-to-b from-[#cbfcfc] to-[#40E0D0]">
-      <PetsSection client:visible />
-    </section>
-
-    {/* 6. Sección de Confirmación */}
-    {/* Formulario de confirmación y detalles de pago */}
-    <section id="confirmar" class="py-12 sm:py-16 bg-gradient-to-b from-blue-900 to-gray-900">
-      <ConfirmationSection client:visible />
-    </section>
+    </div>
   </div>
 </Layout>

@@ -1,114 +1,134 @@
 import { onMount, createSignal } from "solid-js";
 
 const ConfirmationSection = () => {
-  // Ejemplo de número de personas confirmadas (puedes obtenerlo dinámicamente si lo deseas)
   const [confirmedCount, setConfirmedCount] = createSignal(23);
 
-  const handleWhatsAppClick = () => {
-    const message = encodeURIComponent(
-      "¡Hola! Quiero confirmar mi asistencia al Pool Party de Robert."
-    );
-    window.open(`https://wa.me/+56912345678?text=${message}`, "_blank");
-  };
-
   return (
-    <section class="py-16 bg-gradient-to-b from-blue-900 to-gray-900 relative">
-      <div class="max-w-5xl mx-auto px-4">
-        {/* Encabezado */}
-        <div class="text-center mb-12">
-          <h2 class="text-4xl font-extrabold text-white mb-4 drop-shadow-lg">
-            Confirma tu Asistencia
-          </h2>
-          <p class="text-xl text-gray-300">
-            ¡No te pierdas esta increíble celebración!
-          </p>
-
-          {/* Nueva sección que muestra cuántas personas ya han confirmado */}
-          <div class="mt-4 inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-2 text-sm text-green-300 shadow-sm">
-            <i class="fas fa-users"></i>
-            <span>Ya {confirmedCount()} invitados han confirmado</span>
-          </div>
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="relative bg-gray-900/80 backdrop-blur-lg rounded-3xl p-8 border border-purple-500/20 overflow-hidden shadow-2xl">
+        {/* Decoración de fondo */}
+        <div class="absolute inset-0 overflow-hidden">
+          <div class="absolute -top-1/2 -right-1/2 w-[500px] h-[500px] bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full blur-3xl"></div>
+          <div class="absolute -bottom-1/2 -left-1/2 w-[500px] h-[500px] bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-full blur-3xl"></div>
         </div>
 
-        {/* Contenedor principal */}
-        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 shadow-xl">
-          {/* Información del evento */}
-          <div class="mb-10">
-            <h3 class="text-2xl font-bold text-white mb-3">Detalles de Pago</h3>
-            <div class="space-y-4 text-gray-300">
-              <p class="flex items-start gap-2">
-                <i class="fas fa-dollar-sign mt-1 text-[#40E0D0]"></i>
-                <span>
-                  <strong>Valor:</strong> $8.000 por persona
-                </span>
-              </p>
-              <p class="flex items-start gap-2">
-                <i class="fas fa-child mt-1 text-[#40E0D0]"></i>
-                <span>
-                  <strong>Niños:</strong> Menores de 5 años no pagan
-                </span>
-              </p>
+        <div class="relative z-10">
+          {/* Encabezado */}
+          <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent mb-4">
+              Confirma tu Asistencia
+            </h2>
+            <p class="text-lg text-gray-200 max-w-2xl mx-auto">
+              ¡No te pierdas esta increíble celebración!
+            </p>
+            {/* Contador de confirmaciones */}
+            <div class="mt-4 inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-2 text-green-300 shadow-sm">
+              <i class="fas fa-users"></i>
+              <span>Ya {confirmedCount()} invitados han confirmado</span>
             </div>
           </div>
 
-          {/* Datos bancarios */}
-          <div class="bg-white/5 rounded-xl p-6 mb-8 shadow-inner">
-            <h4 class="text-xl font-semibold text-white mb-4">
-              Datos de Transferencia
-            </h4>
-            <div class="space-y-3 text-gray-300 leading-relaxed">
-              <p class="flex items-center gap-2">
-                <i class="fas fa-user text-[#40E0D0]"></i>
-                <span>
-                  <strong>Nombre:</strong> Rober Jose Gil Morillo
-                </span>
-              </p>
-              <p class="flex items-center gap-2">
-                <i class="fas fa-id-card text-[#40E0D0]"></i>
-                <span>
-                  <strong>RUT:</strong> 25751711K
-                </span>
-              </p>
-              <p class="flex items-center gap-2">
-                <i class="fas fa-university text-[#40E0D0]"></i>
-                <span>
-                  <strong>Tipo de Cuenta:</strong> Cuenta Vista Mercado Pago
-                </span>
-              </p>
-              <p class="flex items-center gap-2">
-                <i class="fas fa-credit-card text-[#40E0D0]"></i>
-                <span>
-                  <strong>N° de Cuenta:</strong> 1041660954
-                </span>
-              </p>
-              <p class="flex items-center gap-2">
-                <i class="fas fa-envelope text-[#40E0D0]"></i>
-                <span>
-                  <strong>Email:</strong> robertgil22@gmail.com
-                </span>
+          {/* Grid de información */}
+          <div class="grid md:grid-cols-2 gap-8 mb-12">
+            {/* Columna de Información de Pago */}
+            <div class="space-y-6">
+              <div class="bg-white/10 rounded-xl p-6 backdrop-blur-sm border border-white/5 shadow-xl">
+                <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-green-400 to-emerald-400 flex items-center justify-center text-white text-2xl mb-4 shadow-lg">
+                  <i class="fas fa-money-bill-wave"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-4">Información de Pago</h3>
+                <div class="space-y-4">
+                  <div class="bg-white/5 p-4 rounded-lg">
+                    <p class="text-gray-300 mb-2">Nombre:</p>
+                    <p class="text-white font-semibold">Rober Jose Gil Morillo</p>
+                  </div>
+                  <div class="bg-white/5 p-4 rounded-lg">
+                    <p class="text-gray-300 mb-2">RUT:</p>
+                    <p class="text-white font-semibold">25751711K</p>
+                  </div>
+                  <div class="bg-white/5 p-4 rounded-lg">
+                    <p class="text-gray-300 mb-2">Tipo de Cuenta:</p>
+                    <p class="text-white font-semibold">Cuenta Vista Mercado Pago</p>
+                  </div>
+                  <div class="bg-white/5 p-4 rounded-lg">
+                    <p class="text-gray-300 mb-2">N° de Cuenta:</p>
+                    <p class="text-white font-semibold">1041660954</p>
+                  </div>
+                  <div class="bg-white/5 p-4 rounded-lg">
+                    <p class="text-gray-300 mb-2">Email:</p>
+                    <p class="text-white font-semibold">robertgil22@gmail.com</p>
+                  </div>
+                  <div class="bg-white/5 p-4 rounded-lg">
+                    <p class="text-gray-300 mb-2">Valor por persona:</p>
+                    <p class="text-white font-semibold">$8.000</p>
+                  </div>
+                  <div class="bg-white/5 p-4 rounded-lg">
+                    <p class="text-gray-300 mb-2">Niños:</p>
+                    <p class="text-white font-semibold">Menores de 5 años no pagan</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Columna de Pasos a Seguir */}
+            <div class="bg-white/10 rounded-xl p-6 backdrop-blur-sm border border-white/5 shadow-xl">
+              <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-400 to-indigo-400 flex items-center justify-center text-white text-2xl mb-4 shadow-lg">
+                <i class="fas fa-list-ol"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-4">Pasos a Seguir</h3>
+              <ul class="space-y-4">
+                <li class="flex items-start gap-4">
+                  <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-purple-300 font-bold shrink-0">
+                    1
+                  </div>
+                  <div>
+                    <h4 class="text-white font-semibold mb-1">Realiza la transferencia</h4>
+                    <p class="text-gray-300">Transfiere el monto correspondiente según el número de asistentes</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-4">
+                  <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-purple-300 font-bold shrink-0">
+                    2
+                  </div>
+                  <div>
+                    <h4 class="text-white font-semibold mb-1">Envía el comprobante</h4>
+                    <p class="text-gray-300">Comparte el comprobante de pago por WhatsApp</p>
+                  </div>
+                </li>
+                <li class="flex items-start gap-4">
+                  <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-purple-300 font-bold shrink-0">
+                    3
+                  </div>
+                  <div>
+                    <h4 class="text-white font-semibold mb-1">Confirma asistentes</h4>
+                    <p class="text-gray-300">Indica el número de personas que asistirán y sus nombres</p>
+                  </div>
+                </li>
+              </ul>
+
+              {/* Nota adicional */}
+              <p class="text-gray-400 text-sm mt-6">
+                Por favor, confirma tu asistencia y la de tus acompañantes con anticipación para una mejor organización.
               </p>
             </div>
           </div>
 
           {/* Botón de WhatsApp */}
-          <div class="text-center">
-            <button
-              onClick={handleWhatsAppClick}
-              class="relative inline-flex items-center gap-3 bg-green-500 hover:bg-green-600 text-white font-bold px-6 py-4 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 active:scale-95 text-lg"
+          <div class="flex justify-center">
+            <a
+              href="https://wa.me/56945885600"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group/btn relative inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 text-white font-semibold text-lg hover:from-green-600 hover:to-emerald-600 transition-all duration-300 shadow-lg"
             >
-              <i class="fab fa-whatsapp text-2xl"></i>
+              <i class="fab fa-whatsapp text-xl"></i>
               <span>Confirmar Asistencia por WhatsApp</span>
-            </button>
+              <div class="absolute inset-0 rounded-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
+            </a>
           </div>
-
-          {/* Nota adicional */}
-          <p class="text-gray-400 text-sm text-center mt-6">
-            Por favor, confirma tu asistencia y la de tus acompañantes con
-            anticipación para una mejor organización.
-          </p>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

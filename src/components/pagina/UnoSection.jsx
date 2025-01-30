@@ -209,12 +209,7 @@ function UnoSection() {
             Reúne a tus amigos, prepara las cartas y demuestra tus habilidades en el clásico juego de UNO.
             ¡Nada mejor que la emoción de bajarte la última carta!
           </p>
-          <a
-            href="/reservar-uno"
-            class="inline-block bg-red-500 hover:bg-red-600 text-white font-semibold px-6 py-3 rounded-full transition"
-          >
-            ¡Juguemos!
-          </a>
+
         </div>
       </div>
     </div>

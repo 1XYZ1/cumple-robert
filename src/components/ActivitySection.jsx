@@ -76,7 +76,7 @@ const activities = [
       '⚡ Partidas rápidas y dinámicas',
       '🎉 Rondas eliminatorias con premios'
     ],
-    icon: 'fas fa-cards',
+    icon: 'fas fa-rotate',
     colorClasses: {
       bg: 'bg-purple-500',
       text: 'text-purple-800',
@@ -113,122 +113,128 @@ const ActivityCard = (props) => {
     yellow: {
       bg: 'bg-yellow-500',
       text: 'text-yellow-800',
-      card: 'bg-yellow-500/10',
+      card: 'bg-gradient-to-br from-yellow-500/10 to-orange-500/10',
       hover: 'hover:bg-yellow-600',
+      border: 'border-yellow-200/20',
+      shadow: 'shadow-yellow-500/10'
     },
     blue: {
       bg: 'bg-blue-500',
       text: 'text-blue-800',
-      card: 'bg-blue-500/10',
+      card: 'bg-gradient-to-br from-blue-500/10 to-cyan-500/10',
       hover: 'hover:bg-blue-600',
+      border: 'border-blue-200/20',
+      shadow: 'shadow-blue-500/10'
     },
     red: {
       bg: 'bg-red-500',
       text: 'text-red-800',
-      card: 'bg-red-500/10',
+      card: 'bg-gradient-to-br from-red-500/10 to-pink-500/10',
       hover: 'hover:bg-red-600',
+      border: 'border-red-200/20',
+      shadow: 'shadow-red-500/10'
     },
     green: {
       bg: 'bg-emerald-500',
       text: 'text-emerald-800',
-      card: 'bg-emerald-500/10',
+      card: 'bg-gradient-to-br from-emerald-500/10 to-teal-500/10',
       hover: 'hover:bg-emerald-600',
+      border: 'border-emerald-200/20',
+      shadow: 'shadow-emerald-500/10'
     },
     purple: {
       bg: 'bg-purple-500',
       text: 'text-purple-800',
-      card: 'bg-purple-500/10',
+      card: 'bg-gradient-to-br from-purple-500/10 to-pink-500/10',
       hover: 'hover:bg-purple-600',
+      border: 'border-purple-200/20',
+      shadow: 'shadow-purple-500/10'
     },
     indigo: {
       bg: 'bg-indigo-500',
       text: 'text-indigo-800',
-      card: 'bg-indigo-500/10',
+      card: 'bg-gradient-to-br from-indigo-500/10 to-blue-500/10',
       hover: 'hover:bg-indigo-600',
+      border: 'border-indigo-200/20',
+      shadow: 'shadow-indigo-500/10'
     }
   };
 
   const colors = colorClasses[props.color];
 
   return (
-
-
-
-
-
-    <div class={`relative group ${colors.card} rounded-xl overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl`}>
-      {/* Contenedor de imagen con altura fija */}
+    <div class={`group relative ${colors.card} rounded-2xl overflow-hidden backdrop-blur-sm border ${colors.border} shadow-xl ${colors.shadow} transition-all duration-300 hover:scale-[1.02]`}>
       <a href={`/actividades/${props.id}`} class="block">
-      <div class="aspect-[4/3] relative overflow-hidden">
-        <img
-          src={props.image}
-          alt={props.title}
-          class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-        />
-        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/30" />
-      </div>
+        <div class="aspect-[4/3] relative overflow-hidden">
+          <img
+            src={props.image}
+            alt={props.title}
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          />
+          <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/10 to-black/50" />
 
-      </a>
-      {/* Contenido */}
-      <div class="p-6">
-        {/* Título e Icono */}
-        <div class="flex items-center justify-center gap-3 mb-3">
-          <i class={`${props.icon} ${colors.text} text-2xl`}></i>
-          <h3 class={`text-2xl font-bold ${colors.text}`}>
+          {/* Icono flotante */}
+          <div class={`absolute top-4 right-4 w-12 h-12 ${colors.bg} rounded-full flex items-center justify-center text-white text-xl transform transition-all duration-300 group-hover:scale-110 shadow-lg backdrop-blur-sm`}>
+            <i class={props.icon}></i>
+          </div>
+        </div>
+
+        <div class="p-6">
+          <h3 class={`text-2xl font-bold ${colors.text} mb-2 flex items-center gap-2`}>
             {props.title}
           </h3>
+
+          <p class={`${colors.text} mb-4`}>
+            {props.description}
+          </p>
+
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              setIsExpanded(!isExpanded());
+            }}
+            class={`w-full flex items-center justify-center gap-2 py-2 px-4 rounded-xl text-white transition-all duration-300 ${colors.bg} ${colors.hover} transform hover:scale-105 backdrop-blur-sm`}
+          >
+            <span>Ver detalles</span>
+            <i
+              class={`fas fa-chevron-down transition-transform duration-300 ${isExpanded() ? 'rotate-180' : ''}`}
+            ></i>
+          </button>
+
+          <div
+            class={`overflow-hidden transition-all duration-300 ${
+              isExpanded() ? 'max-h-96 mt-4' : 'max-h-0'
+            }`}
+          >
+            <ul class="space-y-3">
+              {props.details.map((detail) => (
+                <li class={`flex items-center gap-2 ${colors.text}`}>
+                  {detail}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-
-        {/* Descripción */}
-        <p class={`text-center ${colors.text} mb-4`}>
-          {props.description}
-        </p>
-
-
-
-        {/* Botón Ver más */}
-        <button
-          class={`w-full flex items-center justify-center gap-2 py-2 px-4 rounded-lg text-white transition-all duration-300 ${colors.bg} ${colors.hover} transform hover:scale-105`}
-          onClick={() => setIsExpanded(!isExpanded())}
-        >
-          <span>Ver más</span>
-          <i
-            class={`fas fa-chevron-down transition-transform duration-300 ${isExpanded() ? 'rotate-180' : ''}`}
-          ></i>
-        </button>
-
-        {/* Panel expandible */}
-        <div
-          class={`overflow-hidden transition-all duration-300 ${
-            isExpanded() ? 'max-h-96 mt-4' : 'max-h-0'
-          }`}
-        >
-          <ul class="space-y-2">
-            {props.details.map((detail) => (
-              <li class={`flex items-center gap-2 ${colors.text}`}>
-                {detail}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-
+      </a>
     </div>
-
   );
 };
 
 const ActivitySection = () => {
   return (
-    <section
-      class="py-12 sm:py-16 bg-gradient-to-b from-yellow-50 to-yellow-100 text-black"
-      aria-labelledby="activities-title"
-    >
-      <div class="max-w-screen-lg mx-auto px-4 sm:px-6">
+    <section class="relative py-12 sm:py-16" aria-labelledby="activities-title">
+      {/* Decoración de fondo */}
+      <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-0 w-full h-full bg-[url('/images/pattern-light.svg')] opacity-5"></div>
+        <div class="absolute -top-1/2 -right-1/2 w-[1000px] h-[1000px] bg-gradient-radial from-yellow-500/20 via-transparent to-transparent blur-3xl"></div>
+        <div class="absolute -bottom-1/2 -left-1/2 w-[1000px] h-[1000px] bg-gradient-radial from-cyan-500/20 via-transparent to-transparent blur-3xl"></div>
+      </div>
+
+      <div class="relative max-w-screen-lg mx-auto px-4 sm:px-6">
         <div class="text-center mb-8 sm:mb-12">
           <h2
             id="activities-title"
-            class="text-3xl sm:text-4xl md:text-5xl font-bold text-yellow-800 mb-4"
+            class="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-yellow-600 to-yellow-800 bg-clip-text text-transparent mb-4"
           >
             Actividades Destacadas
           </h2>
@@ -242,16 +248,6 @@ const ActivitySection = () => {
             {activity => <ActivityCard {...activity} />}
           </For>
         </div>
-
-        {/* <div class="text-center mt-8 sm:mt-12">
-          <a
-            href="/actividades"
-            class="inline-flex items-center justify-center gap-2 bg-yellow-500 text-white px-6 sm:px-8 py-3 rounded-full hover:bg-yellow-600 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2"
-          >
-            <span>Ver Todas las Actividades</span>
-            <i class="fas fa-arrow-right" aria-hidden="true"></i>
-          </a>
-        </div> */}
       </div>
     </section>
   );

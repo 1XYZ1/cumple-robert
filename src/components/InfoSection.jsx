@@ -249,7 +249,7 @@ const LocationSection = () => {
       <div className="rounded-lg overflow-hidden shadow-lg mb-6">
         <iframe
           className="w-full h-[250px] sm:h-[300px]"
-          src="https://www.google.com/maps/embed?pb=..."
+          src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3336.639371795582!2d-70.70093602431751!3d-33.249749973469676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzPCsDE0JzU5LjEiUyA3MMKwNDEnNTQuMSJX!5e0!3m2!1ses-419!2scl!4v1738196095526!5m2!1ses-419!2scl"
           allowFullScreen=""
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
@@ -281,14 +281,14 @@ const LocationSection = () => {
           hoverColor="hover:bg-green-700"
         />
         <LocationButton
-          href="https://maps.google.com/?q=-33.12345,-70.12345"
+          href="https://maps.app.goo.gl/c71iBCXequxoy7bz7?g_st=com.google.maps.preview.copy"
           icon="fas fa-map-marker-alt"
           text="Google Maps"
           bgColor="bg-red-600"
           hoverColor="hover:bg-red-700"
         />
         <LocationButton
-          href="https://www.waze.com/ul?ll=-33.12345,-70.12345&navigate=yes"
+          href="https://waze.com/ul/h66jdz5p40"
           icon="fab fa-waze"
           text="Abrir en Waze"
           bgColor="bg-blue-500"
