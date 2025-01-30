@@ -2,6 +2,7 @@
 import Lightbox from "../../components/Lightbox"
 import Layout from "../../layouts/Layout.astro"
 import { jugadores } from "../../data/jugadores";
+import PlayersSection from "../../components/pagina/PlayersSection";
 title: "Fútbol"
 
 const robertImages = [
@@ -32,209 +33,195 @@ const portalesImages = [
 ---
 
 <Layout>
+  <section class="min-h-screen relative">
+    {/* Fondo con gradientes y efectos */}
+    <div class="absolute inset-0 bg-gradient-to-b from-gray-950 via-slate-900 to-gray-950"></div>
 
-  <a
-  href="/#actividades"
-  class="fixed top-8 left-8 p-4 bg-gray-900/50 hover:bg-gray-900/80 text-white rounded-full backdrop-blur-sm transition-all hover:scale-110 z-50 border border-white/10"
->
-  <i class="fas fa-home text-xl"></i>
-</a>
-  <section class="py-16 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
-    <div class="max-w-7xl mx-auto px-4">
-      <div class="mb-12 text-center space-y-4">
-        <h2 class="text-4xl font-bold text-white font-montserrat relative inline-block">
-          Participantes
-        </h2>
-        <p class="text-gray-400 max-w-2xl mx-auto">
-          Conoce a los jugadores que formarán parte de este increíble torneo
+    {/* Efectos decorativos */}
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      {/* Círculos principales */}
+      <div class="absolute -top-1/2 -right-1/2 w-[1000px] h-[1000px] bg-gradient-to-br from-emerald-500/20 to-green-500/20 rounded-full blur-3xl animate-pulse"></div>
+      <div class="absolute -bottom-1/2 -left-1/2 w-[1000px] h-[1000px] bg-gradient-to-br from-green-500/20 to-emerald-500/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 2s"></div>
+
+      {/* Destellos cálidos sutiles */}
+      <div class="absolute top-1/3 right-1/4 w-[200px] h-[200px] bg-gradient-to-br from-amber-500/10 to-orange-500/5 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s; animation-duration: 6s;"></div>
+      <div class="absolute bottom-1/4 left-1/3 w-[250px] h-[250px] bg-gradient-to-br from-yellow-500/10 to-amber-500/5 rounded-full blur-3xl animate-pulse" style="animation-delay: 3s; animation-duration: 8s;"></div>
+    </div>
+
+    {/* Hero Section */}
+    <div class="relative h-[60vh] min-h-[500px] flex items-center justify-center">
+      {/* Imagen de fondo con overlay */}
+      <div class="absolute inset-0 overflow-hidden">
+        <img
+          src="/images/cesped.jpeg"
+          alt="Campo de fútbol"
+          class="w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-gradient-to-b from-gray-950/50 via-gray-900/50 to-gray-950/90 backdrop-blur-sm"></div>
+      </div>
+
+      {/* Contenido del Hero */}
+      <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+        <h1 class="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-green-100 to-white bg-clip-text text-transparent">
+          Fútbol en el Evento
+        </h1>
+        <p class="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
+          Prepárate para un torneo amistoso lleno de emoción, donde la diversión y el compañerismo son los protagonistas.
         </p>
-      </div>
-      <!-- SVG de la cancha (sin cambios) -->
-      <div class="mx-auto my-8 w-2/3">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 500 300"
-          width="100%"
-          height="auto"
-          class="mx-auto my-8"
+        <a
+          href="#info"
+          class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-green-500 via-emerald-500 to-green-500 text-white font-medium hover:shadow-lg hover:shadow-green-500/25 transition-all duration-300 transform hover:scale-105"
         >
-            <!-- Fondo del Campo -->
-            <rect x="0" y="0" width="500" height="300" fill="#5cb85c" />
-
-            <!-- Líneas de Marcado -->
-            <rect x="10" y="10" width="480" height="280" fill="none" stroke="#ffffff" stroke-width="2" />
-            <line x1="250" y1="10" x2="250" y2="290" stroke="#ffffff" stroke-width="2" />
-            <circle cx="250" cy="150" r="40" fill="none" stroke="#ffffff" stroke-width="2" />
-            <circle cx="250" cy="150" r="2" fill="#ffffff" />
-
-            <!-- Área de Penal Equipo 1 -->
-            <rect x="10" y="85" width="60" height="130" fill="none" stroke="#ffffff" stroke-width="2" />
-            <rect x="10" y="115" width="20" height="70" fill="none" stroke="#ffffff" stroke-width="2" />
-            <circle cx="30" cy="150" r="2" fill="#ffffff" />
-
-            <!-- Área de Penal Equipo 2 -->
-            <rect x="430" y="85" width="60" height="130" fill="none" stroke="#ffffff" stroke-width="2" />
-            <rect x="480" y="115" width="20" height="70" fill="none" stroke="#ffffff" stroke-width="2" />
-            <circle cx="470" cy="150" r="2" fill="#ffffff" />
-
-            <!-- Arcos -->
-            <line x1="10" y1="130" x2="0" y2="130" stroke="#ffffff" stroke-width="2" />
-            <line x1="10" y1="170" x2="0" y2="170" stroke="#ffffff" stroke-width="2" />
-            <line x1="490" y1="130" x2="500" y2="130" stroke="#ffffff" stroke-width="2" />
-            <line x1="490" y1="170" x2="500" y2="170" stroke="#ffffff" stroke-width="2" />
-          </svg>
-        </div>
-
-        <!-- Sección de Participantes -->
-        <section class="py-12 bg-gray-900">
-          <div class="max-w-6xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-8 text-white font-montserrat">Participantes</h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {jugadores.map((jugador) => (
-                <div class="p-1 rounded-3xl h-[600px]" style={`
-                  background: linear-gradient(45deg,
-                    ${jugador.equipoFavorito.colores.primario},
-                    ${jugador.equipoFavorito.colores.secundario}
-                  );
-                `}>
-                  <div class="rounded-2xl overflow-hidden bg-gray-900 h-full">
-                    {/* Header con imagen */}
-                    <div class="relative h-[300px] overflow-hidden">
-                      <img
-                        src={jugador.imagen}
-                        alt={jugador.nombre}
-                        class="w-full h-full object-cover"
-                      />
-                      <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
-                      <div class="absolute bottom-0 left-0 w-full p-4 text-white">
-                        <div class="flex items-center justify-between">
-                          <div>
-                            <h3 class="text-2xl font-bold">{jugador.nombre}</h3>
-                            <p class="text-lg italic opacity-90">"{jugador.apodo}"</p>
-                          </div>
-                          <img
-                            src={jugador.equipoFavorito.escudo}
-                            alt={jugador.equipoFavorito.nombre}
-                            class="w-16 h-16 rounded-full p-1 bg-white/10"
-                          />
-        </div>
+          <span>Ver Detalles</span>
+          <i class="fas fa-arrow-down animate-bounce"></i>
+        </a>
       </div>
+
+      {/* Botón de navegación */}
+      <nav class="absolute top-8 left-8">
+        <a
+          href="/"
+          class="group inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-all duration-300 backdrop-blur-sm"
+        >
+          <i class="fas fa-arrow-left group-hover:-translate-x-1 transition-transform"></i>
+          <span>Volver al inicio</span>
+        </a>
+      </nav>
     </div>
 
-    {/* Info del jugador */}
-    <div class="p-6 space-y-6">
-      {/* Datos básicos */}
-      <div class="grid grid-cols-2 gap-4">
-        <div class="flex items-center gap-2">
-          <i class="fas fa-tshirt text-lg" style={`color: ${jugador.equipoFavorito.colores.primario}`}></i>
-          <span class="text-white">#{jugador.numero}</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <i class="fas fa-running text-lg" style={`color: ${jugador.equipoFavorito.colores.primario}`}></i>
-          <span class="text-white">{jugador.posicion}</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <i class="fas fa-birthday-cake text-lg" style={`color: ${jugador.equipoFavorito.colores.primario}`}></i>
-          <span class="text-white">{jugador.edad} años</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <i class="fas fa-users text-lg" style={`color: ${jugador.equipoFavorito.colores.primario}`}></i>
-          <span class="text-white">{jugador.equipo}</span>
+    {/* Contenido Principal */}
+    <div id="info" class="relative max-w-7xl mx-auto px-4 py-16 space-y-16">
+      {/* Información General */}
+      <div class="bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/10">
+        <h2 class="text-3xl font-bold text-white mb-8 flex items-center gap-3">
+          <i class="fas fa-info-circle text-green-400"></i>
+          Información General
+        </h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          <div class="bg-white/5 p-6 rounded-2xl">
+            <span class="text-sm text-green-300 block mb-2">Duración</span>
+            <p class="text-xl text-white">20 min por partido</p>
+          </div>
+          <div class="bg-white/5 p-6 rounded-2xl">
+            <span class="text-sm text-green-300 block mb-2">Equipos</span>
+            <p class="text-xl text-white">5 vs 5</p>
+          </div>
+          <div class="bg-white/5 p-6 rounded-2xl">
+            <span class="text-sm text-green-300 block mb-2">Modalidad</span>
+            <p class="text-xl text-white">Todos contra todos</p>
+          </div>
+          <div class="bg-white/5 p-6 rounded-2xl">
+            <span class="text-sm text-green-300 block mb-2">Premios</span>
+            <p class="text-xl text-white">Top 3 equipos</p>
+          </div>
         </div>
       </div>
 
-      {/* Skills */}
-      <div class="space-y-3">
-        <h4 class="text-white font-semibold mb-2">Estadísticas</h4>
-        <div class="space-y-3">
-          {Object.entries(jugador.skills).map(([skill, value]) => (
-            <div class="flex items-center gap-3">
-              <span class="text-gray-400 text-sm w-20 capitalize">{skill}</span>
-              <div class="flex-1 bg-gray-700 rounded-full h-2">
-                <div
-                  class="h-full rounded-full"
-                  style={`
-                    width: ${value}%;
-                    background: linear-gradient(90deg,
-                      ${jugador.equipoFavorito.colores.primario},
-                      ${jugador.equipoFavorito.colores.secundario}
-                    );
-                  `}
-                ></div>
+      {/* Reglas del Juego */}
+      <div class="bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/10">
+        <h2 class="text-3xl font-bold text-white mb-8 flex items-center gap-3">
+          <i class="fas fa-scroll text-green-400"></i>
+          Reglas del Juego
+        </h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="space-y-4">
+            <h3 class="text-xl font-semibold text-white mb-4">Reglas Básicas</h3>
+            <ul class="space-y-3 text-gray-300">
+              <li class="flex items-start gap-2">
+                <i class="fas fa-check text-green-400 mt-1"></i>
+                <span>Partidos de 20 minutos sin descanso</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fas fa-check text-green-400 mt-1"></i>
+                <span>5 jugadores por equipo en cancha</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fas fa-check text-green-400 mt-1"></i>
+                <span>Cambios ilimitados</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fas fa-check text-green-400 mt-1"></i>
+                <span>Sin fuera de juego</span>
+              </li>
+            </ul>
+          </div>
+          <div class="space-y-4">
+            <h3 class="text-xl font-semibold text-white mb-4">Fair Play</h3>
+            <ul class="space-y-3 text-gray-300">
+              <li class="flex items-start gap-2">
+                <i class="fas fa-check text-green-400 mt-1"></i>
+                <span>Juego limpio y respeto mutuo</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fas fa-check text-green-400 mt-1"></i>
+                <span>Auto-arbitraje entre equipos</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fas fa-check text-green-400 mt-1"></i>
+                <span>Espíritu deportivo ante todo</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fas fa-check text-green-400 mt-1"></i>
+                <span>Diversión garantizada</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Jugadores */}
+      <div class="bg-white/5 backdrop-blur-sm rounded-3xl p-4 border border-white/10">
+        <h2 class="text-3xl font-bold text-white mb-8 flex items-center gap-3">
+          <i class="fas fa-users text-green-400"></i>
+          Jugadores
+        </h2>
+        <PlayersSection client:load />
+      </div>
+
+      {/* Premios y Reconocimientos */}
+      <div class="bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/10">
+        <h2 class="text-3xl font-bold text-white mb-8 flex items-center gap-3">
+          <i class="fas fa-trophy text-yellow-400"></i>
+          Premios
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Segundo Lugar */}
+          <div class="relative group order-2 md:order-1">
+            <div class="absolute inset-0 bg-gradient-to-br from-gray-500/20 to-gray-400/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
+            <div class="relative h-full bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 flex flex-col items-center justify-center text-center transition-transform duration-300 group-hover:scale-[1.02]">
+              <div class="w-16 h-16 rounded-full bg-gradient-to-br from-gray-400 to-gray-500 flex items-center justify-center text-white text-2xl mb-4">
+                <span>2°</span>
               </div>
-              <span class="text-white text-sm w-8">{value}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Estilo de juego */}
-      <div class="inline-block px-3 py-1 rounded-full" style={`
-        background: linear-gradient(90deg,
-          ${jugador.equipoFavorito.colores.primario}40,
-          ${jugador.equipoFavorito.colores.secundario}40
-        );
-      `}>
-        <span class="text-white text-sm">{jugador.estilo}</span>
-      </div>
-    </div>
-  </div>
-</div>
-              ))}
+              <h3 class="text-xl font-semibold text-white mb-2">Segundo Lugar</h3>
+              <p class="text-gray-300">Premio sorpresa</p>
             </div>
           </div>
-        </section>
 
-        <!-- Tarjetas de Jugadores/Partidos -->
+          {/* Primer Lugar */}
+          <div class="relative group order-1 md:order-2">
+            <div class="absolute inset-0 bg-gradient-to-br from-yellow-500/20 to-amber-400/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
+            <div class="relative h-full bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 flex flex-col items-center justify-center text-center transition-transform duration-300 group-hover:scale-[1.02]">
+              <div class="w-20 h-20 rounded-full bg-gradient-to-br from-yellow-400 to-amber-500 flex items-center justify-center text-white text-3xl mb-4">
+                <span>1°</span>
+              </div>
+              <h3 class="text-2xl font-semibold text-white mb-2">Campeón</h3>
+              <p class="text-yellow-300">Gran premio sorpresa</p>
+            </div>
+          </div>
 
-        <div class="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-12">
-          <Lightbox
-            images={robertImages}
-            mainImage={robertImages[0]}
-            title="Robert, el cumpleañero"
-            description="Destacando con jugadas increíbles"
-            client:visible
-          />
-          <Lightbox
-            images={broskyImages}
-            mainImage={broskyImages[0]}
-            title="Brosky FC"
-            description="Al fin ganan algo"
-            client:visible
-          />
-          <Lightbox
-            images={portalesImages}
-            mainImage={portalesImages[0]}
-            title="Portales FC"
-            description="Los mejores momentos"
-            client:visible
-          />
+          {/* Tercer Lugar */}
+          <div class="relative group order-3">
+            <div class="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-amber-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
+            <div class="relative h-full bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 flex flex-col items-center justify-center text-center transition-transform duration-300 group-hover:scale-[1.02]">
+              <div class="w-16 h-16 rounded-full bg-gradient-to-br from-orange-500 to-amber-600 flex items-center justify-center text-white text-2xl mb-4">
+                <span>3°</span>
+              </div>
+              <h3 class="text-xl font-semibold text-white mb-2">Tercer Lugar</h3>
+              <p class="text-gray-300">Premio sorpresa</p>
+            </div>
+          </div>
         </div>
-
-
-
-
-        {/* Mensaje para Robert */}
-  <section class="py-16 bg-gradient-to-b from-gray-900 to-gray-800">
-    <div class="max-w-3xl mx-auto px-4 text-center">
-      <h2 class="text-3xl font-bold mb-6 text-white">Para Nuestro Crack ⚽</h2>
-      <p class="text-gray-400 text-lg">
-        De todos tus amigos del fútbol, gracias por tantos partidos, risas y momentos inolvidables.
-        ¡Que este día sea tan especial como los goles que has marcado en nuestros corazones!
-      </p>
-    </div>
-  </section>
-
-      <!-- Próximamente -->
-      <div class="my-12 text-center">
-        <h2 class="text-3xl font-bold mb-4 text-green-700">Fotos Destacadas: Próximamente</h2>
-        <p class="text-gray-700">
-          Después del evento, subiremos las mejores jugadas y momentos inolvidables.
-        </p>
       </div>
     </div>
   </section>
-
-
 </Layout>
