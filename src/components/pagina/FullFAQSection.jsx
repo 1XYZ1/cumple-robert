@@ -4,39 +4,42 @@ function FAQItem(props) {
   const [isOpen, setIsOpen] = createSignal(false);
 
   return (
-    <div class="border-b border-[#008B8B]/20 last:border-b-0">
+    <div class="border-b border-white/10 last:border-b-0">
       <button
         class="
-          w-full py-3 px-2
+          w-full py-4 px-6
           flex justify-between items-center
           text-left
-          hover:bg-[#008B8B]/10
-          transition-colors
+          hover:bg-white/5
+          transition-all duration-300
+          rounded-xl
           focus:outline-none
-          rounded-lg
+          group
         "
         onClick={() => setIsOpen(!isOpen())}
         aria-expanded={isOpen()}
       >
-        <span class="text-base sm:text-lg font-semibold text-[#005B5B]">
+        <span class="text-base sm:text-lg font-medium text-white group-hover:text-cyan-300 transition-colors">
           {props.question}
         </span>
         <span
-          class={`transform transition-transform duration-300 ${
-            isOpen() ? "rotate-180" : ""
-          }`}
+          class={`
+            transform transition-transform duration-300
+            ${isOpen() ? "rotate-180" : ""}
+            text-cyan-300
+          `}
           aria-hidden="true"
         >
-          <i class="fas fa-chevron-down text-[#008B8B]"></i>
+          <i class="fas fa-chevron-down"></i>
         </span>
       </button>
       <div
         class={`overflow-hidden transition-all duration-300 ${
-          isOpen() ? "max-h-[600px] py-2" : "max-h-0"
+          isOpen() ? "max-h-[600px] py-4 px-6" : "max-h-0"
         }`}
         aria-hidden={!isOpen()}
       >
-        <p class="text-gray-800 px-2 whitespace-pre-wrap leading-relaxed mt-1">
+        <p class="text-gray-300 whitespace-pre-wrap leading-relaxed">
           {props.answer}
         </p>
       </div>
@@ -89,40 +92,55 @@ para animar la fiesta. Puedes sugerir tu playlist preferida al organizador.`
     },
     {
       question: "¿Puedo llevar mi propio alcohol?",
-      answer: `Deben llevar su propio alcoho. `
+      answer: `Sí, pueden llevar su propio alcohol. Por favor, usa termos o contenedores seguros,
+especialmente cerca de la piscina. No se permiten botellas de vidrio en el área de la piscina.`
     },
     {
       question: "¿Cómo confirmo mi asistencia?",
       answer: `A través de la sección de Confirmación en la página principal
 o por WhatsApp con el organizador. Indica cuántas personas vendrán contigo.`
-    }, 
+    },
     {
       question: "¿Cuál es el costo del evento?",
-      answer: `El costo del alquiler del recinto es de $8.000. No incluye los gastos de comida y bebida.`},
-      {
-        question: "¿Cuál es el horario del evento?",
-        answer: `El evento se llevará a cabo de 10 AM a 7 PM.`},
-        {
-          question: "¿Qué actividades se realizarán durante el evento?",
-          answer: `Durante el evento, habrá actividades lúdicas y una zona infantil.
-          Adicionalmente, contaremos con un espacio para que los niños puedan jugar con seguridad.
-          También habrá una piscina supervisada para que los adultos puedan relajarse.`
-        }
+      answer: `El costo del alquiler del recinto es de $8.000. No incluye los gastos de comida y bebida.`
+    },
+    {
+      question: "¿Cuál es el horario del evento?",
+      answer: `El evento se llevará a cabo de 10 AM a 7 PM.
+• 10:00 AM - Bienvenida e inicio de actividades
+• 2:00 PM - Almuerzo
+• 7:00 PM - Finalización`
+    },
+    {
+      question: "¿Qué actividades se realizarán durante el evento?",
+      answer: `Tendremos una variedad de actividades para todos los gustos:
+• Piscina con área infantil supervisada
+• Torneo de fútbol amistoso
+• Ping pong y juegos de mesa
+• PlayStation con FIFA y otros juegos
+• Música y baile
+• Asado y snacks durante todo el día`
+    }
   ];
 
   return (
-    <div class="bg-white bg-opacity-90 shadow-lg rounded-xl p-6 sm:p-8 text-gray-800">
-      <h2 class="text-2xl sm:text-3xl font-bold text-[#008B8B] mb-6 flex items-center gap-2">
-        <i class="fas fa-question-circle text-[#00a1a1]"></i>
-        Respuestas a tus Dudas
-      </h2>
-
-      <div class="space-y-3">
+    <div class="relative p-6 sm:p-8 rounded-3xl">
+      {/* Contenedor de preguntas */}
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
         <For each={faqs}>
           {(item) => (
-            <FAQItem question={item.question} answer={item.answer} />
+            <div class="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10">
+              <FAQItem question={item.question} answer={item.answer} />
+            </div>
           )}
         </For>
+      </div>
+
+      {/* Nota informativa */}
+      <div class="mt-8 text-center">
+        <p class="text-sm text-gray-400">
+          ¿Tienes más preguntas? No dudes en contactarnos a través de WhatsApp
+        </p>
       </div>
     </div>
   );

@@ -37,30 +37,61 @@ export default function Countdown() {
   });
 
   return (
-    // Contenedor principal del contador
-    <div class="grid grid-cols-4 gap-4 max-w-2xl mx-auto">
-      {/* Días restantes */}
-      <div class="text-center p-4 bg-blue-800/30 backdrop-blur rounded-lg border border-blue-700/30">
-        <span class="text-4xl font-bold text-white">{timeLeft().days}</span>
-        <p class="text-sm text-blue-100">Días</p>
-      </div>
-      
-      {/* Horas restantes */}
-      <div class="text-center p-4 bg-blue-800/30 backdrop-blur rounded-lg border border-blue-700/30">
-        <span class="text-4xl font-bold text-white">{timeLeft().hours}</span>
-        <p class="text-sm text-blue-100">Horas</p>
-      </div>
-      
-      {/* Minutos restantes */}
-      <div class="text-center p-4 bg-blue-800/30 backdrop-blur rounded-lg border border-blue-700/30">
-        <span class="text-4xl font-bold text-white">{timeLeft().minutes}</span>
-        <p class="text-sm text-blue-100">Minutos</p>
-      </div>
-      
-      {/* Segundos restantes */}
-      <div class="text-center p-4 bg-blue-800/30 backdrop-blur rounded-lg border border-blue-700/30">
-        <span class="text-4xl font-bold text-white">{timeLeft().seconds}</span>
-        <p class="text-sm text-blue-100">Segundos</p>
+    <div class="relative">
+      {/* Decoración de fondo */}
+      <div class="absolute inset-0 bg-gradient-to-r from-yellow-500/10 via-orange-500/10 to-red-500/10 blur-3xl"></div>
+
+      {/* Contenedor principal */}
+      <div class="relative backdrop-blur-lg bg-white/5 rounded-3xl p-6 sm:p-8 border border-white/10 shadow-2xl">
+        <h3 class="text-xl sm:text-2xl font-bold text-center mb-6 sm:mb-8 bg-gradient-to-r from-yellow-200 via-orange-200 to-red-200 bg-clip-text text-transparent">
+          Cuenta Regresiva
+        </h3>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+          {/* Días */}
+          <div class="relative group">
+            <div class="absolute inset-0 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-2xl blur group-hover:blur-xl transition-all duration-300 opacity-20"></div>
+            <div class="relative bg-black/50 backdrop-blur-xl rounded-2xl p-3 sm:p-4 border border-white/10 text-center transform group-hover:scale-105 transition-all duration-300">
+              <div class="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-yellow-200 to-orange-200 bg-clip-text text-transparent mb-1 sm:mb-2">
+                {String(timeLeft().days).padStart(2, '0')}
+              </div>
+              <div class="text-xs uppercase tracking-wider text-yellow-200/80">Días</div>
+            </div>
+          </div>
+
+          {/* Horas */}
+          <div class="relative group">
+            <div class="absolute inset-0 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl blur group-hover:blur-xl transition-all duration-300 opacity-20"></div>
+            <div class="relative bg-black/50 backdrop-blur-xl rounded-2xl p-3 sm:p-4 border border-white/10 text-center transform group-hover:scale-105 transition-all duration-300">
+              <div class="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-orange-200 to-red-200 bg-clip-text text-transparent mb-1 sm:mb-2">
+                {String(timeLeft().hours).padStart(2, '0')}
+              </div>
+              <div class="text-xs uppercase tracking-wider text-orange-200/80">Horas</div>
+            </div>
+          </div>
+
+          {/* Minutos */}
+          <div class="relative group">
+            <div class="absolute inset-0 bg-gradient-to-br from-red-500 to-amber-500 rounded-2xl blur group-hover:blur-xl transition-all duration-300 opacity-20"></div>
+            <div class="relative bg-black/50 backdrop-blur-xl rounded-2xl p-3 sm:p-4 border border-white/10 text-center transform group-hover:scale-105 transition-all duration-300">
+              <div class="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-red-200 to-amber-200 bg-clip-text text-transparent mb-1 sm:mb-2">
+                {String(timeLeft().minutes).padStart(2, '0')}
+              </div>
+              <div class="text-xs uppercase tracking-wider text-red-200/80">Minutos</div>
+            </div>
+          </div>
+
+          {/* Segundos */}
+          <div class="relative group">
+            <div class="absolute inset-0 bg-gradient-to-br from-amber-500 to-yellow-500 rounded-2xl blur group-hover:blur-xl transition-all duration-300 opacity-20"></div>
+            <div class="relative bg-black/50 backdrop-blur-xl rounded-2xl p-3 sm:p-4 border border-white/10 text-center transform group-hover:scale-105 transition-all duration-300">
+              <div class="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-amber-200 to-yellow-200 bg-clip-text text-transparent mb-1 sm:mb-2 animate-pulse">
+                {String(timeLeft().seconds).padStart(2, '0')}
+              </div>
+              <div class="text-xs uppercase tracking-wider text-amber-200/80">Segundos</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

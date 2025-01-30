@@ -1,11 +1,11 @@
 function CreditosPreview() {
   return (
-    <div class="max-w-7xl mx-auto px-4 py-24">
-      <div class="relative bg-gray-900/60 backdrop-blur-xl rounded-3xl p-8 border border-purple-500/20 overflow-hidden shadow-2xl">
+    <div class="w-full sm:max-w-7xl sm:mx-auto sm:px-4">
+      <div class="relative bg-gray-900/80 backdrop-blur-lg sm:rounded-3xl p-4 sm:p-8 border border-purple-500/20 overflow-hidden shadow-2xl">
         {/* Decoración de fondo */}
         <div class="absolute inset-0 overflow-hidden">
-          <div class="absolute -top-1/2 -right-1/2 w-[500px] h-[500px] bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div class="absolute -bottom-1/2 -left-1/2 w-[500px] h-[500px] bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 2s;"></div>
+          <div class="absolute -top-1/2 -right-1/2 w-[500px] h-[500px] bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full blur-3xl"></div>
+          <div class="absolute -bottom-1/2 -left-1/2 w-[500px] h-[500px] bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-full blur-3xl"></div>
         </div>
 
         <div class="relative z-10">

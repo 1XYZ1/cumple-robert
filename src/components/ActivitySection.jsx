@@ -102,6 +102,8 @@ const activities = [
       text: 'text-indigo-800',
       card: 'bg-indigo-500/10',
       hover: 'hover:bg-indigo-600',
+      border: 'border-indigo-200/20',
+      shadow: 'shadow-indigo-500/10'
     }
   }
 ];
@@ -112,51 +114,51 @@ const ActivityCard = (props) => {
   const colorClasses = {
     yellow: {
       bg: 'bg-yellow-500',
-      text: 'text-yellow-800',
-      card: 'bg-gradient-to-br from-yellow-500/10 to-orange-500/10',
+      text: 'text-yellow-950',
+      card: 'bg-gradient-to-br from-yellow-400/40 to-orange-500/40',
       hover: 'hover:bg-yellow-600',
-      border: 'border-yellow-200/20',
-      shadow: 'shadow-yellow-500/10'
+      border: 'border-yellow-400/40',
+      shadow: 'shadow-yellow-500/30'
     },
     blue: {
       bg: 'bg-blue-500',
-      text: 'text-blue-800',
-      card: 'bg-gradient-to-br from-blue-500/10 to-cyan-500/10',
+      text: 'text-blue-950',
+      card: 'bg-gradient-to-br from-blue-500/40 to-cyan-500/40',
       hover: 'hover:bg-blue-600',
-      border: 'border-blue-200/20',
-      shadow: 'shadow-blue-500/10'
+      border: 'border-blue-200/40',
+      shadow: 'shadow-blue-500/30'
     },
     red: {
       bg: 'bg-red-500',
-      text: 'text-red-800',
-      card: 'bg-gradient-to-br from-red-500/10 to-pink-500/10',
+      text: 'text-red-950',
+      card: 'bg-gradient-to-br from-red-500/40 to-pink-500/40',
       hover: 'hover:bg-red-600',
-      border: 'border-red-200/20',
-      shadow: 'shadow-red-500/10'
+      border: 'border-red-200/40',
+      shadow: 'shadow-red-500/30'
     },
     green: {
       bg: 'bg-emerald-500',
-      text: 'text-emerald-800',
-      card: 'bg-gradient-to-br from-emerald-500/10 to-teal-500/10',
+      text: 'text-emerald-950',
+      card: 'bg-gradient-to-br from-emerald-500/40 to-teal-500/40',
       hover: 'hover:bg-emerald-600',
-      border: 'border-emerald-200/20',
-      shadow: 'shadow-emerald-500/10'
+      border: 'border-emerald-200/40',
+      shadow: 'shadow-emerald-500/30'
     },
     purple: {
       bg: 'bg-purple-500',
-      text: 'text-purple-800',
-      card: 'bg-gradient-to-br from-purple-500/10 to-pink-500/10',
+      text: 'text-purple-950',
+      card: 'bg-gradient-to-br from-purple-500/40 to-pink-500/40',
       hover: 'hover:bg-purple-600',
-      border: 'border-purple-200/20',
-      shadow: 'shadow-purple-500/10'
+      border: 'border-purple-200/40',
+      shadow: 'shadow-purple-500/30'
     },
     indigo: {
       bg: 'bg-indigo-500',
-      text: 'text-indigo-800',
-      card: 'bg-gradient-to-br from-indigo-500/10 to-blue-500/10',
+      text: 'text-indigo-950',
+      card: 'bg-gradient-to-br from-indigo-500/40 to-blue-500/40',
       hover: 'hover:bg-indigo-600',
-      border: 'border-indigo-200/20',
-      shadow: 'shadow-indigo-500/10'
+      border: 'border-indigo-200/40',
+      shadow: 'shadow-indigo-500/30'
     }
   };
 
@@ -179,7 +181,7 @@ const ActivityCard = (props) => {
           </div>
         </div>
 
-        <div class="p-6">
+        <div class="p-6 bg-white/80 backdrop-blur-sm">
           <h3 class={`text-2xl font-bold ${colors.text} mb-2 flex items-center gap-2`}>
             {props.title}
           </h3>
@@ -222,34 +224,25 @@ const ActivityCard = (props) => {
 
 const ActivitySection = () => {
   return (
-    <section class="relative py-12 sm:py-16" aria-labelledby="activities-title">
-      {/* Decoración de fondo */}
-      <div class="absolute inset-0 overflow-hidden pointer-events-none">
-        <div class="absolute top-0 w-full h-full bg-[url('/images/pattern-light.svg')] opacity-5"></div>
-        <div class="absolute -top-1/2 -right-1/2 w-[1000px] h-[1000px] bg-gradient-radial from-yellow-500/20 via-transparent to-transparent blur-3xl"></div>
-        <div class="absolute -bottom-1/2 -left-1/2 w-[1000px] h-[1000px] bg-gradient-radial from-cyan-500/20 via-transparent to-transparent blur-3xl"></div>
+    <>
+      <div class="text-center mb-8 sm:mb-12">
+        <h2
+          id="activities-title"
+          class="text-4xl sm:text-5xl font-bold text-white mb-4"
+        >
+          Actividades Destacadas
+        </h2>
+        <p class="text-xl sm:text-2xl text-yellow-100">
+          ¡Prepárate para un día lleno de diversión!
+        </p>
       </div>
 
-      <div class="relative max-w-screen-lg mx-auto px-4 sm:px-6">
-        <div class="text-center mb-8 sm:mb-12">
-          <h2
-            id="activities-title"
-            class="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-yellow-600 to-yellow-800 bg-clip-text text-transparent mb-4"
-          >
-            Actividades Destacadas
-          </h2>
-          <p class="text-xl sm:text-2xl text-yellow-700">
-            ¡Prepárate para un día lleno de diversión!
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          <For each={activities}>
-            {activity => <ActivityCard {...activity} />}
-          </For>
-        </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <For each={activities}>
+          {activity => <ActivityCard {...activity} />}
+        </For>
       </div>
-    </section>
+    </>
   );
 };
 

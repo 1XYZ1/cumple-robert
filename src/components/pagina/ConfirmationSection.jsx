@@ -4,8 +4,8 @@ const ConfirmationSection = () => {
   const [confirmedCount, setConfirmedCount] = createSignal(23);
 
   return (
-    <div class="max-w-7xl mx-auto px-4">
-      <div class="relative bg-gray-900/80 backdrop-blur-lg rounded-3xl p-8 border border-purple-500/20 overflow-hidden shadow-2xl">
+    <div class="w-full sm:max-w-7xl sm:mx-auto sm:px-4">
+      <div class="relative bg-gray-900/80 backdrop-blur-lg sm:rounded-3xl p-4 sm:p-8 border border-purple-500/20 overflow-hidden shadow-2xl">
         {/* Decoración de fondo */}
         <div class="absolute inset-0 overflow-hidden">
           <div class="absolute -top-1/2 -right-1/2 w-[500px] h-[500px] bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full blur-3xl"></div>
@@ -119,11 +119,14 @@ const ConfirmationSection = () => {
               href="https://wa.me/56945885600"
               target="_blank"
               rel="noopener noreferrer"
-              class="group/btn relative inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 text-white font-semibold text-lg hover:from-green-600 hover:to-emerald-600 transition-all duration-300 shadow-lg"
+              class="group relative overflow-hidden px-8 py-4 rounded-full bg-gradient-to-r from-green-500 via-emerald-500 to-green-500 bg-[length:200%_100%] hover:bg-[100%_0] transition-[background-position] duration-500 text-white font-bold text-lg shadow-lg hover:shadow-green-500/50 transform hover:scale-105 active:scale-95"
             >
-              <i class="fab fa-whatsapp text-xl"></i>
-              <span>Confirmar Asistencia por WhatsApp</span>
-              <div class="absolute inset-0 rounded-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
+              <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.3),transparent_50%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div class="relative flex items-center gap-3">
+                <i class="fab fa-whatsapp text-2xl animate-bounce-subtle"></i>
+                <span>Confirmar Asistencia</span>
+                <div class="absolute right-0 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-white/20 blur-md transition-transform duration-500 group-hover:scale-[3] opacity-0 group-hover:opacity-100"></div>
+              </div>
             </a>
           </div>
         </div>

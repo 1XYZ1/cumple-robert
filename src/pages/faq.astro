@@ -4,35 +4,66 @@ import FullFAQSection from "../components/pagina/FullFAQSection.jsx";
 ---
 
 <Layout>
-  <!-- Fondo con mejor contraste -->
-  <section class="min-h-screen py-16 bg-gradient-to-b from-[#acecec] via-[#72e1e1] to-[#40E0D0] text-gray-800 relative">
-    <div class="max-w-5xl mx-auto px-4">
-      <!-- Encabezado de la Página FAQ -->
-      <div class="text-center mb-12">
-        <h1 class="text-4xl sm:text-5xl font-extrabold text-[#006E6E] drop-shadow-sm mb-4">
-          Preguntas Frecuentes
+  <section class="min-h-screen relative">
+    {/* Fondo con gradientes y efectos */}
+    <div class="absolute inset-0 bg-gradient-to-b from-gray-950 via-slate-900 to-gray-950"></div>
+
+    {/* Efectos decorativos */}
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      {/* Círculos principales */}
+      <div class="absolute -top-1/2 -right-1/2 w-[1000px] h-[1000px] bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
+      <div class="absolute -bottom-1/2 -left-1/2 w-[1000px] h-[1000px] bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 2s"></div>
+
+      {/* Destellos cálidos sutiles */}
+      <div class="absolute top-1/3 right-1/4 w-[200px] h-[200px] bg-gradient-to-br from-amber-500/10 to-orange-500/5 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s; animation-duration: 6s;"></div>
+      <div class="absolute bottom-1/4 left-1/3 w-[250px] h-[250px] bg-gradient-to-br from-yellow-500/10 to-amber-500/5 rounded-full blur-3xl animate-pulse" style="animation-delay: 3s; animation-duration: 8s;"></div>
+    </div>
+
+    {/* Contenido principal */}
+    <div class="relative max-w-5xl mx-auto px-4 py-16 sm:py-24">
+      {/* Navegación superior */}
+      <nav class="absolute top-4 sm:top-8 left-4 sm:left-8 z-20">
+        <a
+          href="/"
+          class="group inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-all duration-300 backdrop-blur-sm hover:scale-105"
+        >
+          <i class="fas fa-arrow-left group-hover:-translate-x-1 transition-transform"></i>
+          <span>Volver al inicio</span>
+        </a>
+      </nav>
+
+      {/* Encabezado */}
+      <div class="text-center mb-12 sm:mb-16 mt-16 sm:mt-20">
+        <h1 class="relative inline-block">
+          <div class="absolute inset-0 bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-cyan-500/20 blur-3xl"></div>
+          <span class="relative text-4xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent">
+            Preguntas Frecuentes
+          </span>
         </h1>
-        <p class="text-lg sm:text-xl text-[#084E4E] max-w-2xl mx-auto leading-relaxed">
-          ¿Tienes dudas sobre el evento? Encuentra aquí las respuestas más comunes
-          o contáctanos para más detalles.
+        <p class="mt-4 text-lg sm:text-xl text-blue-100 max-w-2xl mx-auto leading-relaxed">
+          Encuentra respuestas a todas tus dudas sobre el evento. Si tienes alguna pregunta adicional, no dudes en contactarnos.
         </p>
       </div>
 
-      <!-- Botón de regreso al Index (parte superior) -->
-      <div class="text-center mb-10">
-        <a
-          href="/"
-          class="inline-block bg-[#008B8B] hover:bg-[#007575] text-white font-semibold px-6 py-3 rounded-full shadow-md transition transform hover:scale-105 active:scale-95"
-        >
-          <i class="fas fa-arrow-left mr-2"></i>
-          Regresar al Inicio
-        </a>
+      {/* Sección FAQ */}
+      <div class="relative">
+        <div class="absolute inset-0 bg-white/5 backdrop-blur-sm rounded-3xl"></div>
+        <FullFAQSection client:visible />
       </div>
 
-      <!-- Sección completa de FAQ -->
-      <FullFAQSection client:visible />
-
-
+      {/* Sección de contacto */}
+      <div class="mt-12 text-center">
+        <p class="text-blue-100 mb-4">¿No encontraste lo que buscabas?</p>
+        <a
+          href="https://wa.me/+56912345678?text=Hola,%20tengo%20una%20pregunta%20sobre%20el%20evento"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-green-500 via-green-600 to-green-500 text-white font-medium hover:shadow-lg hover:shadow-green-500/25 transition-all duration-300 transform hover:scale-105"
+        >
+          <i class="fab fa-whatsapp text-xl"></i>
+          <span>Contáctanos por WhatsApp</span>
+        </a>
+      </div>
     </div>
   </section>
 </Layout>

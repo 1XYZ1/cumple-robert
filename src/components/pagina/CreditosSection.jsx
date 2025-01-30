@@ -161,165 +161,167 @@ function CreditosSection() {
   };
 
   return (
-    <div class="min-h-screen relative">
-      {/* Fondo base con degradado principal */}
-      <div class="fixed inset-0 bg-gradient-to-b from-gray-900 via-[#1a1333] to-[#17184e]"></div>
+    <div class="w-full sm:max-w-7xl sm:mx-auto sm:px-4">
+      <div class="relative bg-gray-900/80 backdrop-blur-lg sm:rounded-3xl p-4 sm:p-8 border border-purple-500/20 overflow-hidden shadow-2xl">
+        {/* Fondo base con degradado principal */}
+        <div class="fixed inset-0 bg-gradient-to-b from-gray-900 via-[#1a1333] to-[#17184e]"></div>
 
-      {/* Decoración de fondo */}
-      <div class="fixed inset-0">
-        {/* Círculos decorativos con colores más suaves */}
-        <div class="absolute top-0 -right-1/4 w-[800px] h-[800px] bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
-        <div class="absolute bottom-0 -left-1/4 w-[800px] h-[800px] bg-blue-500/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 2s"></div>
-        <div class="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-pink-500/5 rounded-full blur-3xl animate-pulse" style="animation-delay: 3s"></div>
+        {/* Decoración de fondo */}
+        <div class="fixed inset-0">
+          {/* Círculos decorativos con colores más suaves */}
+          <div class="absolute top-0 -right-1/4 w-[800px] h-[800px] bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
+          <div class="absolute bottom-0 -left-1/4 w-[800px] h-[800px] bg-blue-500/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 2s"></div>
+          <div class="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-pink-500/5 rounded-full blur-3xl animate-pulse" style="animation-delay: 3s"></div>
 
-        {/* Gradientes sutiles para cada sección */}
-        <div class="absolute inset-0">
-          <div class="absolute inset-x-0 h-[120vh] bg-gradient-to-b from-transparent via-purple-900/5 to-transparent"></div>
-          <div class="absolute inset-x-0 top-[40%] h-[120vh] bg-gradient-to-b from-transparent via-indigo-900/5 to-transparent"></div>
-          <div class="absolute inset-x-0 top-[80%] h-[120vh] bg-gradient-to-b from-transparent via-blue-900/5 to-transparent"></div>
+          {/* Gradientes sutiles para cada sección */}
+          <div class="absolute inset-0">
+            <div class="absolute inset-x-0 h-[120vh] bg-gradient-to-b from-transparent via-purple-900/5 to-transparent"></div>
+            <div class="absolute inset-x-0 top-[40%] h-[120vh] bg-gradient-to-b from-transparent via-indigo-900/5 to-transparent"></div>
+            <div class="absolute inset-x-0 top-[80%] h-[120vh] bg-gradient-to-b from-transparent via-blue-900/5 to-transparent"></div>
+          </div>
+
+          {/* Overlay sutil para mejorar contraste */}
+          <div class="absolute inset-0 bg-gradient-to-b from-gray-900/10 via-gray-900/20 to-gray-900/30"></div>
         </div>
 
-        {/* Overlay sutil para mejorar contraste */}
-        <div class="absolute inset-0 bg-gradient-to-b from-gray-900/10 via-gray-900/20 to-gray-900/30"></div>
-      </div>
-
-      {/* Efecto de brillo en las esquinas */}
-      <div class="fixed inset-0 overflow-hidden pointer-events-none">
-        <div class="absolute -top-1/2 -right-1/2 w-[100vh] h-[100vh] bg-gradient-radial from-purple-500/10 via-transparent to-transparent blur-3xl"></div>
-        <div class="absolute -bottom-1/2 -left-1/2 w-[100vh] h-[100vh] bg-gradient-radial from-blue-500/10 via-transparent to-transparent blur-3xl"></div>
-      </div>
-
-      <div class="relative z-10 max-w-7xl mx-auto px-4 py-24">
-        {/* Botón Volver Arriba */}
-        <div class="absolute top-8 left-4 md:left-8">
-          <a
-            href="/"
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-all duration-300 backdrop-blur-sm"
-          >
-            <i class="fas fa-arrow-left"></i>
-            Volver al inicio
-          </a>
+        {/* Efecto de brillo en las esquinas */}
+        <div class="fixed inset-0 overflow-hidden pointer-events-none">
+          <div class="absolute -top-1/2 -right-1/2 w-[100vh] h-[100vh] bg-gradient-radial from-purple-500/10 via-transparent to-transparent blur-3xl"></div>
+          <div class="absolute -bottom-1/2 -left-1/2 w-[100vh] h-[100vh] bg-gradient-radial from-blue-500/10 via-transparent to-transparent blur-3xl"></div>
         </div>
 
-        {/* Encabezado */}
-        <div class="text-center mb-16">
-          <h1 class="text-5xl font-bold bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent mb-6 animate-fade-in">
-            Nuestro Equipo Increíble
-          </h1>
-          <p class="text-xl text-gray-200 max-w-3xl mx-auto animate-fade-in-delay">
-            Conoce a las personas extraordinarias que hicieron posible este evento con su dedicación y talento
-          </p>
-        </div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 py-24">
+          {/* Botón Volver Arriba */}
+          <div class="absolute top-8 left-4 md:left-8">
+            <a
+              href="/"
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-all duration-300 backdrop-blur-sm"
+            >
+              <i class="fas fa-arrow-left"></i>
+              Volver al inicio
+            </a>
+          </div>
 
-        {/* Contenido por Categorías */}
-        <div class="space-y-16 animate-fade-in">
-          <For each={categorias}>
-            {(categoria) => {
-              const colaboradoresCategoria = colaboradores.filter(c => c.categoria === categoria.id);
-              return (
-                <div class="space-y-8">
-                  <div class="flex items-center gap-3 pb-2 border-b border-white/10">
-                    <i class={`${categoria.icon} text-2xl text-purple-400`}></i>
-                    <h2 class="text-3xl font-bold bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent">
-                      {categoria.nombre}
-                    </h2>
-                  </div>
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <For each={colaboradoresCategoria}>
-                      {(colaborador) => (
-                        <div class="group relative bg-gray-800/80 backdrop-blur-xl rounded-2xl p-6 border border-white/10 hover:border-purple-500/30 transition-all duration-300 hover:scale-[1.02] shadow-xl">
-                          <div class="flex items-start gap-6">
-                            <div class={`w-24 h-24 rounded-xl overflow-hidden shadow-lg bg-gradient-to-br ${colaborador.iconColor} flex items-center justify-center text-white text-4xl transform transition-all duration-300 group-hover:scale-110`}>
-                              <i class={colaborador.icon}></i>
-                            </div>
-                            <div class="flex-1">
-                              <div class="space-y-2">
-                                <div class="text-2xl font-bold bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent flex items-center gap-2">
-                                  <i class="fas fa-star text-purple-400 text-[10px]"></i>
-                                  {colaborador.nombre}
-                                </div>
-                                {colaborador.nombre2 && (
-                                  <div class="text-2xl font-bold bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent flex items-center gap-2">
-                                    <i class="fas fa-star text-purple-400 text-[10px]"></i>
-                                    {colaborador.nombre2}
-                                  </div>
-                                )}
-                                {colaborador.nombre3 && (
-                                  <div class="text-2xl font-bold bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent flex items-center gap-2">
-                                    <i class="fas fa-star text-purple-400 text-[10px]"></i>
-                                    {colaborador.nombre3}
-                                  </div>
-                                )}
+          {/* Encabezado */}
+          <div class="text-center mb-16">
+            <h1 class="text-5xl font-bold bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent mb-6 animate-fade-in">
+              Nuestro Equipo Increíble
+            </h1>
+            <p class="text-xl text-gray-200 max-w-3xl mx-auto animate-fade-in-delay">
+              Conoce a las personas extraordinarias que hicieron posible este evento con su dedicación y talento
+            </p>
+          </div>
+
+          {/* Contenido por Categorías */}
+          <div class="space-y-16 animate-fade-in">
+            <For each={categorias}>
+              {(categoria) => {
+                const colaboradoresCategoria = colaboradores.filter(c => c.categoria === categoria.id);
+                return (
+                  <div class="space-y-8">
+                    <div class="flex items-center gap-3 pb-2 border-b border-white/10">
+                      <i class={`${categoria.icon} text-2xl text-purple-400`}></i>
+                      <h2 class="text-3xl font-bold bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent">
+                        {categoria.nombre}
+                      </h2>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                      <For each={colaboradoresCategoria}>
+                        {(colaborador) => (
+                          <div class="group relative bg-gray-800/80 backdrop-blur-xl rounded-2xl p-6 border border-white/10 hover:border-purple-500/30 transition-all duration-300 hover:scale-[1.02] shadow-xl">
+                            <div class="flex items-start gap-6">
+                              <div class={`w-24 h-24 rounded-xl overflow-hidden shadow-lg bg-gradient-to-br ${colaborador.iconColor} flex items-center justify-center text-white text-4xl transform transition-all duration-300 group-hover:scale-110`}>
+                                <i class={colaborador.icon}></i>
                               </div>
-                              <p class="text-purple-300 font-medium mt-3 mb-2">{colaborador.rol}</p>
-                              <p class="text-gray-200 mb-4">{colaborador.descripcion}</p>
-                              {colaborador.contribucionEspecial ? (
-                                <div class="space-y-4">
-                                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                    <For each={colaborador.contribucionEspecial}>
-                                      {(contrib) => (
-                                        <div class="bg-gray-900/50 rounded-lg p-3 border border-white/5 hover:border-purple-500/30 transition-all duration-300">
-                                          <div class="flex items-center gap-2">
-                                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
-                                              <i class={`${contrib.icon} text-white text-sm`}></i>
-                                            </div>
-                                            <div>
-                                              <div class="font-bold text-lg bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent">
-                                                {contrib.persona}
+                              <div class="flex-1">
+                                <div class="space-y-2">
+                                  <div class="text-2xl font-bold bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent flex items-center gap-2">
+                                    <i class="fas fa-star text-purple-400 text-[10px]"></i>
+                                    {colaborador.nombre}
+                                  </div>
+                                  {colaborador.nombre2 && (
+                                    <div class="text-2xl font-bold bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent flex items-center gap-2">
+                                      <i class="fas fa-star text-purple-400 text-[10px]"></i>
+                                      {colaborador.nombre2}
+                                    </div>
+                                  )}
+                                  {colaborador.nombre3 && (
+                                    <div class="text-2xl font-bold bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent flex items-center gap-2">
+                                      <i class="fas fa-star text-purple-400 text-[10px]"></i>
+                                      {colaborador.nombre3}
+                                    </div>
+                                  )}
+                                </div>
+                                <p class="text-purple-300 font-medium mt-3 mb-2">{colaborador.rol}</p>
+                                <p class="text-gray-200 mb-4">{colaborador.descripcion}</p>
+                                {colaborador.contribucionEspecial ? (
+                                  <div class="space-y-4">
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                      <For each={colaborador.contribucionEspecial}>
+                                        {(contrib) => (
+                                          <div class="bg-gray-900/50 rounded-lg p-3 border border-white/5 hover:border-purple-500/30 transition-all duration-300">
+                                            <div class="flex items-center gap-2">
+                                              <div class="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
+                                                <i class={`${contrib.icon} text-white text-sm`}></i>
                                               </div>
-                                              <div class="text-sm text-gray-300">
-                                                {contrib.tarea}
+                                              <div>
+                                                <div class="font-bold text-lg bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent">
+                                                  {contrib.persona}
+                                                </div>
+                                                <div class="text-sm text-gray-300">
+                                                  {contrib.tarea}
+                                                </div>
                                               </div>
                                             </div>
                                           </div>
-                                        </div>
-                                      )}
-                                    </For>
+                                        )}
+                                      </For>
+                                    </div>
+                                    <p class="text-gray-400 text-sm italic text-center">
+                                      Un equipo extraordinario que hizo los juegos inolvidables
+                                    </p>
                                   </div>
-                                  <p class="text-gray-400 text-sm italic text-center">
-                                    Un equipo extraordinario que hizo los juegos inolvidables
-                                  </p>
-                                </div>
-                              ) : (
-                                colaborador.contribuciones.length > 0 && (
-                                  <div class="space-y-2">
-                                    <For each={colaborador.contribuciones}>
-                                      {(contribucion) => (
-                                        <div class="flex items-center gap-2 text-gray-300">
-                                          <i class="fas fa-check-circle text-purple-400"></i>
-                                          <span>{contribucion}</span>
-                                        </div>
-                                      )}
-                                    </For>
-                                  </div>
-                                )
-                              )}
+                                ) : (
+                                  colaborador.contribuciones.length > 0 && (
+                                    <div class="space-y-2">
+                                      <For each={colaborador.contribuciones}>
+                                        {(contribucion) => (
+                                          <div class="flex items-center gap-2 text-gray-300">
+                                            <i class="fas fa-check-circle text-purple-400"></i>
+                                            <span>{contribucion}</span>
+                                          </div>
+                                        )}
+                                      </For>
+                                    </div>
+                                  )
+                                )}
+                              </div>
                             </div>
+                            <div class="absolute inset-0 bg-gradient-to-r from-purple-500/0 via-purple-500/5 to-pink-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
                           </div>
-                          <div class="absolute inset-0 bg-gradient-to-r from-purple-500/0 via-purple-500/5 to-pink-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
-                        </div>
-                      )}
-                    </For>
+                        )}
+                      </For>
+                    </div>
                   </div>
-                </div>
-              );
-            }}
-          </For>
-        </div>
+                );
+              }}
+            </For>
+          </div>
 
-        {/* Mensaje Final y Botón Volver */}
-        <div class="text-center mt-20 space-y-8 animate-fade-in">
-          <p class="text-2xl text-gray-200 font-light italic">
-            "La magia de un gran evento surge de la pasión y dedicación de quienes lo hacen posible"
-          </p>
-          <div>
-            <a
-              href="/"
-              class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-all duration-300 backdrop-blur-sm"
-            >
-              <i class="fas fa-home"></i>
-              Volver al inicio
-            </a>
+          {/* Mensaje Final y Botón Volver */}
+          <div class="text-center mt-20 space-y-8 animate-fade-in">
+            <p class="text-2xl text-gray-200 font-light italic">
+              "La magia de un gran evento surge de la pasión y dedicación de quienes lo hacen posible"
+            </p>
+            <div>
+              <a
+                href="/"
+                class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-all duration-300 backdrop-blur-sm"
+              >
+                <i class="fas fa-home"></i>
+                Volver al inicio
+              </a>
+            </div>
           </div>
         </div>
       </div>

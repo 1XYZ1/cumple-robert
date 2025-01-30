@@ -5,13 +5,13 @@ const FAQItem = (props) => {
   const [isOpen, setIsOpen] = createSignal(false);
 
   return (
-    <div class="border-b border-lime-100/20 last:border-b-0">
+    <div class="border-b border-orange-100/20 last:border-b-0">
       <button
         class="
           w-full py-4 px-2
           flex justify-between items-center
           text-left
-          hover:bg-[#147373]/20
+          hover:bg-orange-500/20
           transition-colors
           rounded-lg
           focus:outline-none
@@ -29,7 +29,7 @@ const FAQItem = (props) => {
           `}
           aria-hidden="true"
         >
-          <i class="fas fa-chevron-down text-lime-200"></i>
+          <i class="fas fa-chevron-down text-yellow-200"></i>
         </span>
       </button>
       <div
@@ -39,7 +39,7 @@ const FAQItem = (props) => {
         `}
         aria-hidden={!isOpen()}
       >
-        <p class="text-lime-100 px-2 whitespace-pre-wrap leading-relaxed">
+        <p class="text-orange-100 px-2 whitespace-pre-wrap leading-relaxed">
           {props.answer}
         </p>
       </div>
@@ -71,18 +71,30 @@ const PartialFAQ = () => {
   return (
     <div
       class="
-        bg-gradient-to-r from-[#1b9ac1] to-[#145473]
+        relative overflow-hidden
         rounded-lg p-6 shadow-md text-gray-100
       "
     >
-      <h3 class="text-2xl font-extrabold text-white mb-4 flex items-center gap-2">
-        <i class="fas fa-question-circle text-lime-200"></i>
-        Preguntas Frecuentes
-      </h3>
-      <div class="space-y-2">
-        {faqs.map((faq) => (
-          <FAQItem question={faq.question} answer={faq.answer} />
-        ))}
+      {/* Fondo con gradiente y efectos */}
+      <div class="absolute inset-0 bg-gradient-to-br from-amber-600/90 to-orange-700/90 backdrop-blur-xl"></div>
+
+      {/* Efectos decorativos */}
+      <div class="absolute inset-0 overflow-hidden">
+        <div class="absolute -top-1/2 -right-1/2 w-[500px] h-[500px] bg-gradient-to-br from-yellow-500/20 to-orange-500/20 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute -bottom-1/2 -left-1/2 w-[500px] h-[500px] bg-gradient-to-br from-orange-500/20 to-red-500/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 2s"></div>
+      </div>
+
+      {/* Contenido */}
+      <div class="relative z-10">
+        <h3 class="text-2xl font-extrabold text-white mb-4 flex items-center gap-2">
+          <i class="fas fa-question-circle text-yellow-300"></i>
+          Preguntas Frecuentes
+        </h3>
+        <div class="space-y-2">
+          {faqs.map((faq) => (
+            <FAQItem question={faq.question} answer={faq.answer} />
+          ))}
+        </div>
       </div>
     </div>
   );
