@@ -1,7 +1,7 @@
 import { onMount, createSignal } from "solid-js";
 
 const ConfirmationSection = () => {
-  const [confirmedCount, setConfirmedCount] = createSignal(23);
+  const [confirmedCount, setConfirmedCount] = createSignal(50);
 
   return (
     <div class="w-full sm:max-w-7xl sm:mx-auto sm:px-4">

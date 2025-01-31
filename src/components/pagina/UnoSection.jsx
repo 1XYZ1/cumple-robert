@@ -6,47 +6,114 @@ function UnoSection() {
   });
 
   return (
-    <div class="min-h-screen bg-gradient-to-b from-gray-900 via-black to-gray-800 text-white">
+    <div class="min-h-screen bg-gradient-to-br from-[#1a1c2e] via-[#1f2937] to-[#111827] text-white">
       {/* Hero Section */}
       <div class="relative h-[60vh] min-h-[500px] flex items-center justify-center">
         {/* Imagen de fondo con overlay */}
         <div class="absolute inset-0 overflow-hidden">
           <img
-            src="/images/uno.jpg"  // Ajusta a la ruta correcta de tu imagen
-            alt="Cartas UNO"
+            src="/images/uno.jpg"
+            alt="Juego de UNO"
             class="w-full h-full object-cover"
           />
-          <div class="absolute inset-0 bg-black/50"></div>
+          <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-[#1a1c2e]"></div>
         </div>
 
         {/* Contenido central del Hero */}
         <div class="relative z-10 text-center px-4 max-w-2xl">
-          <h1 class="text-5xl md:text-6xl font-bold mb-4 drop-shadow-xl">UNO</h1>
-          <p class="text-xl text-gray-200 mb-8 drop-shadow">
-            La emoción de UNO te espera. ¡Domina las reglas y no olvides gritar “UNO”!
+          <h1 class="text-6xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-200 to-gray-300">
+            UNO
+          </h1>
+          <p class="text-xl text-gray-200 mb-8 leading-relaxed max-w-xl mx-auto">
+            ¡Prepárate para gritar UNO! y demostrar tus habilidades estratégicas
           </p>
           <a
             href="#info"
-            class="inline-block bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-full font-semibold transition drop-shadow"
+            class="inline-block bg-red-500 hover:bg-red-600 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl shadow-lg"
           >
             Ver Detalles
           </a>
         </div>
 
-        {/* Botón de navegación (Volver al inicio) */}
+        {/* Botón de navegación */}
         <nav class="absolute top-6 left-6">
           <a
             href="/"
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-all duration-300 backdrop-blur-sm"
+            class="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white transition-all duration-300 backdrop-blur-sm shadow-lg"
           >
             <i class="fas fa-arrow-left"></i>
-            Volver al inicio
+            <span class="font-medium">Volver al inicio</span>
           </a>
         </nav>
       </div>
 
       {/* Contenido Principal */}
-      <div id="info" class="max-w-7xl mx-auto px-4 py-16 space-y-16">
+      <div id="info" class="max-w-7xl mx-auto px-4 py-12 md:py-16 space-y-16">
+        {/* Sección de la Retadora */}
+        <div class="bg-gradient-to-br from-gray-900/80 to-gray-800/80 backdrop-blur-md rounded-3xl p-12 border border-gray-700/50 shadow-2xl">
+          <div class="grid md:grid-cols-2 gap-16 items-center">
+            {/* Información de la Retadora */}
+            <div class="space-y-12">
+              {/* Encabezado */}
+              <div class="space-y-6">
+                <span class="inline-block text-sm font-medium tracking-wider text-red-400 uppercase px-4 py-2 bg-red-500/10 rounded-lg border border-red-500/20">
+                  La Retadora Invicta
+                </span>
+                <h2 class="text-7xl md:text-8xl font-bold leading-none bg-gradient-to-r from-red-400 via-yellow-200 to-red-400 text-transparent bg-clip-text tracking-tight">
+                  YEISIMAR
+                </h2>
+                <p class="text-2xl text-red-400 font-medium tracking-wide">
+                  Reina de las Cartas
+                </p>
+              </div>
+
+              {/* Estadísticas */}
+              <ul class="grid gap-6 text-lg">
+                <li class="flex items-center gap-4 bg-white/5 rounded-2xl p-4 border border-white/10">
+                  <span class="flex items-center justify-center w-12 h-12 rounded-xl bg-yellow-400/10 border border-yellow-400/20">
+                    <i class="fas fa-trophy text-yellow-400 text-xl"></i>
+                  </span>
+                  <span class="text-gray-100">12 victorias consecutivas</span>
+                </li>
+                <li class="flex items-center gap-4 bg-white/5 rounded-2xl p-4 border border-white/10">
+                  <span class="flex items-center justify-center w-12 h-12 rounded-xl bg-yellow-400/10 border border-yellow-400/20">
+                    <i class="fas fa-bolt text-yellow-400 text-xl"></i>
+                  </span>
+                  <span class="text-gray-100">Maestra del +4</span>
+                </li>
+                <li class="flex items-center gap-4 bg-white/5 rounded-2xl p-4 border border-white/10">
+                  <span class="flex items-center justify-center w-12 h-12 rounded-xl bg-yellow-400/10 border border-yellow-400/20">
+                    <i class="fas fa-star text-yellow-400 text-xl"></i>
+                  </span>
+                  <span class="text-gray-100">Estratega implacable</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Imagen de la Retadora */}
+            <div class="relative">
+              <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-700/50">
+                <img
+                  src="/images/jugadores/yeisimar.jpeg"
+                  alt="Yeisimar en acción"
+                  class="w-full aspect-[4/5] object-cover"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              </div>
+
+              {/* Estadísticas flotantes */}
+              <div class="absolute md:top-4 md:right-4 md:left-auto md:translate-y-0 bottom-6 right-4 md:right-4 bg-black/80 backdrop-blur-md rounded-2xl p-2 md:p-4 text-center shadow-2xl border border-gray-700/50 w-[calc(50%-24px)] md:w-auto md:h-[90px]">
+                <div class="text-2xl md:text-3xl font-bold text-red-400">95%</div>
+                <div class="text-xs md:text-sm font-medium text-gray-200">Tasa de Victoria</div>
+              </div>
+              <div class="absolute md:bottom-6 md:left-6 md:right-auto bottom-6 left-4 md:left-6 bg-black/80 backdrop-blur-md rounded-2xl p-2 md:p-4 text-center shadow-2xl border border-gray-700/50 w-[calc(50%-24px)] md:w-auto md:h-[90px]">
+                <div class="text-2xl md:text-3xl font-bold text-yellow-400">MVP</div>
+                <div class="text-xs md:text-sm font-medium text-gray-200">Mejor Jugadora</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Información General (Opcional) */}
         <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
           <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
