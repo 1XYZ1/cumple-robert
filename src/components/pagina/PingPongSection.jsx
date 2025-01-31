@@ -113,7 +113,7 @@ function PingPongSection() {
 
       {/* Contenido Principal con mejor espaciado y contraste */}
       <div id="info" class="max-w-7xl mx-auto px-4 py-12 md:py-16 space-y-16">
-        
+
 
         {/* Información General y Reglas con mejor contraste */}
         <div class="grid md:grid-cols-2 gap-8">
@@ -126,7 +126,7 @@ function PingPongSection() {
             <div class="grid grid-cols-2 gap-4">
               <div class="p-6 bg-white/5 rounded-2xl text-center border border-white/10">
                 <div class="text-sm text-blue-300 mb-2 font-medium">Horario</div>
-                <div class="text-xl">10:00 - 22:00</div>
+                <div class="text-xl">10:00 - 19:00</div>
               </div>
               <div class="p-6 bg-white/5 rounded-2xl text-center border border-white/10">
                 <div class="text-sm text-blue-300 mb-2 font-medium">Niveles</div>
@@ -217,7 +217,7 @@ function PingPongSection() {
                 />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
               </div>
-              
+
               {/* Estadísticas flotantes - En desktop arriba/abajo, en móvil abajo en 2 columnas */}
               <div class="absolute md:top-4 md:right-4 md:left-auto md:translate-y-0 bottom-6 right-4 md:right-4 bg-black/80 backdrop-blur-md rounded-2xl p-2 md:p-4 text-center shadow-2xl border border-gray-700/50 w-[calc(50%-24px)] md:w-auto md:h-[90px]">
                 <div class="text-2xl md:text-3xl font-bold text-red-400">98%</div>
@@ -234,7 +234,7 @@ function PingPongSection() {
         {/* Ranking con mejor contraste */}
         <div class="bg-gradient-to-br from-gray-900/80 to-gray-800/80 backdrop-blur-md rounded-3xl p-8 border border-gray-700/50 shadow-xl">
           <h3 class="text-2xl font-bold mb-8 text-center">Ranking de Jugadores</h3>
-          
+
           <div class="overflow-x-auto">
             <table class="w-full">
               <thead>

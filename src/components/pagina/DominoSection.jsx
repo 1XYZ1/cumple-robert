@@ -171,15 +171,10 @@ function DominoSection() {
         <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/10 text-center">
           <h3 class="text-3xl font-bold mb-4">¿Listo para una partida desafiante?</h3>
           <p class="text-gray-200 mb-6 max-w-xl mx-auto">
-            Reserva tu espacio en nuestras mesas de dominó y demuéstranos tus mejores estrategias.
-            ¡Diversión garantizada para todos!
+            ¡Que las fichas estén a tu favor! Ven a disfrutar de grandes momentos y demuestra
+            que eres un verdadero maestro del dominó.
           </p>
-          <a
-            href="/reservar-domino"
-            class="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded-full transition"
-          >
-            Reservar Ahora
-          </a>
+
         </div>
       </div>
     </div>

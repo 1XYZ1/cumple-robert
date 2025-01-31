@@ -22,6 +22,16 @@ const PetsSection = () => {
       personalityTraits: ["Obediente", "Inquieta"]
     },
     {
+      name: "Mango",
+      breed: "Mestizo",
+      age: "2 años",
+      owner: "Vanesa",
+      description:
+        "Es un perrito amigable, le gusta jugar y le encantan los cariñitos.",
+      photo: "/images/pets/mango.jpeg",
+      personalityTraits: ["Inquieto", "Jugueton"]
+    },
+    {
       name: "Mila",
       breed: "Bichon habanero",
       age: "8 años",
@@ -33,7 +43,7 @@ const PetsSection = () => {
     },
     {
       name: "Butty",
-      breed: "Poodle toy ",
+      breed: "Poodle toy",
       age: "1 años",
       owner: "Reinaldo",
       description:
@@ -43,7 +53,7 @@ const PetsSection = () => {
     },
     {
       name: "Ted ",
-      breed: "Yuso",
+      breed: "Mestizo",
       age: "2 años",
       owner: "Echeverría",
       description:
@@ -73,7 +83,7 @@ const PetsSection = () => {
     },
     {
       name: "Mérida",
-      breed: "Yusa",
+      breed: "Mestiza",
       age: "2 años",
       owner: "Luis Miguel",
       description:
@@ -96,7 +106,7 @@ const PetsSection = () => {
           {/* Encabezado */}
           <div class="text-center mb-12">
             <span class="inline-block text-purple-300 text-sm font-semibold uppercase tracking-widest mb-2">
-              Presentado por Robert's Pet Grooming
+              Presentado por Milo Y Sus Amigos
             </span>
             <h2 class="text-4xl font-bold bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent mb-4">
               Nuestros Invitados de Cuatro Patas

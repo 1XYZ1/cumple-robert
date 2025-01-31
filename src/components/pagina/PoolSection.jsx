@@ -127,12 +127,7 @@ function PoolSection() {
             Reserva tu lugar ahora y disfruta de una experiencia inolvidable en nuestra piscina.
             ¡Trae a tu familia y amigos para pasar un día inolvidable!
           </p>
-          <a
-            href="/reserva"
-            class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-full transition"
-          >
-            Reservar Ahora
-          </a>
+
         </div>
       </div>
     </div>

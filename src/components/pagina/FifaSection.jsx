@@ -95,92 +95,96 @@ function FifaSection() {
       {/* CONTENIDO PRINCIPAL */}
       <div
         id="info"
-        class="flex-1 max-w-7xl mx-auto px-4 py-16 space-y-16"
+        class="flex-1 w-full max-w-7xl mx-auto px-2 sm:px-4 py-8 sm:py-16 space-y-8 sm:space-y-16"
       >
         {/* Información General */}
-        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 shadow-lg">
-          <h3 class="text-3xl font-bold mb-6 flex items-center gap-3">
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl p-3 sm:p-6 border border-white/10 shadow-lg">
+          <h3 class="text-xl sm:text-3xl font-bold mb-3 sm:mb-6 flex items-center gap-2 sm:gap-3">
             <i class="fas fa-info-circle text-blue-400"></i>
             Información General
           </h3>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div class="p-4 bg-white/5 rounded-xl">
-              <span class="text-sm text-blue-200">Plataforma</span>
-              <p class="text-xl mt-1 font-semibold">PS5</p>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-6 text-center">
+            <div class="p-2 sm:p-4 bg-white/5 rounded-lg sm:rounded-xl">
+              <span class="text-xs sm:text-sm text-blue-200">Plataforma</span>
+              <p class="text-sm sm:text-xl mt-1 font-semibold">PS5</p>
             </div>
-            <div class="p-4 bg-white/5 rounded-xl">
-              <span class="text-sm text-blue-200">Jugadores</span>
-              <p class="text-xl mt-1 font-semibold">1 vs. 1 / 2 vs. 2</p>
+            <div class="p-2 sm:p-4 bg-white/5 rounded-lg sm:rounded-xl">
+              <span class="text-xs sm:text-sm text-blue-200">Jugadores</span>
+              <p class="text-sm sm:text-xl mt-1 font-semibold">1 vs. 1 / 2 vs. 2</p>
             </div>
-            <div class="p-4 bg-white/5 rounded-xl">
-              <span class="text-sm text-blue-200">Duración</span>
-              <p class="text-xl mt-1 font-semibold">6 min por mitad</p>
+            <div class="p-2 sm:p-4 bg-white/5 rounded-lg sm:rounded-xl">
+              <span class="text-xs sm:text-sm text-blue-200">Duración</span>
+              <p class="text-sm sm:text-xl mt-1 font-semibold">6 min por mitad</p>
             </div>
-            <div class="p-4 bg-white/5 rounded-xl">
-              <span class="text-sm text-blue-200">Modalidad</span>
-              <p class="text-xl mt-1 font-semibold">Presencial</p>
+            <div class="p-2 sm:p-4 bg-white/5 rounded-lg sm:rounded-xl">
+              <span class="text-xs sm:text-sm text-blue-200">Modalidad</span>
+              <p class="text-sm sm:text-xl mt-1 font-semibold">Presencial</p>
             </div>
           </div>
         </div>
 
         {/* Reglas */}
-        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 shadow-lg">
-          <h3 class="text-3xl font-bold mb-6 flex items-center gap-3">
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl p-3 sm:p-6 border border-white/10 shadow-lg">
+          <h3 class="text-xl sm:text-3xl font-bold mb-3 sm:mb-6 flex items-center gap-2 sm:gap-3">
             <i class="fas fa-list text-blue-400"></i>
             Reglas
           </h3>
-          <ul class="space-y-3 text-gray-200 text-sm leading-relaxed">
-            <li>
-              <strong>Duración del partido:</strong> 6 minutos cada tiempo, velocidad normal.
+          <ul class="space-y-2 sm:space-y-3 text-gray-200 text-xs sm:text-base leading-relaxed">
+            <li class="flex items-start gap-2">
+              <i class="fas fa-check text-blue-400 mt-1 shrink-0"></i>
+              <span><strong>Duración del partido:</strong> 6 minutos cada tiempo, velocidad normal.</span>
             </li>
-            <li>
-              <strong>Equipos:</strong> Cualquier club o selección. No se permiten equipos de fantasía.
+            <li class="flex items-start gap-2">
+              <i class="fas fa-check text-blue-400 mt-1 shrink-0"></i>
+              <span><strong>Equipos:</strong> Cualquier club o selección. No se permiten equipos de fantasía.</span>
             </li>
-            <li>
-              <strong>Controles:</strong> Clásico o Alternativo, a elección del jugador.
+            <li class="flex items-start gap-2">
+              <i class="fas fa-check text-blue-400 mt-1 shrink-0"></i>
+              <span><strong>Controles:</strong> Clásico o Alternativo, a elección del jugador.</span>
             </li>
-            <li>
-              <strong>Desempates:</strong> Gol de Oro o penales (según el formato del torneo).
+            <li class="flex items-start gap-2">
+              <i class="fas fa-check text-blue-400 mt-1 shrink-0"></i>
+              <span><strong>Desempates:</strong> Gol de Oro o penales (según el formato del torneo).</span>
             </li>
-            <li>
-              <strong>Fair Play:</strong> Se prohíbe el uso de glitches o tácticas antideportivas.
+            <li class="flex items-start gap-2">
+              <i class="fas fa-check text-blue-400 mt-1 shrink-0"></i>
+              <span><strong>Fair Play:</strong> Se prohíbe el uso de glitches o tácticas antideportivas.</span>
             </li>
-
           </ul>
         </div>
 
-        {/* Versus Section (ejemplo) */}
-        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 text-center shadow-lg">
-          <h3 class="text-3xl font-bold mb-4">Clasico</h3>
-          <p class="text-gray-200 mb-8">
+        {/* Versus Section */}
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl p-3 sm:p-6 border border-white/10 text-center shadow-lg">
+          <h3 class="text-xl sm:text-3xl font-bold mb-3">Clásico</h3>
+          <p class="text-gray-200 mb-4 sm:mb-8 text-xs sm:text-base">
             Se viene un duelo entre dos leyendas de FIFA. ¿Quién se llevará la victoria?
           </p>
-          <div class="flex flex-col md:flex-row items-center justify-center gap-8">
+          <div class="flex flex-col md:flex-row items-center justify-center gap-4 sm:gap-8">
             {/* Jugador A */}
-            <div class="flex flex-col items-center">
+            <div class="flex flex-col items-center w-full sm:w-auto">
               <img
                 src="/images/robert-fut.jpeg"
                 alt="Jugador 1"
-                class="w-32 h-32 object-cover rounded-full border-4 border-blue-500 mb-4"
+                class="w-20 h-20 sm:w-32 sm:h-32 object-cover rounded-full border-4 border-blue-500 mb-3"
               />
-              <h4 class="text-xl font-semibold text-blue-300">Robert</h4>
-              <p class="text-gray-300 text-sm mt-2">
+              <h4 class="text-base sm:text-xl font-semibold text-blue-300">Robert</h4>
+              <p class="text-gray-300 text-xs sm:text-sm mt-1">
                 Récord: <strong class="text-white">15 victorias</strong> / <strong class="text-white">3 derrotas</strong>
               </p>
             </div>
 
             {/* VS */}
-            <div class="text-3xl font-bold text-blue-400">VS</div>
+            <div class="text-xl sm:text-3xl font-bold text-blue-400 my-2 md:my-0">VS</div>
 
             {/* Jugador B */}
-            <div class="flex flex-col items-center">
+            <div class="flex flex-col items-center w-full sm:w-auto">
               <img
-                src="/images/player2.jpg"
+                src="/images/jugadores/alvaro.jpeg"
                 alt="Jugador 2"
-                class="w-32 h-32 object-cover rounded-full border-4 border-blue-500 mb-4"
+                class="w-20 h-20 sm:w-32 sm:h-32 object-cover rounded-full border-4 border-blue-500 mb-3"
               />
-              <h4 class="text-xl font-semibold text-blue-300">Alvaro</h4>
-              <p class="text-gray-300 text-sm mt-2">
+              <h4 class="text-base sm:text-xl font-semibold text-blue-300">Alvaro</h4>
+              <p class="text-gray-300 text-xs sm:text-sm mt-1">
                 Récord: <strong class="text-white">12 victorias</strong> / <strong class="text-white">6 derrotas</strong>
               </p>
             </div>
@@ -188,107 +192,110 @@ function FifaSection() {
         </div>
 
         {/* Podio Post-Evento */}
-        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 text-center shadow-lg">
-          <h3 class="text-3xl font-bold mb-4">Podio de Ganadores</h3>
-          <p class="text-gray-300 mb-8">
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl p-3 sm:p-6 border border-white/10 text-center shadow-lg">
+          <h3 class="text-xl sm:text-3xl font-bold mb-2 sm:mb-4">Podio de Ganadores</h3>
+          <p class="text-gray-300 mb-4 sm:mb-8 text-xs sm:text-base">
             Al finalizar el torneo, los 3 mejores jugadores se llevarán la gloria.
           </p>
-          <div class="flex items-end justify-center gap-4 mb-6">
+          <div class="flex items-end justify-center gap-2 sm:gap-4 mb-3 sm:mb-6">
             {/* 2do lugar */}
             <div class="flex flex-col items-center">
-              <div class="bg-gray-500/20 w-24 h-36 flex flex-col justify-end rounded-t-md relative">
-                <span class="absolute top-2 left-1/2 transform -translate-x-1/2 text-sm font-bold text-white">
+              <div class="bg-gray-500/20 w-14 sm:w-24 h-24 sm:h-36 flex flex-col justify-end rounded-t-md relative">
+                <span class="absolute top-1 left-1/2 transform -translate-x-1/2 text-xs sm:text-sm font-bold text-white">
                   2°
                 </span>
-                <div class="bg-gray-600 rounded-full w-12 h-12 mx-auto mb-3"></div>
+                <div class="bg-gray-600 rounded-full w-6 sm:w-12 h-6 sm:h-12 mx-auto mb-2 sm:mb-3"></div>
               </div>
-              <span class="text-gray-300 text-sm mt-2">2do Lugar</span>
+              <span class="text-gray-300 text-xs sm:text-sm mt-1 sm:mt-2">2do Lugar</span>
             </div>
 
             {/* 1er lugar */}
             <div class="flex flex-col items-center">
-              <div class="bg-blue-600/20 w-24 h-48 flex flex-col justify-end rounded-t-md relative">
-                <span class="absolute top-2 left-1/2 transform -translate-x-1/2 text-sm font-bold text-white">
+              <div class="bg-blue-600/20 w-14 sm:w-24 h-28 sm:h-48 flex flex-col justify-end rounded-t-md relative">
+                <span class="absolute top-1 left-1/2 transform -translate-x-1/2 text-xs sm:text-sm font-bold text-white">
                   1°
                 </span>
-                <div class="bg-gray-600 rounded-full w-12 h-12 mx-auto mb-3"></div>
+                <div class="bg-gray-600 rounded-full w-6 sm:w-12 h-6 sm:h-12 mx-auto mb-2 sm:mb-3"></div>
               </div>
-              <span class="text-gray-300 text-sm mt-2">1er Lugar</span>
+              <span class="text-gray-300 text-xs sm:text-sm mt-1 sm:mt-2">1er Lugar</span>
             </div>
 
             {/* 3er lugar */}
             <div class="flex flex-col items-center">
-              <div class="bg-gray-500/20 w-24 h-32 flex flex-col justify-end rounded-t-md relative">
-                <span class="absolute top-2 left-1/2 transform -translate-x-1/2 text-sm font-bold text-white">
+              <div class="bg-gray-500/20 w-14 sm:w-24 h-20 sm:h-32 flex flex-col justify-end rounded-t-md relative">
+                <span class="absolute top-1 left-1/2 transform -translate-x-1/2 text-xs sm:text-sm font-bold text-white">
                   3°
                 </span>
-                <div class="bg-gray-600 rounded-full w-12 h-12 mx-auto mb-3"></div>
+                <div class="bg-gray-600 rounded-full w-6 sm:w-12 h-6 sm:h-12 mx-auto mb-2 sm:mb-3"></div>
               </div>
-              <span class="text-gray-300 text-sm mt-2">3er Lugar</span>
+              <span class="text-gray-300 text-xs sm:text-sm mt-1 sm:mt-2">3er Lugar</span>
             </div>
           </div>
-          <p class="text-sm text-gray-400">
+          <p class="text-xs sm:text-sm text-gray-400">
             Muy pronto conocerás a los grandes vencedores de la jornada.
           </p>
         </div>
 
         {/* Ranking Histórico */}
-        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 shadow-lg">
-      <h3 class="text-3xl font-bold mb-4 flex items-center gap-3">
-        <i class="fas fa-trophy text-blue-400"></i>
-        Ranking Histórico
-      </h3>
-      <p class="text-gray-300 mb-6">
-        Consulta la tabla de posiciones a lo largo de todos los partidos.
-      </p>
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl p-3 sm:p-6 border border-white/10 shadow-lg">
+          <h3 class="text-xl sm:text-3xl font-bold mb-3 flex items-center gap-2 sm:gap-3">
+            <i class="fas fa-trophy text-blue-400"></i>
+            Ranking Histórico
+          </h3>
+          <p class="text-gray-300 mb-3 sm:mb-6 text-xs sm:text-base">
+            Consulta la tabla de posiciones a lo largo de todos los partidos.
+          </p>
 
-      <div class="overflow-x-auto">
-        <table class="table-auto w-full text-left text-gray-200">
-          <thead class="bg-blue-900/60 text-gray-100">
-            <tr>
-              <th class="py-2 px-4">Pos.</th>
-              <th class="py-2 px-4">Jugador</th>
-              <th class="py-2 px-4">Victorias</th>
-              <th class="py-2 px-4">Derrotas</th>
-              <th class="py-2 px-4">Win Rate %</th>
-              <th class="py-2 px-4">Partidos</th>
-            </tr>
-          </thead>
-          <tbody>
-            <For each={sortedRanking()}>
-              {(player) => (
-                <tr
-                  class={`${rowStyle(player.position)} hover:bg-white/10 transition`}
-                >
-                  <td class="py-2 px-4 font-bold flex items-center gap-2">
-                    <span class="text-blue-400">{player.position}</span>
-                    {positionIcon(player.position)}
-                  </td>
-                  <td class="py-2 px-4">{player.name}</td>
-                  <td class="py-2 px-4">{player.wins}</td>
-                  <td class="py-2 px-4">{player.losses}</td>
-                  <td class="py-2 px-4">
-                    {player.winRate}%
-                  </td>
-                  <td class="py-2 px-4">{player.wins + player.losses}</td>
+          <div class="w-full">
+            <table class="w-full text-left text-gray-200 text-xs sm:text-base">
+              <thead class="bg-blue-900/60 text-gray-100">
+                <tr>
+                  <th class="py-2 px-2 sm:px-3">Pos.</th>
+                  <th class="py-2 px-2 sm:px-3">Jugador</th>
+                  <th class="py-2 px-2 sm:px-3 text-center">V</th>
+                  <th class="py-2 px-2 sm:px-3 text-center">D</th>
+                  <th class="py-2 px-2 sm:px-3 text-right">Win %</th>
                 </tr>
-              )}
-            </For>
-          </tbody>
-        </table>
-      </div>
-    </div>
+              </thead>
+              <tbody>
+                <For each={sortedRanking()}>
+                  {(player) => (
+                    <tr class={`${rowStyle(player.position)} hover:bg-white/10 transition`}>
+                      <td class="py-2 px-2 sm:px-3 font-bold flex items-center gap-1">
+                        <span class="text-blue-400">{player.position}</span>
+                        {positionIcon(player.position)}
+                      </td>
+                      <td class="py-2 px-2 sm:px-3">{player.name}</td>
+                      <td class="py-2 px-2 sm:px-3 text-center">{player.wins}</td>
+                      <td class="py-2 px-2 sm:px-3 text-center">{player.losses}</td>
+                      <td class="py-2 px-2 sm:px-3 text-right">{player.winRate}%</td>
+                    </tr>
+                  )}
+                </For>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* Mensaje final */}
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl p-3 sm:p-8 border border-white/10 text-center shadow-lg">
+          <h3 class="text-xl sm:text-3xl font-bold mb-2 sm:mb-4">¡Que empiece el juego!</h3>
+          <p class="text-gray-300 mb-3 sm:mb-6 max-w-xl mx-auto text-xs sm:text-base">
+            Recuerda que lo más importante es divertirse y disfrutar del torneo.
+            ¡Mucha suerte a todos los jugadores y que gane el mejor! 🎮✨
+          </p>
+        </div>
 
         {/* CTA final */}
-        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/10 text-center shadow-lg">
-          <h3 class="text-3xl font-bold mb-4">¿Listo para competir?</h3>
-          <p class="text-gray-300 mb-6 max-w-xl mx-auto">
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl p-3 sm:p-8 border border-white/10 text-center shadow-lg">
+          <h3 class="text-xl sm:text-3xl font-bold mb-2 sm:mb-4">¿Listo para competir?</h3>
+          <p class="text-gray-300 mb-3 sm:mb-6 max-w-xl mx-auto text-xs sm:text-base">
             Regístrate ahora y únete a la comunidad de FIFA. ¡Demuestra que eres
             el mejor jugador y escala posiciones en nuestro Ranking Histórico!
           </p>
           <a
             href="/registro-fifa"
-            class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-full transition"
+            class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 sm:px-6 py-2 sm:py-3 rounded-full transition text-xs sm:text-base"
           >
             Inscribirme
           </a>

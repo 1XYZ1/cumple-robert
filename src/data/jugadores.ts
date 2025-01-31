@@ -32,16 +32,16 @@ export const jugadores: Jugador[] = [
     nombre: "Robert ",
     apodo: "Ministro de Betano",
     skills: {
-      velocidad: 78,
-      tiro: 70,
+      velocidad: 87,
+      tiro: 85,
       pase: 82,
       defensa: 85
     },
     edad: 35,
-    posicion: "Mediocampista",
-    numero: 8,
+    posicion: "Delantero",
+    numero: 17,
     equipo: "Brosky FC",
-    estilo: "Técnico",
+    estilo: "Potencia",
     imagen: "/images/robert-fut.jpeg",
     equipoFavorito: {
       nombre: "Real Madrid",
@@ -61,12 +61,36 @@ export const jugadores: Jugador[] = [
       pase: 84,
       defensa: 81
     },
-    edad: 32,
+    edad: 31,
     posicion: "Mediocampista",
     numero: 10,
     equipo: "Brosky FC",
     estilo: "Técnico",
     imagen: "/images/jugadores/angel.jpeg",
+    equipoFavorito: {
+      nombre: "Barcelona",
+      colores: {
+        primario: "#004D98",
+        secundario: "#A50044"
+      },
+      escudo: "/images/barsa.png"
+    }
+  },
+  {
+    nombre: "Angel",
+    apodo: "King Teton",
+    skills: {
+      velocidad: 68,
+      tiro: 79,
+      pase: 88,
+      defensa: 86
+    },
+    edad: 24,
+    posicion: "Defensa",
+    numero: 12,
+    equipo: "Brosky FC",
+    estilo: "Técnico",
+    imagen: "/images/jugadores/angel-king.jpeg",
     equipoFavorito: {
       nombre: "Barcelona",
       colores: {
@@ -91,6 +115,54 @@ export const jugadores: Jugador[] = [
     equipo: "Brosky FC",
     estilo: "Táctico",
     imagen: "/images/jugadores/manuel.jpeg",
+    equipoFavorito: {
+      nombre: "Real Madrid",
+      colores: {
+        primario: "#FFFFFF",
+        secundario: "#00529F"
+      },
+      escudo: "/images/realmadrid.png"
+    }
+  },
+  {
+    nombre: "Miguel",
+    apodo: "Miguelito",
+    skills: {
+      velocidad: 84,
+      tiro: 77,
+      pase: 85,
+      defensa: 74
+    },
+    edad: 19,
+    posicion: "Delantero",
+    numero: 7,
+    equipo: "Portales FC",
+    estilo: "Veloz",
+    imagen: "/images/jugadores/miguel.jpeg",
+    equipoFavorito: {
+      nombre: "Real Madrid",
+      colores: {
+        primario: "#FFFFFF",
+        secundario: "#00529F"
+      },
+      escudo: "/images/realmadrid.png"
+    }
+  },
+  {
+    nombre: "Echeverría",
+    apodo: "Chucho",
+    skills: {
+      velocidad: 58,
+      tiro: 74,
+      pase: 89,
+      defensa: 90
+    },
+    edad: 33,
+    posicion: "Defensa",
+    numero: 7,
+    equipo: "Brosky FC",
+    estilo: "Táctico",
+    imagen: "/images/jugadores/jesus.jpeg",
     equipoFavorito: {
       nombre: "Real Madrid",
       colores: {
@@ -155,15 +227,39 @@ export const jugadores: Jugador[] = [
     skills: {
       velocidad: 60,
       tiro: 72,
-      pase: 60,
+      pase: 84,
       defensa: 86
     },
-    edad: 28,
+    edad: 30,
     posicion: "Defensa",
-    numero: 3,
-    equipo: "Portales FC",
+    numero: 18,
+    equipo: "Brosky FC",
     estilo: "Estratega",
-    imagen: "/images/jugadores/andres1.jpeg",
+    imagen: "/images/jugadores/andres2.jpeg",
+    equipoFavorito: {
+      nombre: "Barcelona",
+      colores: {
+        primario: "#004D98",
+        secundario: "#A50044"
+      },
+      escudo: "/images/barsa.png"
+    }
+  },
+  {
+    nombre: "Alejandro",
+    apodo: "El gocho",
+    skills: {
+      velocidad: 70,
+      tiro: 72,
+      pase: 74,
+      defensa: 91
+    },
+    edad: 27,
+    posicion: "Defensa",
+    numero: 18,
+    equipo: "Brosky FC",
+    estilo: "Defensivo",
+    imagen: "/images/jugadores/alejandro.jpeg",
     equipoFavorito: {
       nombre: "Barcelona",
       colores: {
@@ -284,6 +380,30 @@ export const jugadores: Jugador[] = [
     equipo: "Brosky FC",
     estilo: "Goleador",
     imagen: "/images/jugadores/marlon.jpeg",
+    equipoFavorito: {
+      nombre: "Real Madrid",
+      colores: {
+        primario: "#FFFFFF",
+        secundario: "#00529F"
+      },
+      escudo: "/images/realmadrid.png"
+    }
+  },
+  {
+    nombre: "Alvaro",
+    apodo: "Deyverson",
+    skills: {
+      velocidad: 83,
+      tiro: 80,
+      pase: 86,
+      defensa: 75
+    },
+    edad: 25,
+    posicion: "Delantero",
+    numero: 10,
+    equipo: "Brosky FC",
+    estilo: "Inteligente",
+    imagen: "/images/jugadores/alvaro.jpeg",
     equipoFavorito: {
       nombre: "Real Madrid",
       colores: {
