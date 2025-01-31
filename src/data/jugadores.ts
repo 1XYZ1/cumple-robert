@@ -101,6 +101,30 @@ export const jugadores: Jugador[] = [
     }
   },
   {
+    nombre: "Carlos",
+    apodo: "El ingeniero",
+    skills: {
+      velocidad: 72,
+      tiro: 74,
+      pase: 86,
+      defensa: 73
+    },
+    edad: 34,
+    posicion: "Delantero",
+    numero: 8,
+    equipo: "Brosky FC",
+    estilo: "Inteligente",
+    imagen: "/images/jugadores/calo2.jpeg",
+    equipoFavorito: {
+      nombre: "Barcelona",
+      colores: {
+        primario: "#004D98",
+        secundario: "#A50044"
+      },
+      escudo: "/images/barsa.png"
+    }
+  },
+  {
     nombre: "Manuel",
     apodo: "El portugues",
     skills: {
@@ -225,24 +249,24 @@ export const jugadores: Jugador[] = [
     nombre: "Andres",
     apodo: "El analista",
     skills: {
-      velocidad: 60,
-      tiro: 72,
-      pase: 84,
-      defensa: 86
+      velocidad: 74,
+      tiro: 82,
+      pase: 80,
+      defensa: 82
     },
     edad: 30,
     posicion: "Defensa",
     numero: 18,
     equipo: "Brosky FC",
     estilo: "Estratega",
-    imagen: "/images/jugadores/andres2.jpeg",
+    imagen: "/images/jugadores/andres1.jpeg",
     equipoFavorito: {
-      nombre: "Barcelona",
+      nombre: "River Plate",
       colores: {
-        primario: "#004D98",
-        secundario: "#A50044"
+        primario: "#f3b229",
+        secundario: "#103f79"
       },
-      escudo: "/images/barsa.png"
+      escudo: "/images/boca.svg"
     }
   },
   {
