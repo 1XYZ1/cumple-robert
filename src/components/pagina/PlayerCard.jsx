@@ -9,20 +9,39 @@ export default function PlayerCard(props) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Efecto de fondo */}
-      <div
-        class={`absolute inset-0 bg-gradient-to-br rounded-2xl blur-xl transition-all duration-300 ${
-          isHovered() ? 'opacity-100 scale-105' : 'opacity-80 scale-100'
-        }`}
-        style={{
-          background: `linear-gradient(45deg, ${props.player.teamColors.primary}20, ${props.player.teamColors.secondary}20)`
-        }}
-      ></div>
+      {/* Efectos de fondo */}
+      <div class="absolute inset-0 overflow-hidden">
+        {/* Destello primario */}
+        <div
+          class={`absolute -top-1/2 -right-1/2 w-[500px] h-[500px] rounded-full blur-3xl transition-opacity duration-500 ${
+            isHovered() ? 'opacity-30' : 'opacity-20'
+          }`}
+          style={{
+            background: `${props.player.teamColors.primary}`
+          }}
+        ></div>
+        {/* Destello secundario */}
+        <div
+          class={`absolute -bottom-1/2 -left-1/2 w-[500px] h-[500px] rounded-full blur-3xl transition-opacity duration-500 ${
+            isHovered() ? 'opacity-30' : 'opacity-20'
+          }`}
+          style={{
+            background: `${props.player.teamColors.secondary}`
+          }}
+        ></div>
+      </div>
 
       {/* Contenido principal */}
-      <div class="relative bg-white/10 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden transition-transform duration-300 group-hover:scale-[1.02]">
+      <div
+        class="relative bg-black/40 backdrop-blur-sm rounded-2xl overflow-hidden transition-all duration-300 group-hover:scale-[1.02] shadow-xl"
+        style={{
+          border: `1px solid ${props.player.teamColors.primary}40`,
+          boxShadow: `0 0 20px ${props.player.teamColors.primary}20,
+                      0 0 40px ${props.player.teamColors.secondary}10`
+        }}
+      >
         {/* Header con imagen */}
-        <div class="relative h-[400px] sm:h-[450px] overflow-hidden">
+        <div class="relative h-[350px] sm:h-[450px] overflow-hidden">
           <div class="absolute inset-0">
             <img
               src={props.player.image}
@@ -30,22 +49,40 @@ export default function PlayerCard(props) {
               class="w-full h-full object-cover transition-transform duration-500 scale-[1.01] group-hover:scale-[1.15]"
             />
           </div>
-          <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50 to-transparent"></div>
+          <div
+            class="absolute inset-0 transition-opacity duration-300"
+            style={{
+              background: `linear-gradient(to top,
+                black 0%,
+                ${props.player.teamColors.primary}20 50%,
+                transparent 100%)`
+            }}
+          ></div>
 
           {/* Info del jugador */}
-          <div class="absolute bottom-0 left-0 w-full p-6 transform transition-transform duration-300">
+          <div class="absolute bottom-0 left-0 w-full p-4 sm:p-6 transform transition-transform duration-300">
             <div class="flex items-center justify-between">
               <div class="space-y-1">
-                <h3 class="text-3xl font-bold text-white">{props.player.name}</h3>
-                <p class="text-xl italic text-white/90">"{props.player.nickname}"</p>
+                <h3 class="text-2xl sm:text-3xl font-bold text-white drop-shadow-lg">{props.player.name}</h3>
+                <p
+                  class="text-lg sm:text-xl italic drop-shadow-lg"
+                  style={{ color: props.player.teamColors.primary }}
+                >"{props.player.nickname}"</p>
               </div>
               <div class="relative group/team">
-                <img
-                  src={props.player.favoriteTeam.logo}
-                  alt={props.player.favoriteTeam.name}
-                  class="w-20 h-20 rounded-full p-1 bg-white/10 transition-transform duration-300 group-hover/team:scale-110"
-                />
-                <span class="absolute -bottom-8 right-0 text-sm text-white/75 opacity-0 group-hover/team:opacity-100 transition-opacity duration-300">
+                <div
+                  class="w-16 h-16 sm:w-20 sm:h-20 rounded-full p-1 transition-transform duration-300 group-hover/team:scale-110 backdrop-blur-sm"
+                  style={{
+                    background: `linear-gradient(45deg, ${props.player.teamColors.primary}40, ${props.player.teamColors.secondary}40)`
+                  }}
+                >
+                  <img
+                    src={props.player.favoriteTeam.logo}
+                    alt={props.player.favoriteTeam.name}
+                    class="w-full h-full rounded-full object-cover"
+                  />
+                </div>
+                <span class="absolute -bottom-8 right-0 text-sm text-white opacity-0 group-hover/team:opacity-100 transition-opacity duration-300 bg-black/60 px-2 py-1 rounded-lg backdrop-blur-sm">
                   {props.player.favoriteTeam.name}
                 </span>
               </div>
@@ -54,50 +91,75 @@ export default function PlayerCard(props) {
         </div>
 
         {/* Estadísticas y detalles */}
-        <div class="p-6 space-y-6">
+        <div class="p-4 sm:p-6 space-y-4 sm:space-y-6 bg-black/40 backdrop-blur-sm">
           {/* Datos básicos */}
-          <div class="grid grid-cols-2 gap-4">
-            <div class="flex items-center gap-2">
+          <div class="grid grid-cols-2 gap-3 sm:gap-4">
+            <div
+              class="flex items-center gap-2 p-2 sm:p-3 rounded-xl backdrop-blur-sm transition-colors duration-300"
+              style={{
+                background: `linear-gradient(45deg, ${props.player.teamColors.primary}20, transparent)`
+              }}
+            >
               <i
-                class="fas fa-tshirt text-xl"
+                class="fas fa-tshirt text-lg sm:text-xl"
                 style={{ color: props.player.teamColors.primary }}
               ></i>
-              <span class="text-lg text-white">#{props.player.number}</span>
+              <span class="text-base sm:text-lg text-white">#{props.player.number}</span>
             </div>
-            <div class="flex items-center gap-2">
+            <div
+              class="flex items-center gap-2 p-2 sm:p-3 rounded-xl backdrop-blur-sm transition-colors duration-300"
+              style={{
+                background: `linear-gradient(45deg, ${props.player.teamColors.secondary}20, transparent)`
+              }}
+            >
               <i
-                class="fas fa-running text-xl"
-                style={{ color: props.player.teamColors.primary }}
+                class="fas fa-running text-lg sm:text-xl"
+                style={{ color: props.player.teamColors.secondary }}
               ></i>
-              <span class="text-lg text-white">{props.player.position}</span>
+              <span class="text-base sm:text-lg text-white">{props.player.position}</span>
             </div>
-            <div class="flex items-center gap-2">
+            <div
+              class="flex items-center gap-2 p-2 sm:p-3 rounded-xl backdrop-blur-sm transition-colors duration-300"
+              style={{
+                background: `linear-gradient(45deg, ${props.player.teamColors.secondary}20, transparent)`
+              }}
+            >
               <i
-                class="fas fa-birthday-cake text-xl"
-                style={{ color: props.player.teamColors.primary }}
+                class="fas fa-birthday-cake text-lg sm:text-xl"
+                style={{ color: props.player.teamColors.secondary }}
               ></i>
-              <span class="text-lg text-white">{props.player.age} años</span>
+              <span class="text-base sm:text-lg text-white">{props.player.age} años</span>
             </div>
-            <div class="flex items-center gap-2">
+            <div
+              class="flex items-center gap-2 p-2 sm:p-3 rounded-xl backdrop-blur-sm transition-colors duration-300"
+              style={{
+                background: `linear-gradient(45deg, ${props.player.teamColors.primary}20, transparent)`
+              }}
+            >
               <i
-                class="fas fa-users text-xl"
+                class="fas fa-users text-lg sm:text-xl"
                 style={{ color: props.player.teamColors.primary }}
               ></i>
-              <span class="text-lg text-white">{props.player.team}</span>
+              <span class="text-base sm:text-lg text-white">{props.player.team}</span>
             </div>
           </div>
 
           {/* Skills */}
-          <div class="space-y-4">
-            <h4 class="text-xl font-semibold text-white">Estadísticas</h4>
-            <div class="space-y-4">
+          <div
+            class="space-y-4 p-3 sm:p-4 rounded-xl backdrop-blur-sm"
+            style={{
+              background: `linear-gradient(135deg, ${props.player.teamColors.primary}10, ${props.player.teamColors.secondary}10)`
+            }}
+          >
+            <h4 class="text-lg sm:text-xl font-semibold text-white">Estadísticas</h4>
+            <div class="space-y-3 sm:space-y-4">
               {Object.entries(props.player.skills).map(([skill, value]) => (
-                <div class="space-y-2">
-                  <div class="flex justify-between text-base">
-                    <span class="text-gray-400 capitalize">{skill}</span>
-                    <span class="text-white">{value}</span>
+                <div class="space-y-1 sm:space-y-2">
+                  <div class="flex justify-between text-sm sm:text-base">
+                    <span class="text-gray-300 capitalize">{skill}</span>
+                    <span class="text-white font-medium">{value}</span>
                   </div>
-                  <div class="relative h-3 bg-gray-700 rounded-full overflow-hidden">
+                  <div class="relative h-2 sm:h-3 bg-black/50 rounded-full overflow-hidden backdrop-blur-sm">
                     <div
                       class="absolute inset-y-0 left-0 transition-all duration-500 rounded-full"
                       style={{
@@ -113,12 +175,13 @@ export default function PlayerCard(props) {
 
           {/* Estilo de juego */}
           <div
-            class="inline-block px-6 py-3 rounded-full transition-all duration-300 group-hover:scale-105"
+            class="inline-block px-4 sm:px-6 py-2 sm:py-3 rounded-full transition-all duration-300 group-hover:scale-105 backdrop-blur-sm border"
             style={{
-              background: `linear-gradient(90deg, ${props.player.teamColors.primary}40, ${props.player.teamColors.secondary}40)`
+              borderColor: `${props.player.teamColors.primary}40`,
+              background: `linear-gradient(90deg, ${props.player.teamColors.primary}20, ${props.player.teamColors.secondary}20)`
             }}
           >
-            <span class="text-lg text-white">{props.player.style}</span>
+            <span class="text-base sm:text-lg text-white drop-shadow">{props.player.style}</span>
           </div>
         </div>
       </div>

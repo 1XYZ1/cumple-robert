@@ -261,7 +261,7 @@ export const jugadores: Jugador[] = [
     estilo: "Estratega",
     imagen: "/images/jugadores/andres1.jpeg",
     equipoFavorito: {
-      nombre: "River Plate",
+      nombre: "Boca Jr",
       colores: {
         primario: "#f3b229",
         secundario: "#103f79"
