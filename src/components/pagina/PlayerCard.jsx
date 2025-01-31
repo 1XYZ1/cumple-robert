@@ -65,8 +65,8 @@ export default function PlayerCard(props) {
               <div class="space-y-1">
                 <h3 class="text-2xl sm:text-3xl font-bold text-white drop-shadow-lg">{props.player.name}</h3>
                 <p
-                  class="text-lg sm:text-xl italic drop-shadow-lg"
-                  style={{ color: props.player.teamColors.primary }}
+                  class="text-lg sm:text-xl italic drop-shadow-lg text-white"
+
                 >"{props.player.nickname}"</p>
               </div>
               <div class="relative group/team">
