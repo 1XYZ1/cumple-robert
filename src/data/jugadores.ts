@@ -56,10 +56,10 @@ export const jugadores: Jugador[] = [
     nombre: "Angel",
     apodo: "Tiki Taka",
     skills: {
-      velocidad: 86,
-      tiro: 78,
-      pase: 69,
-      defensa: 85
+      velocidad: 92,
+      tiro: 89,
+      pase: 84,
+      defensa: 81
     },
     edad: 32,
     posicion: "Mediocampista",
@@ -115,6 +115,30 @@ export const jugadores: Jugador[] = [
     equipo: "Portales FC",
     estilo: "Goleador",
     imagen: "/images/jugadores/ramon.jpeg",
+    equipoFavorito: {
+      nombre: "Barcelona",
+      colores: {
+        primario: "#004D98",
+        secundario: "#A50044"
+      },
+      escudo: "/images/barsa.png"
+    }
+  },
+  {
+    nombre: "Reinaldo",
+    apodo: "Baby Rasta",
+    skills: {
+      velocidad: 86,
+      tiro: 82,
+      pase: 86,
+      defensa: 94
+    },
+    edad: 33,
+    posicion: "Defensa",
+    numero: 3,
+    equipo: "Brosky FC",
+    estilo: "Manco",
+    imagen: "/images/jugadores/reinaldo.jpeg",
     equipoFavorito: {
       nombre: "Barcelona",
       colores: {
