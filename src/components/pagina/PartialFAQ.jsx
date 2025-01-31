@@ -55,6 +55,7 @@ const PartialFAQ = () => {
       answer: `• Traje de baño y toalla
 • Protector solar y gorra
 • Ropa deportiva cómoda
+• Llevar tu licor y bebidas para hidratarse
 • Cambio de ropa
 • ¡Muchas ganas de divertirte!`
     },

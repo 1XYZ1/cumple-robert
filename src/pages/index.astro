@@ -32,6 +32,9 @@ import ConfirmationSection from "../components/pagina/ConfirmationSection";
 // Sección de créditos y agradecimientos
 import CreditosPreview from "../components/CreditosPreview";
 
+// Sección de apuestas deportivas
+import ApuestasPreview from "../components/ApuestasPreview";
+
 ---
 
 <Layout>
@@ -99,6 +102,20 @@ import CreditosPreview from "../components/CreditosPreview";
 
           <div class="relative max-w-7xl mx-auto px-4">
             <ActivitySection client:visible />
+          </div>
+        </section>
+
+        {/* 4. Sección de Apuestas */}
+        <section class="relative py-16">
+          <div class="absolute inset-0 bg-gradient-to-b from-slate-900 via-emerald-950 to-slate-900"></div>
+          <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute -top-1/2 -right-1/2 w-[800px] h-[800px] bg-emerald-500/10 rounded-full blur-3xl animate-pulse"></div>
+            <div class="absolute -bottom-1/2 -left-1/2 w-[800px] h-[800px] bg-green-500/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 2s"></div>
+          </div>
+          <div class="absolute inset-x-0 -bottom-1 h-8 bg-gradient-to-b from-slate-900 to-slate-900"></div>
+
+          <div class="relative max-w-7xl mx-auto px-4">
+            <ApuestasPreview client:visible />
           </div>
         </section>
 

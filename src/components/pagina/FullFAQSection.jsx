@@ -1,47 +1,33 @@
 import { createSignal, For } from "solid-js";
 
-function FAQItem(props) {
+// Componente FAQItem interno para manejar su propio estado
+function FAQItem({ question, answer }) {
   const [isOpen, setIsOpen] = createSignal(false);
 
   return (
-    <div class="border-b border-white/10 last:border-b-0">
+    <div class="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
       <button
-        class="
-          w-full py-4 px-6
-          flex justify-between items-center
-          text-left
-          hover:bg-white/5
-          transition-all duration-300
-          rounded-xl
-          focus:outline-none
-          group
-        "
+        class="w-full p-6 flex justify-between items-start text-left hover:bg-white/5 transition-colors duration-300 focus:outline-none"
         onClick={() => setIsOpen(!isOpen())}
         aria-expanded={isOpen()}
       >
-        <span class="text-base sm:text-lg font-medium text-white group-hover:text-cyan-300 transition-colors">
-          {props.question}
-        </span>
+        <span class="font-medium text-white text-lg pr-8">{question}</span>
         <span
-          class={`
-            transform transition-transform duration-300
-            ${isOpen() ? "rotate-180" : ""}
-            text-cyan-300
-          `}
-          aria-hidden="true"
+          class={`transform transition-transform duration-300 text-emerald-400 ${
+            isOpen() ? "rotate-180" : ""
+          }`}
         >
           <i class="fas fa-chevron-down"></i>
         </span>
       </button>
       <div
-        class={`overflow-hidden transition-all duration-300 ${
-          isOpen() ? "max-h-[600px] py-4 px-6" : "max-h-0"
+        class={`transition-all duration-300 ${
+          isOpen() ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
         }`}
-        aria-hidden={!isOpen()}
       >
-        <p class="text-gray-300 whitespace-pre-wrap leading-relaxed">
-          {props.answer}
-        </p>
+        <div class="p-6 pt-0 text-gray-300 whitespace-pre-wrap">
+          {answer}
+        </div>
       </div>
     </div>
   );
@@ -54,14 +40,14 @@ export default function FullFAQSection() {
       answer: `• Traje de baño y toalla (¡imprescindibles!)
 • Protector solar, gorra o sombrero
 • Ropa deportiva cómoda
+• Llevar tu licor y bebidas para hidratarse
 • Cambio de ropa extra
 • ¡Muchas ganas de divertirte!`
     },
     {
       question: "¿Puedo llevar invitados adicionales?",
-      answer: `Sí, pero necesitamos saber con anticipación para no exceder el aforo (60 personas).
-Por favor, confirma a tus acompañantes al momento de enviar tu confirmación de asistencia.
-De esta manera garantizamos espacio y comida para todos.`
+      answer: `Lo sentimos, pero el aforo de la parcela está completo con los 50 invitados confirmados.
+No es posible agregar invitados adicionales no informados para garantizar la comodidad y seguridad de todos los asistentes.`
     },
     {
       question: "¿Habrá estacionamiento disponible?",
@@ -77,7 +63,7 @@ También habrá actividades lúdicas y un espacio para que los niños puedan jug
       question: "¿Se permiten mascotas?",
       answer: `Sí, siempre y cuando estén bajo tu supervisión y cumplan con las normas básicas
 de higiene y convivencia. La piscina es solo para humanos, pero tendremos zonas para que
-las mascotas puedan estar sin inconvenientes.`
+las mascotas puedan estar sin inconvenientes. (Sujeto a confirmacion de los organizadores)`
     },
     {
       question: "¿Qué pasa si llueve o hay mal clima?",
@@ -102,7 +88,7 @@ o por WhatsApp con el organizador. Indica cuántas personas vendrán contigo.`
     },
     {
       question: "¿Cuál es el costo del evento?",
-      answer: `El costo del alquiler del recinto es de $8.000. No incluye los gastos de comida y bebida.`
+      answer: `El costo del alquiler del recinto es de $8.000 por persona. No incluye los gastos de comida y bebida.`
     },
     {
       question: "¿Cuál es el horario del evento?",
@@ -125,14 +111,9 @@ o por WhatsApp con el organizador. Indica cuántas personas vendrán contigo.`
 
   return (
     <div class="relative p-6 sm:p-8 rounded-3xl">
-      {/* Contenedor de preguntas */}
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+      <div class="max-w-3xl mx-auto space-y-4 sm:space-y-6">
         <For each={faqs}>
-          {(item) => (
-            <div class="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10">
-              <FAQItem question={item.question} answer={item.answer} />
-            </div>
-          )}
+          {(item) => <FAQItem question={item.question} answer={item.answer} />}
         </For>
       </div>
 

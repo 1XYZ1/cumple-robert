@@ -30,7 +30,7 @@ export interface Jugador {
 export const jugadores: Jugador[] = [
   {
     nombre: "Robert ",
-    apodo: "El nazi",
+    apodo: "Ministro de Betano",
     skills: {
       velocidad: 78,
       tiro: 70,
@@ -139,7 +139,31 @@ export const jugadores: Jugador[] = [
     numero: 3,
     equipo: "Portales FC",
     estilo: "Estratega",
-    imagen: "/images/jugadores/andres.jpg",
+    imagen: "/images/jugadores/andres1.jpeg",
+    equipoFavorito: {
+      nombre: "Barcelona",
+      colores: {
+        primario: "#004D98",
+        secundario: "#A50044"
+      },
+      escudo: "/images/barsa.png"
+    }
+  },
+  {
+    nombre: "Jaiker",
+    apodo: "Jaikerdinho",
+    skills: {
+      velocidad: 77,
+      tiro: 68,
+      pase: 75,
+      defensa: 66
+    },
+    edad: 23,
+    posicion: "Defensa",
+    numero: 96,
+    equipo: "Portales FC",
+    estilo: "Estratega",
+    imagen: "/images/jugadores/jaiker.jpeg",
     equipoFavorito: {
       nombre: "Barcelona",
       colores: {

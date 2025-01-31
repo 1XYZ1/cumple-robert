@@ -56,7 +56,7 @@ function PartialFAQ() {
   const partialFaqs = [
     {
       question: "¿Puedo llevar invitados adicionales?",
-      answer: "Por favor, consulta previamente... mantener un control del número de asistentes..."
+      answer: "Lo sentimos, pero el aforo de la parcela está completo con los 50 invitados confirmados. No es posible agregar invitados adicionales no informados para garantizar la comodidad y seguridad de todos los asistentes."
     },
     {
       question: "¿El evento es apto para niños?",
@@ -64,7 +64,7 @@ function PartialFAQ() {
     },
     {
       question: "¿Se permiten mascotas?",
-      answer: "¡Sí! Pero deben estar supervisadas y bajo tu responsabilidad en todo momento."
+      answer: "¡Sí! Pero deben estar supervisadas y bajo tu responsabilidad en todo momento. (Sujeto a confirmacion de los organizadores)"
     }
   ];
 
@@ -159,7 +159,7 @@ function InfoSection() {
               <span class="font-medium text-white group-hover:text-yellow-400 transition-colors block mb-1">
                 Aforo
               </span>
-              <p class="text-gray-300">Hasta 60 personas (aprox.)</p>
+              <p class="text-gray-300">50 personas confirmadas (Aforo completo)</p>
             </div>
           </li>
         </ul>
@@ -323,14 +323,13 @@ const LocationSection = () => {
             <div class="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center group-hover:bg-blue-500/20 transition-colors">
               <i class="fas fa-car text-blue-400"></i>
             </div>
-            <span>30 minutos en auto desde Santiago Centro</span>
+            <span>Carretera General SanMartin Km 24.5, Colina</span>
+
           </li>
-          <li class="flex items-center gap-3 text-gray-300 group">
-            <div class="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center group-hover:bg-blue-500/20 transition-colors">
-              <i class="fas fa-bus text-blue-400"></i>
-            </div>
-            <span>Transporte público desde Metro Los Dominicos</span>
-          </li>
+
+
+
+
         </ul>
       </div>
 

@@ -27,7 +27,7 @@ const PetsSection = () => {
       age: "8 años",
       owner: "Ana Silva",
       description:
-        "Mila es muy cariñosa y le encanta recibir mimos. Jamás se cansa de jugar a la pelota.",
+        "Mila le gustan las caricias y tambien comer mucho, es muy tranquila.",
       photo: "/images/pets/mila.jpeg",
       personalityTraits: ["Tranquila", "Educada"]
     },
@@ -37,7 +37,7 @@ const PetsSection = () => {
       age: "1 años",
       owner: "Reinaldo",
       description:
-        "Butty es un gran companero de juegos. Su energía y curiosidad lo mantienen siempre en movimiento.",
+        "Butty es desordenado le gusta estar sucio y despeinado pero jugar mucho.",
       photo: "/images/pets/butty.jpeg",
       personalityTraits: ["Aventurero", "Curioso"]
     },

@@ -54,6 +54,7 @@ const FAQSection = () => {
       answer: `• Traje de baño y toalla
 • Protector solar y gorra
 • Ropa deportiva cómoda
+• Llevar tu licor y bebidas para hidratarse
 • Cambio de ropa
 • ¡Muchas ganas de divertirte!`
     },
@@ -65,7 +66,7 @@ const FAQSection = () => {
       question: "¿Habrá estacionamiento disponible?",
       answer: "Sí, contamos con estacionamiento seguro..."
     },
-    
+
     {
       question: "¿El evento es apto para niños?",
       answer: "¡Sí! Tendremos actividades especiales para todas las edades..."

@@ -57,6 +57,8 @@ function CreditosSection() {
     },
     {
       nombre: "Yeisimar",
+      nombre2: "Jarro",
+      nombre3: "Alvaro",
       rol: "Mixología y Servicio",
       categoria: "gastronomia",
       descripcion: "Encargada de cocteles y bebidas especiales",
@@ -67,7 +69,7 @@ function CreditosSection() {
     },
     {
       nombre: "Reiner",
-      nombre2: "Lana",
+      nombre2: "Alan",
       rol: "Equipo de Sonido",
       categoria: "entretenimiento",
       descripcion: "Responsables del ambiente musical",
@@ -96,6 +98,7 @@ function CreditosSection() {
       nombre: "Leidymar",
       nombre2: "Yeisimar",
       nombre3: "Isamar",
+      nombre4: "María Eloiza",
       rol: "Equipo de Decoración",
       categoria: "decoracion",
       descripcion: "Diseño y ambientación del espacio",
@@ -249,6 +252,12 @@ function CreditosSection() {
                                     <div class="text-2xl font-bold bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent flex items-center gap-2">
                                       <i class="fas fa-star text-purple-400 text-[10px]"></i>
                                       {colaborador.nombre3}
+                                    </div>
+                                  )}
+                                  {colaborador.nombre4 && (
+                                    <div class="text-2xl font-bold bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent flex items-center gap-2">
+                                      <i class="fas fa-star text-purple-400 text-[10px]"></i>
+                                      {colaborador.nombre4}
                                     </div>
                                   )}
                                 </div>

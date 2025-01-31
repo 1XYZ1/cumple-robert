@@ -1,0 +1,55 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ApuestasSection from "../components/pagina/ApuestasSection";
+---
+
+<Layout>
+  <section class="min-h-screen relative">
+    {/* Fondo con gradientes y efectos */}
+    <div class="absolute inset-0 bg-gradient-to-b from-gray-950 via-slate-900 to-gray-950"></div>
+
+    {/* Efectos decorativos */}
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      {/* Círculos principales */}
+      <div class="absolute -top-1/2 -right-1/2 w-[1000px] h-[1000px] bg-gradient-to-br from-emerald-500/20 to-green-500/20 rounded-full blur-3xl animate-pulse"></div>
+      <div class="absolute -bottom-1/2 -left-1/2 w-[1000px] h-[1000px] bg-gradient-to-br from-green-500/20 to-emerald-500/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 2s"></div>
+
+      {/* Destellos cálidos sutiles */}
+      <div class="absolute top-1/3 right-1/4 w-[200px] h-[200px] bg-gradient-to-br from-amber-500/10 to-orange-500/5 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s; animation-duration: 6s;"></div>
+      <div class="absolute bottom-1/4 left-1/3 w-[250px] h-[250px] bg-gradient-to-br from-yellow-500/10 to-amber-500/5 rounded-full blur-3xl animate-pulse" style="animation-delay: 3s; animation-duration: 8s;"></div>
+    </div>
+
+    {/* Contenido principal */}
+    <div class="relative max-w-7xl mx-auto px-4 py-16 sm:py-24">
+      {/* Navegación superior */}
+      <nav class="absolute top-4 sm:top-8 left-4 sm:left-8 z-20">
+        <a
+          href="/"
+          class="group inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-all duration-300 backdrop-blur-sm hover:scale-105"
+        >
+          <i class="fas fa-arrow-left group-hover:-translate-x-1 transition-transform"></i>
+          <span>Volver al inicio</span>
+        </a>
+      </nav>
+
+      {/* Encabezado */}
+      <div class="text-center mb-12 sm:mb-16 mt-16 sm:mt-20">
+        <h1 class="relative inline-block">
+          <div class="absolute inset-0 bg-gradient-to-r from-emerald-500/20 via-green-500/20 to-emerald-500/20 blur-3xl"></div>
+          <span class="relative text-4xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-r from-white via-emerald-100 to-white bg-clip-text text-transparent">
+            Apuestas Deportivas
+          </span>
+        </h1>
+        <p class="mt-4 text-lg sm:text-xl text-emerald-100 max-w-2xl mx-auto leading-relaxed">
+          Revisa las apuestas actuales y sus participantes. ¡Únete y demuestra tus conocimientos deportivos!
+        </p>
+      </div>
+
+      {/* Sección de apuestas */}
+      <div class="relative">
+        <div class="absolute inset-0 bg-white/5 backdrop-blur-sm rounded-3xl"></div>
+        <ApuestasSection client:visible />
+      </div>
+    </div>
+  </section>
+</Layout>

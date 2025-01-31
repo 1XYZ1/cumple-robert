@@ -73,7 +73,7 @@ const ShareModal = (props) => {
 📍 Chicureo, Santiago
 
 Más información aquí:
-${window.location.href}`;
+https://www.cumplerobert.site/`;
 
   // Función para copiar texto al portapapeles
   const handleCopy = async () => {
