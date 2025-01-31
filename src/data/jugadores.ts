@@ -187,7 +187,7 @@ export const jugadores: Jugador[] = [
     numero: 3,
     equipo: "Portales FC",
     estilo: "Estratega",
-    imagen: "/images/jugadores/axel.PNG",
+    imagen: "/images/jugadores/axel.jpeg",
     equipoFavorito: {
       nombre: "Vinotinto",
       colores: {
@@ -219,6 +219,30 @@ export const jugadores: Jugador[] = [
         secundario: "#000000"
       },
       escudo: "/images/vinotinto.jpeg"
+    }
+  },
+  {
+    nombre: "Cristian",
+    apodo: "Garnacho",
+    skills: {
+      velocidad: 89,
+      tiro: 70,
+      pase: 65,
+      defensa: 79
+    },
+    edad: 20,
+    posicion: "Defensa",
+    numero: 21,
+    equipo: "Portales FC",
+    estilo: "Veloz",
+    imagen: "/images/jugadores/garnacho.jpeg",
+    equipoFavorito: {
+      nombre: "Barcelona",
+      colores: {
+        primario: "#004D98",
+        secundario: "#A50044"
+      },
+      escudo: "/images/barsa.png"
     }
   }
 ]
