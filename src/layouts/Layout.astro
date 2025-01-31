@@ -1,5 +1,6 @@
 ---
 import FloatingButtons from "../components/FloatingButtons";
+const { title } = Astro.props;
 ---
 
 <!doctype html>
@@ -7,12 +8,27 @@ import FloatingButtons from "../components/FloatingButtons";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Pool Party 2025</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
     <link rel="stylesheet" href="/src/styles/global.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
+
+    <!-- Open Graph / Meta Tags -->
+    <meta property="og:title" content="Pool Party 2025 🎉 | ¡Únete a la diversión!" />
+    <meta property="og:description" content="Te invito a la mejor pool party del 2025. ¡Música, piscina, amigos y mucha diversión! No te pierdas este evento inolvidable." />
+    <meta property="og:image" content="/images/robert-og.jpeg" />
+    <meta property="og:url" content="https://pool-party-2025.vercel.app" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Pool Party 2025 🎉 | ¡Únete a la diversión!" />
+    <meta name="twitter:description" content="Te invito a la mejor pool party del 2025. ¡Música, piscina, amigos y mucha diversión! No te pierdas este evento inolvidable." />
+    <meta name="twitter:image" content="/images/robert-og.jpeg" />
 
     <style>
       html {

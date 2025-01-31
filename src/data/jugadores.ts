@@ -231,8 +231,8 @@ export const jugadores: Jugador[] = [
       defensa: 79
     },
     edad: 20,
-    posicion: "Defensa",
-    numero: 21,
+    posicion: "Delantero",
+    numero: 11,
     equipo: "Portales FC",
     estilo: "Veloz",
     imagen: "/images/jugadores/garnacho.jpeg",
@@ -243,6 +243,30 @@ export const jugadores: Jugador[] = [
         secundario: "#A50044"
       },
       escudo: "/images/barsa.png"
+    }
+  },
+  {
+    nombre: "Marlon",
+    apodo: "Killer",
+    skills: {
+      velocidad: 79,
+      tiro: 70,
+      pase: 77,
+      defensa: 65
+    },
+    edad: 31,
+    posicion: "Delantero",
+    numero: 9,
+    equipo: "Brosky FC",
+    estilo: "Goleador",
+    imagen: "/images/jugadores/marlon.jpeg",
+    equipoFavorito: {
+      nombre: "Real Madrid",
+      colores: {
+        primario: "#FFFFFF",
+        secundario: "#00529F"
+      },
+      escudo: "/images/realmadrid.png"
     }
   }
 ]
